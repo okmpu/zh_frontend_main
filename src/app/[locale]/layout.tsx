@@ -17,10 +17,20 @@ export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
 }
 
+async function getContextData() {
+    const res = await fetch(`${process.env.BACKEND_URL}/`, { cache: 'force-cache' })
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data')
+    }
+    return res.json()
+}
+
 
 export default async function LocaleLayout({ children, params: { locale } }: Props) {
     unstable_setRequestLocale(locale);
     const messages = await getMessages();
+    const data = await getContextData()
 
     return (
         <html lang={locale} suppressHydrationWarning>
@@ -29,7 +39,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
             </head>
             <body className={`${inter.className} text-[15px] text-neutral-500`}>
                 <NextIntlClientProvider messages={messages}>
-                    <ThemeLayout>{children}</ThemeLayout>
+                    <ThemeLayout context={data}>{children}</ThemeLayout>
                 </NextIntlClientProvider>
             </body>
         </html>

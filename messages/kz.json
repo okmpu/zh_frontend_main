@@ -1,5 +1,19 @@
 {
-    "Index": {
-      "title": "Сәлем!"
+  "Index": {
+    "title": "Сәлем!"
+  },
+  "Footer": {
+    "nav": {
+      "title": "Навигация"
+    },
+    "faculties": {
+      "title": "Факультеттер"
+    },
+    "resources": {
+      "title": "Ресурстар"
+    },
+    "policy": {
+      "title": "Ішкі саясат"
     }
   }
+}

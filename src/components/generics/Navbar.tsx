@@ -1,31 +1,21 @@
 "use client"
 
-import { navLinks, resourceLinks } from "@/data/links";
+import { resourceLinks } from "@/data/links";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Equal } from "lucide-react";
 import Settings from "./Settings";
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, } from "@/components/ui/navigation-menu"
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger, } from "@/components/ui/dialog";
 import React from "react";
-import { useRouter } from 'next/navigation'
+import { useLocale } from "next-intl";
 
-export default function Navbar() {
-    const router = useRouter();
+
+export default function Navbar({ context }: { context: any }) {
+    const currentLocal = useLocale();
+    const { categories, topics } = context
+
 
     return (
         <nav className="border-b sticky top-0 z-50 backdrop-blur-lg">
@@ -41,23 +31,26 @@ export default function Navbar() {
                             <DialogTitle className="text-neutral-900 dark:text-neutral-100">Ресурстар</DialogTitle>
                             <DialogDescription className="border-b">
                                 {resourceLinks.map(item =>
-                                    <Button variant={"ghost"} key={item.id} className="justify-start">
-                                        <Link href={item.src}>{item.label}</Link>
-                                    </Button>
+                                    <Link key={item.id} href={item.src}>
+                                        <Button variant={"ghost"} className="justify-start">
+                                            {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
+                                        </Button>
+                                    </Link>
                                 )}
                             </DialogDescription>
                             <DialogTitle className="text-neutral-900 dark:text-neutral-100">Сілтемелер</DialogTitle>
                             <DialogDescription>
-                                {navLinks.map(item =>
-                                    <Button variant={"ghost"} key={item.id} className="justify-start">
-                                        <Link href={item.src}>{item.label}</Link>
-                                    </Button>
+                                {categories.map((category: any) =>
+                                    <Link href={category.src} key={category.id}>
+                                        <Button variant={"ghost"} className="justify-start">
+                                            {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
+                                        </Button>
+                                    </Link>
                                 )}
                             </DialogDescription>
                         </DialogContent>
                     </Dialog>
                 </div>
-
 
                 <a href={"/"} className="min-w-32">
                     <Image
@@ -67,29 +60,37 @@ export default function Navbar() {
                 </a>
 
                 <div className="hidden xl:flex">
-                    {navLinks.map(item => (
-                        <React.Fragment key={item.id}>
-                            {item.dropdown ?
-                                <NavigationMenu key={item.id}>
+                    {categories.map((category: any) => (
+                        <React.Fragment key={category.id}>
+                            {category.dropdown ?
+                                <NavigationMenu key={category.id}>
                                     <NavigationMenuList>
                                         <NavigationMenuItem>
-                                            <NavigationMenuTrigger className="bg-transparent">{item.label}</NavigationMenuTrigger>
+                                            <NavigationMenuTrigger className="bg-transparent">
+                                                {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
+                                            </NavigationMenuTrigger>
                                             <NavigationMenuContent className="flex flex-col">
-                                                {item.subLinks?.map(sub_item => (
-                                                    <NavigationMenuLink key={sub_item.id} href={sub_item.src}>
-                                                        <Button variant={"ghost"} className="justify-start w-full text-neutral-500">
-                                                            {sub_item.label}
-                                                        </Button>
-                                                    </NavigationMenuLink>
-                                                ))}
+                                                {topics.map((topic: any) => {
+                                                    if (category.id === topic.category.id) {
+                                                        return (
+                                                            <NavigationMenuLink key={topic.id} href={`${category.src}${topic.src}`}>
+                                                                <Button variant={"ghost"} className="justify-start w-full text-neutral-500">
+                                                                    {currentLocal === "ru" ? topic.name_ru : currentLocal === "en" ? topic.name_en : topic.name_kk}
+                                                                </Button>
+                                                            </NavigationMenuLink>
+                                                        )
+                                                    }
+                                                })}
                                             </NavigationMenuContent>
                                         </NavigationMenuItem>
                                     </NavigationMenuList>
                                 </NavigationMenu>
                                 :
-                                <Button variant={"ghost"}>
-                                    <Link href={item.src}>{item.label}</Link>
-                                </Button>
+                                <a href={category.src}>
+                                    <Button variant={"ghost"}>
+                                        {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
+                                    </Button>
+                                </a>
                             }
                         </React.Fragment>
                     ))}
@@ -97,7 +98,6 @@ export default function Navbar() {
                 <Settings />
                 <div className="block md:hidden"></div>
             </div>
-
         </nav>
     )
 }

@@ -1,5 +1,19 @@
 {
-    "Index": {
-      "title": "Hello world!"
+  "Index": {
+    "title": "Привет мир!"
+  },
+  "Footer": {
+    "nav": {
+      "title": "Navigation"
+    },
+    "faculties": {
+      "title": "Faculties"
+    },
+    "resources": {
+      "title": "Resources"
+    },
+    "policy": {
+      "title": "Policy"
     }
   }
+}

@@ -1,6 +1,8 @@
 type Link = {
     id: number, 
-    label: string, 
+    label: string,
+    label_ru?: string,
+    label_en?: string,
     src: string,
     dropdown?: boolean,
     subLinks?: {
@@ -10,268 +12,92 @@ type Link = {
     }[]
 }
 
-export const navLinks: Link[] = [
-    {
-        id: 1,
-        label: "Басты бет",
-        src: "/",
-        dropdown: false,
-    },
-    {
-        id: 2,
-        label: "Біз туралы",
-        src: "/products",
-        dropdown: true,
-        subLinks: [
-            {
-                id: 1,
-                label: "Университет тарихы",
-                src: "/products",
-            },
-            {
-                id: 2,
-                label: "Корпоративті басқарма",
-                src: "/products",
-            },
-            {
-                id: 3,
-                label: "Әкімшілік",
-                src: "/products",
-            },
-            {
-                id: 4,
-                label: "Ғылыми кеңес",
-                src: "/products",
-            },
-            {
-                id: 5,
-                label: "Ғылыми кеңес",
-                src: "/products",
-            },
-            {
-                id: 6,
-                label: "Стратегиялық жоспар",
-                src: "/products",
-            },
-            {
-                id: 7,
-                label: "Университет миссиясы",
-                src: "/products",
-            },
-            {
-                id: 8,
-                label: "Нормативтік база",
-                src: "/products",
-            },
-            {
-                id: 9,
-                label: "Ө.Жәнібеков атындағы ОҚПУ сандармен",
-                src: "/products",
-            },
-            {
-                id: 10,
-                label: "Есептер",
-                src: "/products",
-            },
-            {
-                id: 11,
-                label: "Құрылымдық бөлімдер",
-                src: "/products",
-            },
-            {
-                id: 12,
-                label: "Аккредитация және институционалдық баға",
-                src: "/products",
-            },
-            {
-                id: 13,
-                label: "Кәсіподақ",
-                src: "/products",
-            },
-            {
-                id: 14,
-                label: "Ваканциялар",
-                src: "/products",
-            },
-            {
-                id: 15,
-                label: "Ө.Жәнібеков атындағы ОҚПУ ережелері",
-                src: "/products",
-            },
-        ]
-    },
-    {
-        id: 3,
-        label: "Оқу",
-        src: "/products",
-        dropdown: true,
-        subLinks: [
-            {
-                id: 1,
-                label: "Тарихы",
-                src: "/products",
-            },
-            {
-                id: 2,
-                label: "Корпоративті басқарма",
-                src: "/products",
-            },
-            {
-                id: 3,
-                label: "Әкімшілік",
-                src: "/products",
-            },
-            {
-                id: 4,
-                label: "Ғылыми кеңес",
-                src: "/products",
-            },
-        ]
-    },
-    {
-        id: 4,
-        label: "Ғылым",
-        src: "/products",
-        dropdown: true,
-        subLinks: [
-            {
-                id: 1,
-                label: "Тарихы",
-                src: "/products",
-            },
-            {
-                id: 2,
-                label: "Корпоративті басқарма",
-                src: "/products",
-            },
-            {
-                id: 3,
-                label: "Әкімшілік",
-                src: "/products",
-            },
-            {
-                id: 4,
-                label: "Ғылыми кеңес",
-                src: "/products",
-            },
-        ]
-    },
-    {
-        id: 5,
-        label: "Білім алушыға",
-        src: "/products",
-        dropdown: true,
-        subLinks: [
-            {
-                id: 1,
-                label: "Тарихы",
-                src: "/products",
-            },
-            {
-                id: 2,
-                label: "Корпоративті басқарма",
-                src: "/products",
-            },
-            {
-                id: 3,
-                label: "Әкімшілік",
-                src: "/products",
-            },
-            {
-                id: 4,
-                label: "Ғылыми кеңес",
-                src: "/products",
-            },
-        ]
-    },
-    {
-        id: 6,
-        label: "Тәрбие және жастар саясаты",
-        src: "/products",
-        dropdown: true,
-        subLinks: [
-            {
-                id: 1,
-                label: "Тарихы",
-                src: "/products",
-            },
-            {
-                id: 2,
-                label: "Корпоративті басқарма",
-                src: "/products",
-            },
-            {
-                id: 3,
-                label: "Әкімшілік",
-                src: "/products",
-            },
-            {
-                id: 4,
-                label: "Ғылыми кеңес",
-                src: "/products",
-            },
-        ]
-    },
-    {
-        id: 7,
-        label: "Білім беру порталы",
-        src: "/products",
-        dropdown: false
-    },
-]
-
 export const footerLinks: Link[] = [
     {
         id: 1,
-        label: "Оқу",
+        label: "Басты бет",
+        label_ru: "Главная",
+        label_en: "Home",
+        src: "/"
+    },
+    {
+        id: 2,
+        label: "Білім беру порталы",
+        label_ru: "Образовательный портал",
+        label_en: "Educational portal",
+        src: "/learn"
+    },
+]
+
+
+export const facultiesLinks: Link[] = [
+    {
+        id: 1,
+        label: "Физика-математика",
         src: "/products"
     },
     {
         id: 2,
-        label: "Ғылым",
+        label: "Жаратылыстану",
         src: "/products"
     },
     {
         id: 3,
-        label: "Білім алушыға",
+        label: "Филология",
         src: "/products"
     },
     {
         id: 4,
-        label: "Тәрбие және жастар саясаты",
+        label: "Тарих және педагогика",
         src: "/products"
     },
     {
         id: 5,
-        label: "Білім беру порталы",
+        label: "Өнер және білім факультеті",
+        src: "/products"
+    },
+    {
+        id: 6,
+        label: "Дене шынықтыру және спорт",
         src: "/products"
     },
 ]
+
 
 export const resourceLinks: Link[] = [
     {
         id: 1,
-        label: "Platonus",
+        label: "eDocs",
+        label_ru: "eDocs",
+        label_en: "Platonus",
         src: "https://platonus.okmpu.kz"
     },
     {
         id: 2,
         label: "eDocs",
+        label_ru: "eDocs",
+        label_en: "eDocs",
         src: "https://okmpu.documentolog.kz"
     },
     {
         id: 3,
         label: "KPI жүйесі",
+        label_ru: "Система KPI",
+        label_en: "KPI system",
         src: "https://kpi.okmpu.kz"
     },
     {
         id: 4,
         label: "Талапкер",
+        label_ru: "Talapker",
+        label_en: "Talapker",
         src: "https://talapker.okmpu.kz"
     },
     {
         id: 5,
         label: "Кітапхана",
+        label_ru: "Библиотека",
+        label_en: "Library",
         src: "https://library.okmpu.kz"
     },
 ]
@@ -281,41 +107,16 @@ export const legacyLinks: Link[] = [
     {
         id: 1,
         label: "Шарттар",
-        src: "/products"
+        label_ru: "Условия",
+        label_en: "Сonditions",
+        src: "/policy"
     },
     {
         id: 2,
         label: "Терминдер",
-        src: "/products"
-    },
-]
-
-
-export const aboutLinks: Link[] = [
-    {
-        id: 1,
-        label: "Құрылым",
-        src: "/products"
-    },
-    {
-        id: 2,
-        label: "Әкімшілік",
-        src: "/products"
-    },
-    {
-        id: 3,
-        label: "Корпоративті басқарма",
-        src: "/products"
-    },
-    {
-        id: 4,
-        label: "Ваканциялар",
-        src: "/products"
-    },
-    {
-        id: 5,
-        label: "Толығырақ",
-        src: "/products"
+        label_ru: "Термины",
+        label_en: "Terms",
+        src: "/policy"
     },
 ]
 

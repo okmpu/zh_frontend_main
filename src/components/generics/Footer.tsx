@@ -1,11 +1,16 @@
-import { legacyLinks, footerLinks, resourceLinks, aboutLinks } from "@/data/links";
+import { legacyLinks, footerLinks, resourceLinks, facultiesLinks } from "@/data/links";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
 import { Facebook, Instagram, Youtube } from 'lucide-react';
+import { useLocale, useTranslations } from "next-intl";
 
 
 export default function Footer() {
+    const currentLocal = useLocale();
+    const t = useTranslations("Footer");
+
+
     return (
         <footer className="border-t">
             <div className="container mx-auto">
@@ -45,10 +50,25 @@ export default function Footer() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-4 md:flex md:flex-1 md:justify-between">
                         <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">Навигация</h1>
+                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("nav.title")}</h1>
                             <ul className="mt-2">
                                 {footerLinks.map(item => (
                                     <li key={item.id}>
+                                        <Link href={item.src}>
+                                            <Button variant={"link"} className="text-neutral-500">
+                                                {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
+                                            </Button>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="relative">
+                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("faculties.title")}</h1>
+                            <ul className="mt-2">
+                                {facultiesLinks.map(item => (
+                                    <li key={item.id}>
                                         <Button variant={"link"}>
                                             <Link href={item.src} className="text-neutral-500">{item.label}</Link>
                                         </Button>
@@ -56,48 +76,40 @@ export default function Footer() {
                                 ))}
                             </ul>
                         </div>
-
+                        
+                        {/* Resources */}
                         <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">Ресурстар</h1>
+                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("resources.title")}</h1>
                             <ul className="mt-2">
                                 {resourceLinks.map(item => (
                                     <li key={item.id}>
-                                        <Button variant={"link"}>
-                                            <Link href={item.src} className="text-neutral-500">{item.label}</Link>
-                                        </Button>
+                                        <Link href={item.src}>
+                                            <Button variant={"link"} className="text-neutral-500">
+                                                {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
+                                            </Button>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-
+                        
+                        {/* Policy */}
                         <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">Ішкі саясат</h1>
+                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("policy.title")}</h1>
                             <ul className="mt-2">
                                 {legacyLinks.map(item => (
                                     <li key={item.id}>
-                                        <Button variant={"link"}>
-                                            <Link href={item.src} className="text-neutral-500">{item.label}</Link>
-                                        </Button>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">Біз жайлы</h1>
-                            <ul className="mt-2">
-                                {aboutLinks.map(item => (
-                                    <li key={item.id}>
-                                        <Button variant={"link"}>
-                                            <Link href={item.src} className="text-neutral-500">{item.label}</Link>
-                                        </Button>
+                                            <Link href={item.src}>
+                                                <Button variant={"link"} className="text-neutral-500">
+                                                    {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
+                                                </Button>
+                                            </Link>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </div>
                 </div>
-
                 <div className="pt-4 pb-8 flex justify-between border-t"></div>
             </div>
         </footer>

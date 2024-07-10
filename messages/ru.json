@@ -1,5 +1,19 @@
 {
-    "Index": {
-      "title": "Привет мир!"
+  "Index": {
+    "title": "Привет мир!"
+  },
+  "Footer": {
+    "nav": {
+      "title": "Навигация"
+    },
+    "faculties": {
+      "title": "Факультеты"
+    },
+    "resources": {
+      "title": "Ресурсы"
+    },
+    "policy": {
+      "title": "Политика"
     }
   }
+}

@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "../ui/button";
 import { Languages, LaptopMinimal, Moon, Search, Sun } from "lucide-react";
 import { useTheme } from "next-themes"
-import { useRouter } from "@/navigation";
+import { usePathname, useRouter } from "@/navigation";
 import { useLocale } from "next-intl";
 import { locales } from "@/data/links";
 
@@ -15,11 +15,14 @@ export default function Settings() {
     const { setTheme } = useTheme();
     const router = useRouter();
     const currentLocal = useLocale();
+    const pathname = usePathname();
     
     function onSelectLanguage(event: any) {
         const nextLocale = event.target.id;
-        router.replace(`${nextLocale}`);
-        
+        router.replace(
+            {pathname},
+            {locale: nextLocale}
+        );
     }
 
     return (
