@@ -15,5 +15,10 @@
     "policy": {
       "title": "Политика"
     }
+  },
+  "TopicPage": {
+    "Breadcrumb": {
+      "title": "Главная"
+    }
   }
 }

@@ -1,0 +1,24 @@
+#text-content {
+    padding: 32px 0;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+#text-content a {
+    color: hsl(var(--primary));
+}
+
+#text-content a:hover {
+    text-decoration: underline;
+}
+
+#text-content ul li {
+    list-style: disc;
+    margin-left: 32px;
+}
+
+#text-content ol li {
+    list-style: decimal;
+    margin-left: 32px;
+
+}

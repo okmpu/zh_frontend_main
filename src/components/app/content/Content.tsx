@@ -1,12 +1,5 @@
-import { useLocale } from "next-intl"
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+import { useLocale } from "next-intl";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from "@/components/ui/breadcrumb";
 
 
 export default function ContentRoot({ content, }: { content: any, }) {
@@ -39,13 +32,13 @@ export default function ContentRoot({ content, }: { content: any, }) {
             </Breadcrumb>
 
             <div className="mt-8">
-                <h1 className="text-4xl font-bold text-neutral-900">
+                <h1 className="text-4xl font-bold mb-8 text-neutral-900 dark:text-neutral-100">
                     {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
                 </h1>
                 
                 <div
                     dangerouslySetInnerHTML={{ __html: currentLocale === "ru" ? content.description_ru : currentLocale === "en" ? content.description_en : content.description_kk }}
-                    className="mt-8"
+                    id="text-content"
                 ></div>
             </div>
         </div>

@@ -1,16 +1,18 @@
 import "@/css/globals.css";
+import "@/css/content.css";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { locales } from '@/config';
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import ThemeLayout from "@/components/app/ThemeLayout";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
     children: Readonly<React.ReactNode>;
     params: { locale: string };
-};
+}
 
 
 export function generateStaticParams() {
@@ -18,19 +20,19 @@ export function generateStaticParams() {
 }
 
 async function getContextData() {
-    const res = await fetch(`${process.env.BACKEND_URL}/`, { cache: 'force-cache' })
+    const res = await fetch(`${process.env.BACKEND_URL}/main/context/`, { cache: 'force-cache' })
 
     if (!res.ok) {
-        throw new Error('Failed to fetch data')
+        throw new Error('Failed to fetch data');
     }
-    return res.json()
+    return res.json();
 }
 
 
 export default async function LocaleLayout({ children, params: { locale } }: Props) {
     unstable_setRequestLocale(locale);
     const messages = await getMessages();
-    const data = await getContextData()
+    const data = await getContextData();
 
     return (
         <html lang={locale} suppressHydrationWarning>
@@ -43,5 +45,5 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
                 </NextIntlClientProvider>
             </body>
         </html>
-    );
+    )
 }

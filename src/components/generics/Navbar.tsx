@@ -31,7 +31,7 @@ export default function Navbar({ context }: { context: any }) {
                             <DialogTitle className="text-neutral-900 dark:text-neutral-100">Ресурстар</DialogTitle>
                             <DialogDescription className="border-b">
                                 {resourceLinks.map(item =>
-                                    <Link key={item.id} href={item.src}>
+                                    <Link key={item.id} href={`/${item.src}`}>
                                         <Button variant={"ghost"} className="justify-start">
                                             {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
                                         </Button>
@@ -85,7 +85,7 @@ export default function Navbar({ context }: { context: any }) {
                                         </NavigationMenuItem>
                                     </NavigationMenuList>
                                 </NavigationMenu>
-                                :
+                            :
                                 <a href={category.src}>
                                     <Button variant={"ghost"}>
                                         {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
@@ -95,6 +95,7 @@ export default function Navbar({ context }: { context: any }) {
                         </React.Fragment>
                     ))}
                 </div>
+                
                 <Settings />
                 <div className="block md:hidden"></div>
             </div>

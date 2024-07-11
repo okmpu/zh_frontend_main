@@ -18,7 +18,7 @@ export default function TopicSidebar({ topic, chapters, contents }: { topic: any
                     if (chapter.multiple_content) {
                         return (
                             <AccordionItem key={chapter.id} value={`item-${chapter.id}`}>
-                                <AccordionTrigger className="px-4 rounded-md hover:no-underline hover:text-neutral-900">
+                                <AccordionTrigger className="px-4 text-left rounded-md hover:no-underline hover:text-neutral-900">
                                     {currentLocale === "ru" ? chapter.name_ru : currentLocale === "en" ? chapter.name_en : chapter.name_kk}
                                 </AccordionTrigger>
                                 <AccordionContent>
@@ -29,7 +29,7 @@ export default function TopicSidebar({ topic, chapters, contents }: { topic: any
                                                     <Button 
                                                         variant={"ghost"} 
                                                         className={`
-                                                            w-full justify-start font-normal px-6
+                                                            w-full h-auto justify-start whitespace-normal text-left font-normal px-6
                                                             ${pathname === `/${currentLocale}/${topic.category.slug}/${topic.slug}/${chapter.slug}/${content.slug}` && "bg-secondary"}
                                                         `}
                                                     >

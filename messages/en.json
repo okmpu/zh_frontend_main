@@ -15,5 +15,11 @@
     "policy": {
       "title": "Policy"
     }
+  },
+
+  "TopicPage": {
+    "Breadcrumb": {
+      "title": "Home"
+    }
   }
 }

@@ -1,7 +1,4 @@
 {
-  "Index": {
-    "title": "Сәлем!"
-  },
   "Footer": {
     "nav": {
       "title": "Навигация"
@@ -14,6 +11,16 @@
     },
     "policy": {
       "title": "Ішкі саясат"
+    }
+  },
+
+  "Index": {
+    "title": "Сәлем!"
+  },
+
+  "TopicPage": {
+    "Breadcrumb": {
+      "title": "Басты бет"
     }
   }
 }
