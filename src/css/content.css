@@ -1,8 +1,4 @@
-#text-content {
-    padding: 32px 0;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-}
+#text-content {}
 
 #text-content a {
     color: hsl(var(--primary));

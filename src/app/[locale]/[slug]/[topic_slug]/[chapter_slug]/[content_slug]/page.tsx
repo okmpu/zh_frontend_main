@@ -38,7 +38,7 @@ async function getContentData({ slug, topic_slug, chapter_slug, content_slug }: 
 
 export default async function Content({ params }: { params: { slug: string, topic_slug: string,  chapter_slug: string, content_slug: string } }) {
     const data = await getContentData(params)
-    const { content, chapters, contents } = data
+    const { content, text_contents, file_contents, chapters, contents } = data
 
     return (
         <div className="container mx-auto py-10 flex gap-8 items-start">
@@ -48,7 +48,11 @@ export default async function Content({ params }: { params: { slug: string, topi
                 contents={contents}
             />
 
-            <ContentRoot content={content} />
+            <ContentRoot 
+                content={content} 
+                textContents={text_contents}
+                fileContents={file_contents}
+            />
         </div>
     )
 }
