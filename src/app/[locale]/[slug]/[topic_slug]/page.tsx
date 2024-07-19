@@ -34,7 +34,7 @@ async function getTopicData({ slug, topic_slug }: { slug: string, topic_slug: st
 
 
 // Page
-export default async function Topic({ params, }: Props) {
+export default async function Topic({ params }: Props) {
     const data = await getTopicData(params)
     const { topic, chapters, contents } = data
 

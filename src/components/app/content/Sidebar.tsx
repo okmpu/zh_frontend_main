@@ -13,11 +13,11 @@ export default function TopicSidebar({ topic, chapters, contents }: { topic: any
 
     return (
         <div className="sticky top-20 max-w-xs w-full">
-            <Accordion type="single" collapsible defaultValue={`item-${chapters[0].id}`}>
+            <Accordion type="single" collapsible defaultValue={`item-1`}>
                 {chapters.map((chapter: any) => {
                     if (chapter.multiple_content) {
                         return (
-                            <AccordionItem key={chapter.id} value={`item-${chapter.id}`}>
+                            <AccordionItem key={chapter.id} value={`item-1`}>
                                 <AccordionTrigger className="px-4 text-left rounded-md hover:no-underline hover:text-neutral-900">
                                     {currentLocale === "ru" ? chapter.name_ru : currentLocale === "en" ? chapter.name_en : chapter.name_kk}
                                 </AccordionTrigger>
@@ -48,7 +48,7 @@ export default function TopicSidebar({ topic, chapters, contents }: { topic: any
                                 {contents.map((content: any) => {
                                     if (content.chapter === chapter.id) {
                                         return (
-                                            <Link key={chapter.id} href={`/${topic.category.slug}/${topic.slug}/${chapter.slug}/${content.slug}`}>
+                                            <Link key={chapter.id} href={`/${topic.category.slug}/${topic.slug}/${chapter.slug}/${content.slug}`} className="my-1 block">
                                                 <Button variant={"ghost"} 
                                                     className={`
                                                         w-full justify-start

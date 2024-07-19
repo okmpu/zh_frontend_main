@@ -20,7 +20,7 @@ export function generateStaticParams() {
 }
 
 async function getContextData() {
-    const res = await fetch(`${process.env.BACKEND_URL}/main/context/`, { cache: 'force-cache' })
+    const res = await fetch(`${process.env.BACKEND_URL}/main/context/`)
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');
@@ -41,7 +41,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
             </head>
             <body className={`${inter.className} text-[15px] text-neutral-500`}>
                 <NextIntlClientProvider messages={messages}>
-                    <ThemeLayout context={data}>{children}</ThemeLayout>
+                    <ThemeLayout data={data}>{children}</ThemeLayout>
                 </NextIntlClientProvider>
             </body>
         </html>

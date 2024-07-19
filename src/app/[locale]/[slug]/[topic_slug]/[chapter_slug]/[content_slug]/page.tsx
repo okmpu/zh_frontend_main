@@ -27,7 +27,7 @@ export async function generateMetadata({ params, }: Props): Promise<Metadata> {
 
 
 async function getContentData({ slug, topic_slug, chapter_slug, content_slug }: { slug: string, topic_slug: string, chapter_slug: string, content_slug: string }) {
-    const res = await fetch(`${process.env.BACKEND_URL}/main/${slug}/${topic_slug}/${chapter_slug}/${content_slug}/`, { cache: 'force-cache' })
+    const res = await fetch(`${process.env.BACKEND_URL}/main/${slug}/${topic_slug}/${chapter_slug}/${content_slug}/`)
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')

@@ -12,9 +12,9 @@ import React from "react";
 import { useLocale } from "next-intl";
 
 
-export default function Navbar({ context }: { context: any }) {
+export default function Navbar({ data }: { data: any }) {
     const currentLocal = useLocale();
-    const { categories, topics } = context
+    const { sections, sub_sections } = data
 
 
     return (
@@ -40,10 +40,13 @@ export default function Navbar({ context }: { context: any }) {
                             </DialogDescription>
                             <DialogTitle className="text-neutral-900 dark:text-neutral-100">Сілтемелер</DialogTitle>
                             <DialogDescription>
-                                {categories.map((category: any) =>
-                                    <Link href={category.src} key={category.id}>
+                                {sections.map((section: any) =>
+                                    <Link 
+                                        key={section.id}    
+                                        href={`/${section.slug}`}
+                                    >
                                         <Button variant={"ghost"} className="justify-start">
-                                            {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
+                                            {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
                                         </Button>
                                     </Link>
                                 )}
@@ -60,22 +63,22 @@ export default function Navbar({ context }: { context: any }) {
                 </a>
 
                 <div className="hidden xl:flex">
-                    {categories.map((category: any) => (
-                        <React.Fragment key={category.id}>
-                            {category.dropdown ?
-                                <NavigationMenu key={category.id}>
+                    {sections.map((section: any) => (
+                        <React.Fragment key={section.id}>
+                            {section.dropdown ?
+                                <NavigationMenu key={section.id}>
                                     <NavigationMenuList>
                                         <NavigationMenuItem>
                                             <NavigationMenuTrigger className="bg-transparent">
-                                                {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
+                                                {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
                                             </NavigationMenuTrigger>
                                             <NavigationMenuContent className="flex flex-col">
-                                                {topics.map((topic: any) => {
-                                                    if (category.id === topic.category.id) {
+                                                {sub_sections.map((sub_section: any) => {
+                                                    if (section.id === sub_section.section.id) {
                                                         return (
-                                                            <NavigationMenuLink key={topic.id} href={`${category.src}${topic.src}`}>
+                                                            <NavigationMenuLink key={sub_section.id} href={`/${section.slug}/${sub_section.slug}`}>
                                                                 <Button variant={"ghost"} className="justify-start w-full text-neutral-500">
-                                                                    {currentLocal === "ru" ? topic.name_ru : currentLocal === "en" ? topic.name_en : topic.name_kk}
+                                                                    {currentLocal === "ru" ? sub_section.name_ru : currentLocal === "en" ? sub_section.name_en : sub_section.name_kk}
                                                                 </Button>
                                                             </NavigationMenuLink>
                                                         )
@@ -86,9 +89,9 @@ export default function Navbar({ context }: { context: any }) {
                                     </NavigationMenuList>
                                 </NavigationMenu>
                             :
-                                <a href={category.src}>
+                                <a href={`/${section.slug}`}>
                                     <Button variant={"ghost"}>
-                                        {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
+                                        {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
                                     </Button>
                                 </a>
                             }

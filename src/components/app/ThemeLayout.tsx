@@ -7,7 +7,7 @@ import Navbar from '../generics/Navbar';
 import Footer from '../generics/Footer';
 
 
-export default function ThemeLayout({ children, context }: { children: React.ReactNode, context: any }) {
+export default function ThemeLayout({ children, data }: { children: React.ReactNode, data: any }) {
 
     return (
         <ThemeProvider
@@ -19,7 +19,7 @@ export default function ThemeLayout({ children, context }: { children: React.Rea
             <div id="root" className="flex flex-col min-h-screen">
                 <div className="flex-1">
                     <Header />
-                    <Navbar context={context} />
+                    <Navbar data={data} />
                     <main>{children}</main>
                 </div>
                 <Footer />
