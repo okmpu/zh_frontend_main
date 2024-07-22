@@ -25,21 +25,21 @@ export default function Footer() {
                         <span className="block my-2 text-sm">&copy; 2024 Zhanibekov, University</span>
                         <ul className="flex">
                             <li>
-                                <Button variant={"ghost"} className="px-3">
+                                <Button variant={"ghost"} className="px-3 hover:text-primary">
                                     <Link href={"/"}>
                                         <Instagram size={20} strokeWidth={1.5} />
                                     </Link>
                                 </Button>
                             </li>
                             <li>
-                                <Button variant={"ghost"} className="px-3">
+                                <Button variant={"ghost"} className="px-3 hover:text-primary">
                                     <Link href={"/"}>
                                         <Facebook size={20} strokeWidth={1.5} />
                                     </Link>
                                 </Button>
                             </li>
                             <li>
-                                <Button variant={"ghost"} className="px-3">
+                                <Button variant={"ghost"} className="px-3 hover:text-primary">
                                     <Link href={"/"}>
                                         <Youtube size={20} strokeWidth={1.5} />
                                     </Link>

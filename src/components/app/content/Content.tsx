@@ -1,48 +1,48 @@
-import { useLocale, useTranslations } from "next-intl";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from "@/components/ui/breadcrumb";
+import { useLocale } from "next-intl";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from "@/components/ui/breadcrumb";
 import TextContent from "./TextContent";
-import FileContent from "./FileContent";
 
 
-export default function ContentRoot({ content, textContents, fileContents }: { content: any, textContents: any, fileContents: any }) {
-    const currentLocale = useLocale()
-    const t = useTranslations("TopicPage")
+export default function ContentRoot({
+    content, textContents, category, sub_category, section
+}:
+    {
+        content: any, textContents: any, category: any, sub_category: any, section: any
+
+    }) {
+    const currentLocale = useLocale();
 
     return (
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col gap-8">
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
-                        <BreadcrumbLink href="/">{t("Breadcrumb.title")}</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                        <BreadcrumbPage>
-                            {currentLocale === "ru" ? content.chapter.topic.category.name_ru : currentLocale === "en" ? content.chapter.topic.category.name_en : content.chapter.topic.category.name_kk}
+                        <BreadcrumbPage className="text-neutral-500">
+                            {currentLocale === "ru" ? category.name_ru : currentLocale === "en" ? category.name_en : category.name_kk}
                         </BreadcrumbPage>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                        <BreadcrumbLink href={`/${content.chapter.topic.category.slug}/${content.chapter.topic.slug}`}>
-                            {currentLocale === "ru" ? content.chapter.topic.name_ru : currentLocale === "en" ? content.chapter.topic.name_en : content.chapter.topic.name_kk}
-                        </BreadcrumbLink>
+                        <BreadcrumbPage className="text-neutral-500">
+                            {currentLocale === "ru" ? sub_category.name_ru : currentLocale === "en" ? sub_category.name_en : sub_category.name_kk}
+                        </BreadcrumbPage>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                        <BreadcrumbPage>
-                            {currentLocale === "ru" ? content.chapter.name_ru : currentLocale === "en" ? content.chapter.name_en : content.chapter.name_kk}
+                    <BreadcrumbItem className="text-neutral-500">
+                        <BreadcrumbPage className="text-neutral-500">
+                            {currentLocale === "ru" ? section.name_ru : currentLocale === "en" ? section.name_en : section.name_kk}
                         </BreadcrumbPage>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                        <BreadcrumbPage>
+                        <BreadcrumbPage className="text-primary font-semibold">
                             {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
                         </BreadcrumbPage>
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
 
-            <div className="mt-8">
+            <div className="relative">
                 <h1 className="text-4xl font-bold mb-8 text-neutral-900 dark:text-neutral-100">
                     {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
                 </h1>
@@ -52,8 +52,6 @@ export default function ContentRoot({ content, textContents, fileContents }: { c
 
                 <div className="py-8 grid gap-8">
                     <TextContent textContents={textContents} />
-                    
-                    <FileContent content={content} fileContents={fileContents}/>
                 </div>
             </div>
         </div>

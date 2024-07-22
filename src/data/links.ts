@@ -12,6 +12,46 @@ type Link = {
     }[]
 }
 
+
+export const resourceLinks: Link[] = [
+    {
+        id: 1,
+        label: "Platonus",
+        label_ru: "Platonus",
+        label_en: "Platonus",
+        src: "https://platonus.okmpu.kz"
+    },
+    {
+        id: 2,
+        label: "eDocs",
+        label_ru: "eDocs",
+        label_en: "eDocs",
+        src: "https://okmpu.documentolog.kz"
+    },
+    {
+        id: 3,
+        label: "KPI жүйесі",
+        label_ru: "Система KPI",
+        label_en: "KPI system",
+        src: "https://kpi.okmpu.kz"
+    },
+    {
+        id: 4,
+        label: "Талапкер",
+        label_ru: "Talapker",
+        label_en: "Talapker",
+        src: "https://talapker.okmpu.kz"
+    },
+    {
+        id: 5,
+        label: "Кітапхана",
+        label_ru: "Библиотека",
+        label_en: "Library",
+        src: "https://library.okmpu.kz"
+    },
+]
+
+
 export const footerLinks: Link[] = [
     {
         id: 1,
@@ -60,45 +100,6 @@ export const facultiesLinks: Link[] = [
         id: 6,
         label: "Дене шынықтыру және спорт",
         src: "/products"
-    },
-]
-
-
-export const resourceLinks: Link[] = [
-    {
-        id: 1,
-        label: "eDocs",
-        label_ru: "eDocs",
-        label_en: "Platonus",
-        src: "https://platonus.okmpu.kz"
-    },
-    {
-        id: 2,
-        label: "eDocs",
-        label_ru: "eDocs",
-        label_en: "eDocs",
-        src: "https://okmpu.documentolog.kz"
-    },
-    {
-        id: 3,
-        label: "KPI жүйесі",
-        label_ru: "Система KPI",
-        label_en: "KPI system",
-        src: "https://kpi.okmpu.kz"
-    },
-    {
-        id: 4,
-        label: "Талапкер",
-        label_ru: "Talapker",
-        label_en: "Talapker",
-        src: "https://talapker.okmpu.kz"
-    },
-    {
-        id: 5,
-        label: "Кітапхана",
-        label_ru: "Библиотека",
-        label_en: "Library",
-        src: "https://library.okmpu.kz"
     },
 ]
 

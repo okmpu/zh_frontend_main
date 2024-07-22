@@ -1,38 +1,39 @@
 "use client"
-import React from "react"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion"
-import { Button } from "../../ui/button"
-import Link from "next/link"
-import { usePathname } from 'next/navigation'
-import { useLocale } from "next-intl"
+import React from "react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "../../ui/button";
+import Link from "next/link";
+import { usePathname } from 'next/navigation';
+import { useLocale } from "next-intl";
 
 
-export default function TopicSidebar({ topic, chapters, contents }: { topic: any, chapters: any, contents: any }) {
+export default function ContentSidebar({ category, sub_categories, contents }: { category: any, sub_categories: any, contents: any }) {
     const pathname = usePathname()
     const currentLocale = useLocale()
 
     return (
         <div className="sticky top-20 max-w-xs w-full">
-            <Accordion type="single" collapsible defaultValue={`item-1`}>
-                {chapters.map((chapter: any) => {
-                    if (chapter.multiple_content) {
-                        return (
-                            <AccordionItem key={chapter.id} value={`item-1`}>
-                                <AccordionTrigger className="px-4 text-left rounded-md hover:no-underline hover:text-neutral-900">
-                                    {currentLocale === "ru" ? chapter.name_ru : currentLocale === "en" ? chapter.name_en : chapter.name_kk}
+            {sub_categories.map((sub_category: any) => (
+                <div key={sub_category.id} className="pb-4">
+                    <div className="py-4 border-b">
+                        <h1 className="font-bold text-base text-neutral-900">{sub_category.name_kk}</h1>
+                    </div>
+
+                    <Accordion type="single" collapsible>
+                        {sub_category.children.map((section: any) => (
+                            <AccordionItem key={section.id} value={`item-${section.id}`}>
+                                <AccordionTrigger className="text-left">
+                                    {currentLocale === "ru" ? section.name_ru : currentLocale === "en" ? section.name_en : section.name_kk}
                                 </AccordionTrigger>
                                 <AccordionContent>
                                     {contents.map((content: any) => {
-                                        if (chapter.id === content.chapter) {
+                                        if (content.category === section.id) {
                                             return (
-                                                <Link key={content.id} href={`/${topic.category.slug}/${topic.slug}/${chapter.slug}/${content.slug}`}>
-                                                    <Button 
-                                                        variant={"ghost"} 
-                                                        className={`
-                                                            w-full h-auto justify-start whitespace-normal text-left font-normal px-6
-                                                            ${pathname === `/${currentLocale}/${topic.category.slug}/${topic.slug}/${chapter.slug}/${content.slug}` && "bg-secondary"}
-                                                        `}
-                                                    >
+                                                <Link 
+                                                    key={content.id} 
+                                                    href={`/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}`}
+                                                >
+                                                    <Button variant={"ghost"} className="w-full justify-start">
                                                         {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
                                                     </Button>
                                                 </Link>
@@ -41,31 +42,10 @@ export default function TopicSidebar({ topic, chapters, contents }: { topic: any
                                     })}
                                 </AccordionContent>
                             </AccordionItem>
-                        )
-                    } else {
-                        return (
-                            <React.Fragment key={chapter.id}>
-                                {contents.map((content: any) => {
-                                    if (content.chapter === chapter.id) {
-                                        return (
-                                            <Link key={chapter.id} href={`/${topic.category.slug}/${topic.slug}/${chapter.slug}/${content.slug}`} className="my-1 block">
-                                                <Button variant={"ghost"} 
-                                                    className={`
-                                                        w-full justify-start
-                                                        ${pathname === `/${currentLocale}/${topic.category.slug}/${topic.slug}/${chapter.slug}/${content.slug}` && "bg-secondary"}
-                                                    `}
-                                                >
-                                                    {currentLocale === "ru" ? chapter.name_ru : currentLocale === "en" ? chapter.name_en : chapter.name_kk}
-                                                </Button>
-                                            </Link>
-                                        )
-                                    }
-                                })}
-                            </React.Fragment>
-                        )
-                    }
-                })}
-            </Accordion>
+                        ))}
+                    </Accordion>
+                </div>
+            ))}
         </div>
     )
 }

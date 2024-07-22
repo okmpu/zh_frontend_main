@@ -31,7 +31,7 @@ export default function Settings() {
             {/* Search */}
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button variant={"ghost"} className="px-3">
+                    <Button variant={"ghost"} className="px-3 hover:text-primary">
                         <Search size={20} strokeWidth={1.5} />
                     </Button>
                 </DialogTrigger>
@@ -49,7 +49,7 @@ export default function Settings() {
             {/* Languages */}
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant={"ghost"} className="px-3">
+                    <Button variant={"ghost"} className="px-3 hover:text-primary">
                         <Languages size={20} strokeWidth={1.5} />
                     </Button>
                 </DropdownMenuTrigger>
@@ -72,7 +72,7 @@ export default function Settings() {
             {/* Theme */}
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant={"ghost"} className="px-3">
+                    <Button variant={"ghost"} className="px-3 hover:text-primary">
                         <Sun size={20} strokeWidth={1.5} />
                     </Button>
                 </DropdownMenuTrigger>

@@ -20,7 +20,7 @@ export function generateStaticParams() {
 }
 
 async function getContextData() {
-    const res = await fetch(`${process.env.BACKEND_URL}/main/context/`)
+    const res = await fetch(`${process.env.BACKEND_URL}/main/categories/`)
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');

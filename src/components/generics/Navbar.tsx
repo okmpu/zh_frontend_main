@@ -14,7 +14,7 @@ import { useLocale } from "next-intl";
 
 export default function Navbar({ data }: { data: any }) {
     const currentLocal = useLocale();
-    const { sections, sub_sections } = data
+    const { categories, contents } = data;
 
 
     return (
@@ -38,19 +38,6 @@ export default function Navbar({ data }: { data: any }) {
                                     </Link>
                                 )}
                             </DialogDescription>
-                            <DialogTitle className="text-neutral-900 dark:text-neutral-100">Сілтемелер</DialogTitle>
-                            <DialogDescription>
-                                {sections.map((section: any) =>
-                                    <Link 
-                                        key={section.id}    
-                                        href={`/${section.slug}`}
-                                    >
-                                        <Button variant={"ghost"} className="justify-start">
-                                            {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
-                                        </Button>
-                                    </Link>
-                                )}
-                            </DialogDescription>
                         </DialogContent>
                     </Dialog>
                 </div>
@@ -63,42 +50,61 @@ export default function Navbar({ data }: { data: any }) {
                 </a>
 
                 <div className="hidden xl:flex">
-                    {sections.map((section: any) => (
-                        <React.Fragment key={section.id}>
-                            {section.dropdown ?
-                                <NavigationMenu key={section.id}>
+                    {categories.map((category: any) => (
+                        <React.Fragment key={category.id}>
+                            {category.children.length > 0 ?
+                                <NavigationMenu key={category.id}>
                                     <NavigationMenuList>
                                         <NavigationMenuItem>
-                                            <NavigationMenuTrigger className="bg-transparent">
-                                                {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
+                                            <NavigationMenuTrigger className="bg-transparent hover:text-primary">
+                                                {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
                                             </NavigationMenuTrigger>
-                                            <NavigationMenuContent className="flex flex-col">
-                                                {sub_sections.map((sub_section: any) => {
-                                                    if (section.id === sub_section.section.id) {
-                                                        return (
-                                                            <NavigationMenuLink key={sub_section.id} href={`/${section.slug}/${sub_section.slug}`}>
-                                                                <Button variant={"ghost"} className="justify-start w-full text-neutral-500">
-                                                                    {currentLocal === "ru" ? sub_section.name_ru : currentLocal === "en" ? sub_section.name_en : sub_section.name_kk}
-                                                                </Button>
-                                                            </NavigationMenuLink>
-                                                        )
-                                                    }
-                                                })}
+                                            <NavigationMenuContent className="flex">
+                                                {category.children.map((sub_category: any) => (
+                                                    <div key={sub_category.id}>
+                                                        <div className="p-4">
+                                                            <h1 className="font-semibold whitespace-nowrap px-4 pb-2 text-neutral-900 dark:text-neutral-100">
+                                                                {currentLocal === "ru" ? sub_category.name_ru : currentLocal === "en" ? sub_category.name_en : sub_category.name_kk}
+                                                            </h1>
+
+                                                            {sub_category.children.map((section: any) => (
+                                                                <NavigationMenuLink
+                                                                    key={section.id}
+                                                                    href={
+                                                                        section.app_name === "content" ?
+                                                                            `/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}`
+                                                                            : section.app_name === "university" ?
+                                                                                `/university/${section.slug}`
+                                                                                : "#"
+                                                                    }
+                                                                >
+                                                                    <Button
+                                                                        variant={"ghost"}
+                                                                        className="justify-start w-full text-neutral-500 hover:text-primary"
+                                                                    >
+                                                                        {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
+                                                                    </Button>
+                                                                </NavigationMenuLink>
+                                                            ))}
+                                                        </div>
+
+                                                    </div>
+                                                ))}
                                             </NavigationMenuContent>
                                         </NavigationMenuItem>
                                     </NavigationMenuList>
                                 </NavigationMenu>
-                            :
-                                <a href={`/${section.slug}`}>
-                                    <Button variant={"ghost"}>
-                                        {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
+                                :
+                                <a href={`/${category.slug}`}>
+                                    <Button variant={"ghost"} className="hover:text-primary">
+                                        {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
                                     </Button>
                                 </a>
                             }
                         </React.Fragment>
                     ))}
                 </div>
-                
+
                 <Settings />
                 <div className="block md:hidden"></div>
             </div>
