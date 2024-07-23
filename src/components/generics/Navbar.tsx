@@ -18,7 +18,7 @@ export default function Navbar({ data }: { data: any }) {
 
 
     return (
-        <nav className="border-b sticky top-0 z-50 backdrop-blur-lg">
+        <nav className="border-b sticky top-0 z-50 backdrop-blur-lg bg-background/70">
             <div className="container mx-auto py-2 flex justify-between items-center">
                 <div className="block xl:hidden">
                     <Dialog>

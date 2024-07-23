@@ -1,5 +1,7 @@
 import "@/css/globals.css";
 import "@/css/content.css";
+import 'swiper/css';
+import 'swiper/css/pagination';
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { locales } from '@/config';
@@ -20,7 +22,7 @@ export function generateStaticParams() {
 }
 
 async function getContextData() {
-    const res = await fetch(`${process.env.BACKEND_URL}/main/categories/`)
+    const res = await fetch(`${process.env.BACKEND_URL}/api/main/content/categories/`)
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');
