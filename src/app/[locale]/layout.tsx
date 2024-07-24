@@ -2,6 +2,7 @@ import "@/css/globals.css";
 import "@/css/content.css";
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { locales } from '@/config';

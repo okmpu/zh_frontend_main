@@ -1,5 +1,10 @@
+import About from "@/components/app/home/About";
+import AcademicEducation from "@/components/app/home/Academic";
 import Carousel from "@/components/app/home/Carousel";
+import Contact from "@/components/app/home/Contact";
+import Partners from "@/components/app/home/Partners";
 import OurProgramms from "@/components/app/home/Programs";
+import Publics from "@/components/app/home/Publics";
 import { Metadata } from "next";
 import { unstable_setRequestLocale } from "next-intl/server";
 
@@ -15,7 +20,6 @@ export const metadata: Metadata = {
     description: 'Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті',
 }
 
-
 async function getMainData() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/main/`)
 
@@ -24,7 +28,6 @@ async function getMainData() {
     }
     return res.json();
 }
-
 
 
 export default async function Home({ params: { locale } }: Props) {
@@ -40,6 +43,21 @@ export default async function Home({ params: { locale } }: Props) {
             
             {/* Our programms */}
             <OurProgramms />
+
+            {/* Academic education */}
+            <AcademicEducation />
+
+            {/* Publics */}
+            <Publics />
+
+            {/* About */}
+            <About />
+
+            {/* Partners */}
+            <Partners />
+
+            {/* Contact */}
+            <Contact />
         </div>
     );
 }
