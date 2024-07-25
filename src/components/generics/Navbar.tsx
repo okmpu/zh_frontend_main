@@ -2,14 +2,12 @@
 
 import { resourceLinks } from "@/data/links";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Equal } from "lucide-react";
 import Settings from "./Settings";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, } from "@/components/ui/navigation-menu"
-import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger, } from "@/components/ui/dialog";
 import React from "react";
 import { useLocale } from "next-intl";
+import BurgerMenu from "./BurgerMenu";
 
 
 export default function Navbar({ data }: { data: any }) {
@@ -21,25 +19,7 @@ export default function Navbar({ data }: { data: any }) {
         <nav className="border-b sticky top-0 z-50 backdrop-blur-lg bg-background/70">
             <div className="container mx-auto py-2 flex justify-between items-center">
                 <div className="block xl:hidden">
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <Button variant={"ghost"} className="px-3">
-                                <Equal size={20} strokeWidth={1.5} />
-                            </Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogTitle className="text-neutral-900 dark:text-neutral-100">Ресурстар</DialogTitle>
-                            <DialogDescription className="border-b">
-                                {resourceLinks.map(item =>
-                                    <Link key={item.id} href={`/${item.src}`}>
-                                        <Button variant={"ghost"} className="justify-start">
-                                            {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
-                                        </Button>
-                                    </Link>
-                                )}
-                            </DialogDescription>
-                        </DialogContent>
-                    </Dialog>
+                    <BurgerMenu resourceLinks={resourceLinks} />
                 </div>
 
                 <a href={"/"} className="min-w-32">

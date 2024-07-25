@@ -3,6 +3,34 @@ import Image from "next/image";
 import Link from "next/link";
 
 
+const academics: {id: number, name: string, slug: string, img: string}[] = [
+    {
+        id: 1,
+        name: "Жаратылыстану",
+        slug: "nat-science",
+        img: "/faculties/geo.png"
+    },
+    {
+        id: 2,
+        name: "Филология",
+        slug: "philology",
+        img: "/faculties/philology.png"
+    },
+    {
+        id: 3,
+        name: "Физика-математика",
+        slug: "phis-math",
+        img: "/faculties/phis-math.png"
+    },
+    {
+        id: 4,
+        name: "Тарих және педагогика",
+        slug: "history",
+        img: "/faculties/history.png"
+    },    
+]
+
+
 export default function AcademicEducation() {
     return (
         <div className="border-t">
@@ -20,20 +48,22 @@ export default function AcademicEducation() {
                 </div>
 
                 <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {Array.from({ length: 8 }).map((_, index) => (
-                        <Link 
-                            href={"#"}
-                            className="p-4 grid gap-4 rounded-lg border transition-all hover:bg-secondary" key={index}
+                    {academics.map((item: any) => (
+                        <Link
+                            key={item.id}
+                            href={`/university/faculties/${item.slug}`}
+                            className="p-4 grid gap-4 rounded-lg border transition-all hover:bg-secondary"
                         >
                             <div className="w-36 h-36 rounded-full border overflow-hidden mx-auto">
                                 <Image
-                                    src={"/card.png"} width={1080} height={1080} alt="Image"
+                                    src={item.img} width={512} height={512} alt="Image"
                                     className="w-full h-full"
                                 />
+
                             </div>
                             <div className="grid gap-4 text-center">
                                 <h1 className="text-center font-semibold text-xl text-neutral-900 dark:text-neutral-100">
-                                    Физика-математика
+                                    {item.name}
                                 </h1>
                             </div>
                         </Link>
@@ -41,7 +71,7 @@ export default function AcademicEducation() {
                 </div>
 
                 <div className="flex justify-center">
-                    <Link href={"#"}>
+                    <Link href={"/university/faculties"}>
                         <Button variant={"link"}>Толығырақ қарап шығу</Button>
                     </Link>
                 </div>

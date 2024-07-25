@@ -18,7 +18,7 @@ export default function About() {
 
                 <div className="flex gap-10 flex-wrap lg:flex-nowrap">
                     <div className="max-w-xl">
-                        <h1 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
+                        <h1 className="text-xl font-bold text-primary">
                             Біз
                         </h1>
                         <div className="text-justify">

@@ -1,16 +1,26 @@
 import { useLocale } from "next-intl";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, } from "@/components/ui/breadcrumb";
 import TextContent from "./TextContent";
+import PopupContent from "./PopupContent";
+import FileContent from "./FileContent";
 
+// Types
+type Props = {
+    content: any, 
+    textContents: any,
+    popupContents: any,
+    fileContents: any,
+
+    category: any, 
+    sub_category: any, 
+    section: any
+}
 
 export default function ContentRoot({
-    content, textContents, category, sub_category, section
-}:
-    {
-        content: any, textContents: any, category: any, sub_category: any, section: any
-
-    }) {
+    category, sub_category, section, content, textContents, popupContents, fileContents, 
+}: Props) {
     const currentLocale = useLocale();
+    
 
     return (
         <div className="flex-1 flex flex-col gap-8">
@@ -42,16 +52,25 @@ export default function ContentRoot({
                 </BreadcrumbList>
             </Breadcrumb>
 
-            <div className="relative">
-                <h1 className="text-4xl font-bold mb-8 text-neutral-900 dark:text-neutral-100">
-                    {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
-                </h1>
-                <span className="py-8 block border-y">
-                    {currentLocale === "ru" ? content.description_ru : currentLocale === "en" ? content.description_en : content.description_kk}
-                </span>
+            <div className="grid gap-8">
+                <div>
+                    <h1 className="text-4xl font-bold mb-8 text-neutral-900 dark:text-neutral-100">
+                        {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
+                    </h1>
+                    <span className="py-8 block border-y">
+                        {currentLocale === "ru" ? content.description_ru : currentLocale === "en" ? content.description_en : content.description_kk}
+                    </span>
+                </div>
 
-                <div className="py-8 grid gap-8">
+                <div className="grid gap-4">
+                    {/* Text content */}
                     <TextContent textContents={textContents} />
+
+                    {/* Popup content */}
+                    <PopupContent popupContents={popupContents}/>
+
+                    {/* File content */}
+                    <FileContent content={content} fileContents={fileContents} />
                 </div>
             </div>
         </div>
