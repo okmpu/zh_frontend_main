@@ -5,9 +5,13 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
 
 
 export default function Carousel({ headliners, }: { headliners: any }) {
+    const currentLocal = useLocale();
+    const t = useTranslations("HomePage");
+    
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -36,13 +40,15 @@ export default function Carousel({ headliners, }: { headliners: any }) {
                             <div className="container h-full flex items-center relative z-10">
                                 <div className="max-w-2xl grid gap-4">
                                     <h1 className="text-neutral-100 font-bold text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
-                                        {headliner.title_kk}
+                                        {currentLocal === "ru" ? headliner.title_ru : currentLocal === "en" ? headliner.title_en : headliner.title_kk}
                                     </h1>
-                                    <span className="text-neutral-200 line-clamp-3 sm:line-clamp-none">{headliner.about_kk}</span>
+                                    <span className="text-neutral-200 line-clamp-3 sm:line-clamp-none">
+                                        {currentLocal === "ru" ? headliner.about_ru : currentLocal === "en" ? headliner.about_en : headliner.about_kk}
+                                    </span>
 
                                     <div className="flex">
-                                        <Link href={"#"}>
-                                            <Button variant={"default"}>Толығырақ қарап шығу</Button>
+                                        <Link href={headliner.src}>
+                                            <Button variant={"default"}>{t("offer.button")}</Button>
                                         </Link>
                                     </div>
                                 </div>

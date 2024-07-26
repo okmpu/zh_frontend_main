@@ -1,7 +1,35 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "HomePage": {
+    "offer": {
+      "button": "View more"
+    },
+    "admission": {
+      "title": "Admission committee",
+      "sub_title": "We offer bachelor's, master's and additional education programs in the field of pedagogy",
+      "link": "Talapker"
+    },
+    "academic": {
+      "title": "Academic eductaion",
+      "sub_title": "Faculties, Institute of Postgraduate Education, colleges structural divisions of departments",
+      "link": "View more details"
+    },
+    "publics": {
+      "title": "Publications",
+      "sub_title": "Stay up to date with the latest news, announcements and vacancies",
+      "tabs": {
+        "news": "News",
+        "announcements": "Announcements",
+        "vacancies": "Vacancies"
+      },
+      "link": "View more details"
+    },
+    "about": {
+      "title": "About us",
+      "sub_title": "Learn more about our university, which is almost a century old",
+      "link": "View more details"
+    }
   },
+
   "Footer": {
     "nav": {
       "title": "Navigation"

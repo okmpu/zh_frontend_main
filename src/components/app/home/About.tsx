@@ -1,25 +1,28 @@
+import { Button } from "@/components/ui/button";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function About() {
+    const currentLocal = useLocale();
+    const t = useTranslations("HomePage");
+
     return (
         <div className="border-t">
             <div className="container mx-auto py-10 grid gap-10">
                 <div className="max-w-xl w-full text-center mx-auto">
                     <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
-                        Біз жайлы
+                        {t("about.title")}
                     </h1>
                     <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
-                    <span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Molestias voluptas dolor quibusdam ea fuga blanditiis asperiores
-                        commodi modi, perspiciatis excepturi?
-                    </span>
+                    <span>{t("about.sub_title")}</span>
                 </div>
 
                 <div className="flex gap-10 flex-wrap lg:flex-nowrap">
                     <div className="max-w-xl">
-                        <h1 className="text-xl font-bold text-primary">
-                            Біз
+                        <h1 className="text-xl font-bold text-amber-500">
+                            Біздің университет
                         </h1>
                         <div className="text-justify">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
@@ -34,6 +37,11 @@ export default function About() {
                             in at tempora harum fugiat enim. Aut totam deserunt ad, voluptate nam est
                             nulla.
                         </div>
+                        <Link href={"/content/university/about/history/history"}>
+                            <Button variant={"link"} className="px-0">
+                                {t("about.link")}
+                            </Button>
+                        </Link>
                     </div>
 
                     <div className="flex-1">

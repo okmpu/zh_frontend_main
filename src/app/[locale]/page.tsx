@@ -33,7 +33,12 @@ async function getMainData() {
 export default async function Home({ params: { locale } }: Props) {
     unstable_setRequestLocale(locale);
     const data = await getMainData();
-    const { headliners } = data;
+    const { 
+        headliners, 
+        programs, 
+        academics,
+        news, announcements, vacancies
+    } = data;
     
 
     return (
@@ -42,13 +47,13 @@ export default async function Home({ params: { locale } }: Props) {
             <Carousel headliners={headliners} />
             
             {/* Our programms */}
-            <OurProgramms />
+            <OurProgramms programs={programs} />
 
             {/* Academic education */}
-            <AcademicEducation />
+            <AcademicEducation academics={academics} />
 
             {/* Publics */}
-            <Publics />
+            <Publics news={news} announcements={announcements} vacancies={vacancies} />
 
             {/* About */}
             <About />

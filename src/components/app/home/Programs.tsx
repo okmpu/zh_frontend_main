@@ -1,26 +1,8 @@
 "use client"
 import { motion } from 'framer-motion';
 import { Atom, FlaskConical, Globe, GraduationCap, SquareArrowOutUpRight } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
-
-
-const programs: {id: number, name: string, slug: string }[] = [
-    {
-        id: 1,
-        name: "Бакалавриат",
-        slug: "bachelor",
-    },
-    {
-        id: 2,
-        name: "Магистратура",
-        slug: "magistracy",
-    },
-    {
-        id: 3,
-        name: "Докторантура",
-        slug: "doctoral",
-    },
-]
 
 
 function GetIcon({ slug, }: { slug: string }) {
@@ -34,7 +16,10 @@ function GetIcon({ slug, }: { slug: string }) {
 }
 
 
-export default function OurProgramms() {
+export default function OurProgramms({ programs, }: { programs: any }) {
+    const currentLocal = useLocale();
+    const t = useTranslations("HomePage");
+    
     return (
         <motion.div
             initial={{ opacity: 0, y: -50 }}
@@ -45,13 +30,10 @@ export default function OurProgramms() {
             <div className="container grid items-center gap-10 mx-auto py-10">
                 <div className="max-w-xl w-full text-center mx-auto">
                     <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
-                        Қабылдау комиссиясы
+                        {t("admission.title")}
                     </h1>
                     <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
-                    <span>
-                        Біз педагогика саласындағы бакалавриат, магистратура және 
-                        қосымша білім беру бағдарламаларын ұсынамыз
-                    </span>
+                    <span>{t("admission.sub_title")}</span>
                 </div>
 
                 <div className="w-full">
@@ -64,7 +46,7 @@ export default function OurProgramms() {
                             >
                                 {GetIcon({slug: item.slug})}
                                 <h1 className="text-base md:text-xl font-semibold">
-                                    {item.name}
+                                    {currentLocal === "ru" ? item.name_ru : currentLocal === "en" ? item.name_en : item.name_kk}
                                 </h1>
                             </Link>
                         ))}
@@ -75,7 +57,7 @@ export default function OurProgramms() {
                         >
                             <SquareArrowOutUpRight size={20} strokeWidth={1} className="absolute top-2 right-2"/>
                             <Globe size={64} strokeWidth={1} />
-                            <h1 className="text-base md:text-xl font-semibold">Талапкер</h1>
+                            <h1 className="text-base md:text-xl font-semibold">{t("admission.link")}</h1>
                         </Link>
                     </div>
                 </div>
