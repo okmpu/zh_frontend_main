@@ -12,8 +12,7 @@ import BurgerMenu from "./BurgerMenu";
 
 export default function Navbar({ data }: { data: any }) {
     const currentLocal = useLocale();
-    const { categories, contents } = data;
-
+    const { categories } = data;
 
     return (
         <nav className="border-b sticky top-0 z-50 backdrop-blur-lg bg-background/70">

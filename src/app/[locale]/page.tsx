@@ -39,7 +39,6 @@ export default async function Home({ params: { locale } }: Props) {
         academics,
         news, announcements, vacancies
     } = data;
-    
 
     return (
         <div>

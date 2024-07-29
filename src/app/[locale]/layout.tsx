@@ -23,7 +23,7 @@ export function generateStaticParams() {
 }
 
 async function getContextData() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/main/content/categories/`)
+    const res = await fetch(`${process.env.BACKEND_URL}/api/main/categories/`)
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');
@@ -36,7 +36,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
     unstable_setRequestLocale(locale);
     const messages = await getMessages();
     const data = await getContextData();
-
+    
     return (
         <html lang={locale} suppressHydrationWarning>
             <head>

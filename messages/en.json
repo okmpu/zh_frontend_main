@@ -26,10 +26,37 @@
     "about": {
       "title": "About us",
       "sub_title": "Learn more about our university, which is almost a century old",
+      "content": {
+        "title": "Our university",
+        "body": "The Golden Cradle of education and science, the sacred karachanrak-Uzbekali Zhanibekov South Kazakhstan Pedagogical University is located in the center of Shymkent, on A. Baitursynov street. The university has been operating since 1937. For almost a century, he has achieved many successes and trained thousands of students. Graduates are currently working in Kazakhstan and abroad. Graduates of the University are very grateful to the educational institution!"
+      },
       "link": "View more details"
+    },
+    "partner": {
+      "title": "Our partners",
+      "sub_title": "Our university cooperates with leading educational and scientific organizations to ensure high quality education and professional growth of students"
+    },
+    "contact": {
+      "title": "Contact us",
+      "sub_title": "All the resources you can contact us",
+      "form": {
+        "full_name": {
+          "label": "Full name",
+          "placeholder": "Your full name",
+          "help_text": "Write your full name"
+        },
+        "email": {
+          "label": "Email address",
+          "placeholder": "example@gmail.com"
+        },
+        "body": {
+          "label": "Your question",
+          "placeholder": "Write your question..."
+        },
+        "submit": "Submit"
+      }
     }
   },
-
   "Footer": {
     "nav": {
       "title": "Navigation"
@@ -44,7 +71,6 @@
       "title": "Policy"
     }
   },
-
   "TopicPage": {
     "Breadcrumb": {
       "title": "Home"
