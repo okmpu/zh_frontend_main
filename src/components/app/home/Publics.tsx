@@ -60,7 +60,7 @@ export default function Publics({ news, announcements, vacancies }: { news: any,
 
                                                 <div className="flex items-center gap-2 mt-2 text-xs">
                                                     <Clock size={16} strokeWidth={1.5} />
-                                                    <span>
+                                                    <span suppressHydrationWarning={true}>
                                                         {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
                                                         .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
                                                         .{date.getFullYear()} - 
