@@ -18,7 +18,8 @@ export default function Admission({ params, }: PropsData) {
             <div className="container mx-auto py-10 grid gap-10">
                 <div className="">
                     <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
-                        {params.program_slug}
+                        {/* This code will be edit */}
+                        {params.program_slug === "bachelor" ? "Бакалвриат" : params.program_slug === "magistracy" ? "Магистратура" : "Докторантура"}
                     </h1>
                     <span>{params.program_slug} бойынша білім беру бағдарламаларының тізімі</span>
                 </div>
