@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 async function getMainData() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/main/`)
+    const res = await fetch(`${process.env.BACKEND_URL}/api/main/`, { cache: "no-store" })
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');

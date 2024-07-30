@@ -23,7 +23,7 @@ export function generateStaticParams() {
 }
 
 async function getContextData() {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/main/categories/`)
+    const res = await fetch(`${process.env.BACKEND_URL}/api/main/categories/`, { cache: "force-cache"})
 
     if (!res.ok) {
         throw new Error('Failed to fetch data');
