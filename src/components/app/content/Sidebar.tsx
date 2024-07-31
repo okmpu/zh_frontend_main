@@ -12,11 +12,11 @@ export default function ContentSidebar({ category, sub_categories, contents }: {
     const currentLocale = useLocale();
 
     return (
-        <div className="sticky top-20 max-w-xs w-full">
+        <div className="sticky top-20 w-full max-w-xs hidden lg:block">
             {sub_categories.map((sub_category: any) => (
                 <div key={sub_category.id} className="pb-4">
-                    <div className="py-4">
-                        <h1 className="font-bold text-base text-neutral-900 dark:text-neutral-100">
+                    <div className="pb-4">
+                        <h1 className="font-bold text-base text-foreground">
                             {currentLocale === "ru" ? sub_category.name_ru : currentLocale === "en" ? sub_category.name_en : sub_category.name_kk}
                         </h1>
                     </div>
@@ -49,7 +49,7 @@ export default function ContentSidebar({ category, sub_categories, contents }: {
                                                             <Button
                                                                 variant={"ghost"}
                                                                 className={`
-                                                                    w-full justify-start whitespace-normal
+                                                                    w-full justify-start whitespace-normal hover:text-primary
                                                                     ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}` && "bg-secondary text-primary"}
                                                                 `}
                                                             >
@@ -77,7 +77,7 @@ export default function ContentSidebar({ category, sub_categories, contents }: {
                                         <Button
                                             variant={"ghost"}
                                             className={`
-                                                w-full justify-start whitespace-normal text-left h-auto
+                                                w-full justify-start whitespace-normal text-left h-auto hover:text-primary
                                                 ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}` && "bg-secondary text-primary"}
                                             `}
                                         >

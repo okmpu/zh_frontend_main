@@ -57,6 +57,12 @@
       }
     }
   },
+  "ContentPage": {
+    "noContent": {
+      "title": "Content not uploaded yet",
+      "sub_title": "This is where the types of content in different versions will be located. They are complex texts, images, files, etc.types of information"
+    }
+  },
   "Footer": {
     "nav": {
       "title": "Navigation"

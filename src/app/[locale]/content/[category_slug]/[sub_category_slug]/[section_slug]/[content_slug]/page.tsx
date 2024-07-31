@@ -1,10 +1,13 @@
-import ContentRoot from "@/components/app/content/Content";
+import ContentBody from "@/components/app/content/Content";
+import SidebarSheet from "@/components/app/content/Sheet";
 import ContentSidebar from "@/components/app/content/Sidebar";
 import { Metadata } from "next";
 import { getLocale, unstable_setRequestLocale } from "next-intl/server";
+import { notFound } from 'next/navigation';
+
 
 // Types
-type Props = {
+type PropsData = {
     params: {
         category_slug: string,
         sub_category_slug: string,
@@ -16,7 +19,7 @@ type Props = {
 
 
 // Metadata
-export async function generateMetadata({ params, }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, }: PropsData): Promise<Metadata> {
     const category_slug = params.category_slug;
     const sub_category_slug = params.sub_category_slug;
     const section_slug = params.section_slug;
@@ -26,10 +29,16 @@ export async function generateMetadata({ params, }: Props): Promise<Metadata> {
         `${process.env.BACKEND_URL}/api/main/content/${category_slug}/${sub_category_slug}/${section_slug}/${content_slug}/`
     ).then((res) => res.json())
     const locale = await getLocale();
-    const content = data.content;
 
-    return {
-        title: `${locale === "ru" ? content.title_ru : locale === "en" ? content.title_en : content.title_kk} - Zhanibekov university`
+    if (data.content) {
+        const content = data.content;
+        return {
+            title: `${locale === "ru" ? content.title_ru : locale === "en" ? content.title_en : content.title_kk} - Zhanibekov university`
+        }
+    } else {
+        return {
+            title: `${locale === "ru" ? "Страница не найдена" : locale === "en" ? "Page not found" : "Бұндай бет табылмады"}`
+        }
     }
 }
 
@@ -46,8 +55,11 @@ async function getContentData({
     section_slug: string,
     content_slug: string
 }) {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/main/content/${category_slug}/${sub_category_slug}/${section_slug}/${content_slug}/`)
+    const res = await fetch(`${process.env.BACKEND_URL}/api/main/content/${category_slug}/${sub_category_slug}/${section_slug}/${content_slug}/`, { cache: "no-store" })
     if (!res.ok) {
+        if (res.status === 404) {
+            return null;
+        }
         throw new Error('Failed to fetch data')
     }
     return res.json();
@@ -55,41 +67,48 @@ async function getContentData({
 
 
 // Page
-export default async function ContentDetail({ params }: Props) {
+export default async function ContentDetail({ params }: PropsData) {
     unstable_setRequestLocale(params.locale);
-    const data = await getContentData(params)
+    const data = await getContentData(params);
+
+    if (!data) {
+        notFound();
+    }
+
     const {
-        sub_categories,
-        contents,
-        
+        content,
         category,
         sub_category,
         section,
 
-        content,
-        text_contents,
-        popup_contents,
-        file_contents,
+        sub_categories,
+        contents,
+
     } = data;
 
     return (
-        <div className="container mx-auto py-10 flex gap-8 items-start">
-            <ContentSidebar
-                category={category}
-                sub_categories={sub_categories}
-                contents={contents}
-            />
+        <div>
+            <div className="block lg:hidden sticky top-20">
+                <SidebarSheet
+                    category={category}
+                    sub_categories={sub_categories}
+                    contents={contents}
+                />
+            </div>
+            <div className="container mx-auto py-10 flex gap-8 items-start">
+                <ContentSidebar
+                    category={category}
+                    sub_categories={sub_categories}
+                    contents={contents}
+                />
 
-            <ContentRoot
-                category={category}
-                sub_category={sub_category}
-                section={section}
-
-                content={content}
-                textContents={text_contents}
-                popupContents={popup_contents}
-                fileContents={file_contents}
-            />
+                <ContentBody
+                    content={content}
+                    category={category}
+                    section={section}
+                    sub_category={sub_category}
+                />
+            </div>
         </div>
     )
 }

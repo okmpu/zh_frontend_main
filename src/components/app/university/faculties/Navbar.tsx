@@ -11,7 +11,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
     
     return (
         <div className="flex">
-            <Link href={"#"}>
+            <Link href={`/${currentLocal}/university/faculties/${slug}`}>
                 <Button
                     variant={"ghost"}
                     className={`
@@ -22,23 +22,23 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     Басты бет
                 </Button>
             </Link>
-            <Link href={"#"}>
+            <Link href={`/${currentLocal}/university/faculties/${slug}/programs`}>
                 <Button
                     variant={"ghost"}
                     className={`
                     rounded-none border-b-2 border-b-background hover:border-primary
-                    ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
+                    ${pathname === `/${currentLocal}/university/faculties/${slug}/programs` && "border-b-primary"}
                 `}
                 >
                     Бағдарламалар
                 </Button>
             </Link>
-            <Link href={"#"}>
+            <Link href={`/${currentLocal}/university/faculties/${slug}/projects`}>
                 <Button
                     variant={"ghost"}
                     className={`
                     rounded-none border-b-2 border-b-background hover:border-primary
-                    ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
+                    ${pathname === `/${currentLocal}/university/faculties/${slug}/projects` && "border-b-primary"}
                 `}
                 >
                     Жобалар
