@@ -83,7 +83,7 @@ export default function About() {
 
                         <div className="flex-1">
                             <Image
-                                src={"/slide-1.jpg"} width={1920} height={1080} alt="Image" 
+                                src={"/about.jpg"} width={1920} height={1080} alt="Image" 
                                 className="rounded-xl"
                             />
                         </div>
