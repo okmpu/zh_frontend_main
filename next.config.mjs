@@ -5,11 +5,19 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: [
-            "127.0.0.1", 
-            "okmpu.oquplatforms.com"
+        remotePatterns: [
+          {
+            protocol: "http",
+            hostname: "127.0.0.1", 
+            port: '',
+          },
+          {
+            protocol: "https",
+            hostname: "okmpu.oquplatforms.com",
+            port: '',
+          },
         ],
-    },
+      },
 };
 
 export default withNextIntl(nextConfig);
