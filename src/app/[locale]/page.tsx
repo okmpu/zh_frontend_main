@@ -3,6 +3,7 @@ import AcademicEducation from "@/components/app/home/Academic";
 import Carousel from "@/components/app/home/Carousel";
 import Contact from "@/components/app/home/Contact";
 import Events from "@/components/app/home/Events";
+import Journals from "@/components/app/home/Journals";
 import Partners from "@/components/app/home/Partners";
 import OurProgramms from "@/components/app/home/Programs";
 import Publics from "@/components/app/home/Publics";
@@ -57,6 +58,9 @@ export default async function Home({ params: { locale } }: Props) {
             {/* Events */}
             <Events events={events} />
 
+            {/* Journals */}
+            <Journals />
+
             {/* About */}
             <About />
             
@@ -67,7 +71,7 @@ export default async function Home({ params: { locale } }: Props) {
             <Partners />
 
             {/* Contact */}
-            {/* <Contact /> */}
+            <Contact />
         </div>
     );
 }

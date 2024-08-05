@@ -1,130 +1,99 @@
 "use client"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { toast } from "@/components/ui/use-toast"
-import Image from "next/image"
-import { Textarea } from "@/components/ui/textarea"
 import { useLocale, useTranslations } from "next-intl"
-import { motion } from "framer-motion";
-
-
-const FormSchema = z.object({
-    full_name: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-    }),
-    email: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-    }),
-    message: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-    }),
-})
+import { Headset, MapPin, Phone, University, UserCog } from "lucide-react";
 
 
 export default function Contact() {
     const currentLocal = useLocale();
     const t = useTranslations("HomePage");
-    const form = useForm<z.infer<typeof FormSchema>>({
-        resolver: zodResolver(FormSchema),
-        defaultValues: {
-            full_name: "",
-            email: "",
-            message: ""
-        },
-    })
 
-    function onSubmit(data: z.infer<typeof FormSchema>) {
-        toast({
-            title: "You submitted the following values:",
-            description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                    <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-                </pre>
-            ),
-        })
-    }
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-        >
-            <div className="border-t">
-                <div className="container grid gap-10 mx-auto py-10">
-                    <div className="max-w-xl w-full text-center mx-auto">
-                        <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
-                            {t("contact.title")}
-                        </h1>
-                        <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
-                        <span>{t("contact.sub_title")}</span>
+        <div className="border-t">
+            <div className="container grid gap-10 mx-auto py-10">
+                <div className="max-w-xl w-full text-center mx-auto">
+                    <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
+                        {t("contact.title")}
+                    </h1>
+                    <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
+                    <span>{t("contact.sub_title")}</span>
+                </div>
+
+                <div className="grid grid-cols-1 gap-10 lg:flex">
+                    <div className="flex-1">
+                        <div className="relative overflow-hidden h-96 lg:h-full rounded-xl">
+                            <a href="https://yandex.ru/maps/org/yuzhno_kazakhstanskiy_pedagogicheskiy_universitet_imeni_zbek_l_zh_n_bekov/125570740268/?utm_medium=mapframe&utm_source=maps" style={{color: "#eee", fontSize: "12px", position: "absolute", top: "0px"}}>
+                                Южно-Казахстанский педагогический университет имени Өзбекәлі Жәнібеков
+                            </a>
+                            <a href="https://yandex.ru/maps/221/chimkent/category/university/184106140/?utm_medium=mapframe&utm_source=maps" style={{color: "#eee", fontSize: "12px", position: "absolute", top: "14px"}}>
+                                ВУЗ в Шымкенте
+                            </a>
+                            <iframe src="https://yandex.ru/map-widget/v1/?indoorLevel=1&ll=69.593311%2C42.320968&mode=search&oid=125570740268&ol=biz&z=17.09" width="100%" height="100%" frameBorder="1" allowFullScreen={true} style={{ position: "relative" }}></iframe>
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-10 lg:flex">
-                        <div className="flex-1 rounded-xl bg-secondary">
-                            <Image 
-                                src={"/poster.png"} width={1920} height={1080} alt="Image" 
-                                className="w-full"
-                            />
+                    <div className="w-full grid gap-8 lg:max-w-lg">
+                        <div className="flex items-center gap-4">
+                            <div className="bg-amber-500 rounded-full text-secondary p-2">
+                                <MapPin size={32} strokeWidth={1.5} />
+                            </div>
+                            <div className="flex-1">
+                                <h1 className="text-foreground text-xl font-bold">Мекен-жайы</h1>
+                                <span>Шымкент, А.Байтұрсынов N13</span>
+                            </div>
                         </div>
 
-                        <div className="w-full lg:max-w-lg">
-                            <Form {...form}>
-                                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
-                                    <FormField
-                                        control={form.control}
-                                        name="full_name"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>{t("contact.form.full_name.label")}</FormLabel>
-                                                <FormControl>
-                                                    <Input placeholder={t("contact.form.full_name.placeholder")} {...field} />
-                                                </FormControl>
-                                                <FormDescription>
-                                                    {t("contact.form.full_name.help_text")}
-                                                </FormDescription>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="email"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>{t("contact.form.email.label")}</FormLabel>
-                                                <FormControl>
-                                                    <Input placeholder={t("contact.form.email.placeholder")} {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="message"
-                                        render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel>{t("contact.form.body.label")}</FormLabel>
-                                                <FormControl>
-                                                    <Textarea placeholder={t("contact.form.body.placeholder")} {...field} />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <Button type="submit" className="w-full">{t("contact.form.submit")}</Button>
-                                </form>
-                            </Form>
+                        <div className="flex items-center gap-4">
+                            <div className="bg-amber-500 rounded-full text-secondary p-2">
+                                <UserCog size={32} strokeWidth={1.5} />
+                            </div>
+                            <div className="flex-1">
+                                <h1 className="text-foreground text-xl font-bold">Қабылдау коммиссиясы</h1>
+                                <ul>
+                                    <li>8 7252 21-41-01</li>
+                                    <li>8 708 438 65 62</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <div className="bg-amber-500 rounded-full text-secondary p-2">
+                                <University size={32} strokeWidth={1.5} />
+                            </div>
+                            <div className="flex-1">
+                                <h1 className="text-foreground text-xl font-bold">Университет кеңсесі</h1>
+                                <span>8 7252 30-14-59</span>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <div className="bg-amber-500 rounded-full text-secondary p-2">
+                                <Headset size={32} strokeWidth={1.5} />
+                            </div>
+                            <div className="flex-1">
+                                <h1 className="text-foreground text-xl font-bold">Call орталық</h1>
+                                <ul>
+                                    <li>8 7252 40-07-05</li>
+                                    <li>8 708 438 65 61</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <div className="bg-amber-500 rounded-full text-secondary p-2">
+                                <Phone size={32} strokeWidth={1.5} />
+                            </div>
+                            <div className="flex-1">
+                                <h1 className="text-foreground text-xl font-bold">Сенім телефондары</h1>
+                                <ul>
+                                    <li>+7 (7252) 21-40-05</li>
+                                    <li>+7 (7252) 21-03-70</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
