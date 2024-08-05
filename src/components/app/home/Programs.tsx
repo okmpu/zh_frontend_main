@@ -42,7 +42,7 @@ export default function OurProgramms({ programs, }: { programs: any }) {
                             <Link
                                 key={item.id}
                                 href={`/university/admission/${item.slug}`} 
-                                className="border rounded-lg flex flex-col justify-center items-center gap-2 p-5 md:p-10 transition-all text-neutral-900 dark:text-neutral-100 bg-secondary hover:bg-primary hover:text-neutral-100"
+                                className="border rounded-lg flex flex-col justify-center items-center gap-2 p-5 md:p-10 transition-all text-secondary bg-primary hover:bg-secondary hover:text-foreground"
                             >
                                 {GetIcon({slug: item.slug})}
                                 <h1 className="text-base md:text-xl font-semibold">
@@ -53,7 +53,7 @@ export default function OurProgramms({ programs, }: { programs: any }) {
                         <Link
                             href={"https://talapker.okmpu.edu.kz/"}
                             target="_blank"
-                            className="relative border rounded-lg flex flex-col justify-center items-center gap-2 p-5 md:p-10 transition-all text-neutral-900 dark:text-neutral-100 bg-secondary hover:bg-primary hover:text-neutral-100"
+                            className="relative border rounded-lg flex flex-col justify-center items-center gap-2 p-5 md:p-10 transition-all text-secondary bg-primary hover:bg-secondary hover:text-foreground"
                         >
                             <SquareArrowOutUpRight size={20} strokeWidth={1} className="absolute top-2 right-2"/>
                             <Globe size={64} strokeWidth={1} />

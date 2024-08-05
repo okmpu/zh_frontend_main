@@ -1,4 +1,4 @@
-import { legacyLinks, footerLinks, resourceLinks, facultiesLinks } from "@/data/links";
+import { legacyLinks, footerLinks, resourceLinks } from "@/data/links";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
@@ -6,13 +6,12 @@ import { Facebook, Instagram, Youtube } from 'lucide-react';
 import { useLocale, useTranslations } from "next-intl";
 
 
-export default function Footer() {
+export default function Footer({ academics, }: { academics: any }) {
     const currentLocal = useLocale();
     const t = useTranslations("Footer");
 
-
     return (
-        <footer className="border-t">
+        <footer className="border-t-8 border-amber-500">
             <div className="container mx-auto">
                 <div className="pt-8 pb-4 flex gap-8 flex-col lg:flex-row">
                     <div className="relative">
@@ -25,30 +24,31 @@ export default function Footer() {
                         <span className="block my-2 text-sm">&copy; 2024 Zhanibekov, University</span>
                         <ul className="flex">
                             <li>
-                                <Button variant={"ghost"} className="px-3 hover:text-primary">
-                                    <Link href={"/"}>
+                                <Link href={"/"}>
+                                    <Button variant={"ghost"} className="px-3 hover:text-primary">
                                         <Instagram size={20} strokeWidth={1.5} />
-                                    </Link>
-                                </Button>
+                                    </Button>
+                                </Link>
                             </li>
                             <li>
-                                <Button variant={"ghost"} className="px-3 hover:text-primary">
-                                    <Link href={"/"}>
+                                <Link href={"/"}>
+                                    <Button variant={"ghost"} className="px-3 hover:text-primary">
                                         <Facebook size={20} strokeWidth={1.5} />
-                                    </Link>
-                                </Button>
+                                    </Button>
+                                </Link>
                             </li>
                             <li>
-                                <Button variant={"ghost"} className="px-3 hover:text-primary">
-                                    <Link href={"/"}>
+                                <Link href={"/"}>
+                                    <Button variant={"ghost"} className="px-3 hover:text-primary">
                                         <Youtube size={20} strokeWidth={1.5} />
-                                    </Link>
-                                </Button>
+                                    </Button>
+                                </Link>
                             </li>
                         </ul>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-4 md:flex md:flex-1 md:justify-between">
+                        {/* Navigation */}
                         <div className="relative">
                             <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("nav.title")}</h1>
                             <ul className="mt-2">
@@ -63,15 +63,18 @@ export default function Footer() {
                                 ))}
                             </ul>
                         </div>
-
+                        
+                        {/* Faculties */}
                         <div className="relative">
                             <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("faculties.title")}</h1>
                             <ul className="mt-2">
-                                {facultiesLinks.map(item => (
+                                {academics.map((item: any) => (
                                     <li key={item.id}>
-                                        <Button variant={"link"}>
-                                            <Link href={item.src} className="text-neutral-500">{item.label}</Link>
-                                        </Button>
+                                        <Link href={`/university/faculties/${item.slug}`}>
+                                            <Button variant={"link"} className="text-neutral-500">
+                                                {currentLocal === "ru" ? item.name_ru : currentLocal === "en" ? item.name_en : item.name_kk}
+                                            </Button>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>

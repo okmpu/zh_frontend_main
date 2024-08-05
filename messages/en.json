@@ -1,4 +1,16 @@
 {
+  "Header": {
+    "nav": {
+      "title": "Navigation",
+      "items": {
+        "title": "Home"
+      }
+    },
+    "resources": {
+      "title": "Resources"
+    }
+  },
+
   "HomePage": {
     "offer": {
       "button": "View more"
@@ -18,10 +30,16 @@
       "sub_title": "Stay up to date with the latest news, announcements and vacancies",
       "tabs": {
         "news": "News",
-        "announcements": "Announcements",
-        "vacancies": "Vacancies"
+        "announcements": "Announcements"
       },
-      "link": "View more details"
+      "link": "View more details",
+      "showAll": "View all"
+
+    },
+    "events": {
+      "title": "Events",
+      "sub_title": "Events taking place at our university",
+      "showAll": "View all"
     },
     "about": {
       "title": "About us",

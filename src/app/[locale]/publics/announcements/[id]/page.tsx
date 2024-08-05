@@ -6,16 +6,18 @@ type PropsData = {
     }
 }
 
-export default function PublicDetail({ params, }: PropsData) {
+export default function NewsDetail({ params, }: PropsData) {
     return (
         <section>
-            <div className="container mx-auto py-10 flex gap-10 flex-col lg:flex-row">
+            <div className="flex gap-10 flex-col lg:flex-row">
                 <div className="flex-1 flex flex-col gap-4">
                     <div className="flex flex-col gap-4">
                         <Image src={"/poster.png"} width={1920} height={1080} alt="Image" 
                             className="w-full border rounded-lg"
                         />
-                        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">{params.id} Lorem ipsum dolor sit amet.</h1>
+                        <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-foreground">
+                            {params.id} - Announcement ipsum dolor sit amet.
+                        </h1>
                     </div>
 
                     <div className="text-justify flex flex-col gap-2">
@@ -62,15 +64,14 @@ export default function PublicDetail({ params, }: PropsData) {
                 </div>
 
                 <div className="w-full lg:max-w-sm flex flex-col gap-2">
-                    <div className="h-28 rounded-lg bg-secondary"></div>
-                    <div className="h-28 rounded-lg bg-secondary"></div>
-                    <div className="h-28 rounded-lg bg-secondary"></div>
-                    <div className="h-28 rounded-lg bg-secondary"></div>
-                    <div className="h-28 rounded-lg bg-secondary"></div>
-                    <div className="h-28 rounded-lg bg-secondary"></div>
-                    <div className="h-28 rounded-lg bg-secondary"></div>
+                    <div className="h-20 rounded-lg bg-secondary"></div>
+                    <div className="h-20 rounded-lg bg-secondary"></div>
+                    <div className="h-20 rounded-lg bg-secondary"></div>
+                    <div className="h-20 rounded-lg bg-secondary"></div>
+                    <div className="h-20 rounded-lg bg-secondary"></div>
+                    <div className="h-20 rounded-lg bg-secondary"></div>
+                    <div className="h-20 rounded-lg bg-secondary"></div>
                 </div>
-                
             </div>
         </section>
     )

@@ -62,44 +62,38 @@ export const footerLinks: Link[] = [
     },
     {
         id: 2,
-        label: "Білім беру порталы",
-        label_ru: "Образовательный портал",
-        label_en: "Educational portal",
-        src: "/learn"
-    },
-]
-
-
-export const facultiesLinks: Link[] = [
-    {
-        id: 1,
-        label: "Физика-математика",
-        src: "/products"
-    },
-    {
-        id: 2,
-        label: "Жаратылыстану",
-        src: "/products"
+        label: "Жаңалықтар",
+        label_ru: "Новости",
+        label_en: "News",
+        src: "/publics/news"
     },
     {
         id: 3,
-        label: "Филология",
-        src: "/products"
+        label: "Хабарландырулар",
+        label_ru: "Объявления",
+        label_en: "Announcements",
+        src: "/publics/announcements"
     },
     {
         id: 4,
-        label: "Тарих және педагогика",
-        src: "/products"
+        label: "Іс-шаралар",
+        label_ru: "Мероприятия",
+        label_en: "Events",
+        src: "/publics/all-events"
     },
     {
         id: 5,
-        label: "Өнер және білім факультеті",
-        src: "/products"
+        label: "Вакансиялар",
+        label_ru: "Вакансии",
+        label_en: "Vacancies",
+        src: "/publics/vacancies"
     },
     {
         id: 6,
-        label: "Дене шынықтыру және спорт",
-        src: "/products"
+        label: "Білім беру порталы",
+        label_ru: "Образовательный портал",
+        label_en: "Educational portal",
+        src: "/educational-portal"
     },
 ]
 

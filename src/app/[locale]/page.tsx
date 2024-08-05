@@ -2,6 +2,7 @@ import About from "@/components/app/home/About";
 import AcademicEducation from "@/components/app/home/Academic";
 import Carousel from "@/components/app/home/Carousel";
 import Contact from "@/components/app/home/Contact";
+import Events from "@/components/app/home/Events";
 import Partners from "@/components/app/home/Partners";
 import OurProgramms from "@/components/app/home/Programs";
 import Publics from "@/components/app/home/Publics";
@@ -15,10 +16,12 @@ type Props = {
     }
 }
 
+
 export const metadata: Metadata = {
     title: 'Zhanibekov university',
     description: 'Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті',
 }
+
 
 async function getMainData() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/main/`, { cache: "no-store" })
@@ -37,7 +40,7 @@ export default async function Home({ params: { locale } }: Props) {
         headliners, 
         programs, 
         academics,
-        news, announcements, vacancies
+        news, announcements, events
     } = data;
 
     return (
@@ -48,20 +51,23 @@ export default async function Home({ params: { locale } }: Props) {
             {/* Our programms */}
             <OurProgramms programs={programs} />
 
-            {/* Academic education */}
-            <AcademicEducation academics={academics} />
-
             {/* Publics */}
-            <Publics news={news} announcements={announcements} vacancies={vacancies} />
+            <Publics news={news} announcements={announcements} />
+
+            {/* Events */}
+            <Events events={events} />
 
             {/* About */}
             <About />
+            
+            {/* Academic education */}
+            <AcademicEducation academics={academics} />
 
             {/* Partners */}
             <Partners />
 
             {/* Contact */}
-            <Contact />
+            {/* <Contact /> */}
         </div>
     );
 }

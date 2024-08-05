@@ -26,8 +26,8 @@ export default function FileContent({ head, content }: { head: any, content: any
                                 <Eye size={20} strokeWidth={1.5} />
                             </Button>
                         </DialogTrigger>
-                            <DialogContent className="flex flex-col max-w-full h-full">
-                                <DialogTitle className="text-neutral-900 dark:text-neutral-100">{content.caption_kk}</DialogTitle>
+                            <DialogContent className="flex flex-col p-0 max-w-full h-full 2xl:max-w-screen-xl 2xl:h-5/6">
+                                <DialogTitle className="text-neutral-900 dark:text-neutral-100 px-4 pt-4">{content.caption_kk}</DialogTitle>
                                 <DialogDescription className="flex-1">
                                     <iframe src={content.file} className="w-full h-full"></iframe>
                                 </DialogDescription>

@@ -26,8 +26,7 @@ export default function Settings() {
     }
 
     return (
-
-        <div className="hidden md:block">
+        <div>
             {/* Search */}
             <Dialog>
                 <DialogTrigger asChild>

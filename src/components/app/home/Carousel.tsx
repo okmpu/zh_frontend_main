@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -27,8 +27,10 @@ export default function Carousel({ headliners, }: { headliners: any }) {
                     delay: 5000,
                     disableOnInteraction: false,
                 }}
-                modules={[Autoplay, Pagination,]}
-                className="mySwiper h-[360px] lg:h-[420px] xl:h-[480px] 2xl:h-[580px]"
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                id="carousel"
+                className="mySwiper"
             >
                 {headliners.map((headliner: any) => (
                     <SwiperSlide
@@ -38,7 +40,7 @@ export default function Carousel({ headliners, }: { headliners: any }) {
                     >
                         <div className="w-full h-full relative" id="shadow">
                             <div className="container h-full flex items-center relative z-10">
-                                <div className="max-w-2xl grid gap-4">
+                                <div className="max-w-screen-md w-full grid gap-4">
                                     <h1 className="text-neutral-100 font-bold text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                                         {currentLocal === "ru" ? headliner.title_ru : currentLocal === "en" ? headliner.title_en : headliner.title_kk}
                                     </h1>
@@ -54,7 +56,7 @@ export default function Carousel({ headliners, }: { headliners: any }) {
                                 </div>
                             </div>
 
-                            <div className="absolute bottom-0 w-full h-32" id="bottom-shadow"></div>
+                            <div id="bottom-shadow" className="absolute bottom-0 w-full h-28"></div>
                         </div>
                     </SwiperSlide>
                 ))}

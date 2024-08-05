@@ -75,7 +75,7 @@ export default function About() {
                                 {t("about.content.body")}
                             </div>
                             <Link href={"/content/university/about/history/history"}>
-                                <Button variant={"link"} className="px-0">
+                                <Button variant={"link"} className="px-0 h-auto">
                                     {t("about.link")}
                                 </Button>
                             </Link>

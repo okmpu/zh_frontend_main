@@ -60,3 +60,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+#carousel {
+  height: 70vh;
+}
+
+
+#shadow {
+  background: rgb(0,0,0);
+  background: linear-gradient(90deg, rgba(0,0,0,0.804359243697479) 0%, rgba(0,0,0,0) 100%);
+}
+
+#bottom-shadow {
+  background: hsl(var(--background));
+  background: linear-gradient(0deg, hsl(var(--background)) 20%, rgba(255,255,255,0) 100%);
+}

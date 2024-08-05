@@ -1,41 +1,38 @@
 "use client"
-
-import { resourceLinks } from "@/data/links";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Settings from "./Settings";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, } from "@/components/ui/navigation-menu"
 import React from "react";
-import { useLocale } from "next-intl";
-import BurgerMenu from "./BurgerMenu";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 
 
-export default function Navbar({ data }: { data: any }) {
+export default function Navbar({ categories }: { categories: any }) {
     const currentLocal = useLocale();
-    const { categories } = data;
+    const pathname = usePathname();
+    const t = useTranslations("Header");
 
     return (
-        <nav className="border-b sticky top-0 z-50 backdrop-blur-lg bg-background/70">
-            <div className="container mx-auto py-2 flex justify-between items-center">
-                <div className="block xl:hidden">
-                    <BurgerMenu resourceLinks={resourceLinks} />
-                </div>
-
-                <a href={"/"} className="min-w-32">
-                    <Image
-                        src={"/logo.png"} width={1709} height={366} alt="Logo image" priority={true}
-                        className="w-32"
-                    />
-                </a>
-
-                <div className="hidden xl:flex">
+        <nav className="border-b sticky top-0 z-50 backdrop-blur-lg bg-background/70 hidden lg:block">
+            <div className="container mx-auto flex justify-center items-center">
+                <div className="flex">
+                    <a href={`/`}>
+                        <Button 
+                            variant={"ghost"} 
+                            className={`
+                                rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary
+                                ${pathname === `/${currentLocal}` && "border-b-primary"}
+                            `}
+                        >
+                            {t("nav.items.title")}
+                        </Button>
+                    </a>
                     {categories.map((category: any) => (
                         <React.Fragment key={category.id}>
                             {category.children.length > 0 ?
                                 <NavigationMenu key={category.id}>
                                     <NavigationMenuList>
                                         <NavigationMenuItem>
-                                            <NavigationMenuTrigger className="bg-transparent hover:text-primary">
+                                            <NavigationMenuTrigger className="bg-transparent rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary">
                                                 {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
                                             </NavigationMenuTrigger>
                                             <NavigationMenuContent className="flex">
@@ -59,8 +56,7 @@ export default function Navbar({ data }: { data: any }) {
                                                                 >
                                                                     <Button
                                                                         variant={"ghost"}
-                                                                        className="justify-start w-full text-neutral-500 hover:text-primary"
-                                                                    >
+                                                                        className="justify-start w-full text-neutral-500 hover:text-primary"                                                                    >
                                                                         {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
                                                                     </Button>
                                                                 </NavigationMenuLink>
@@ -75,7 +71,10 @@ export default function Navbar({ data }: { data: any }) {
                                 </NavigationMenu>
                                 :
                                 <a href={`/${category.slug}`}>
-                                    <Button variant={"ghost"} className="hover:text-primary">
+                                    <Button 
+                                        variant={"ghost"} 
+                                        className="rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary"
+                                    >
                                         {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
                                     </Button>
                                 </a>
@@ -83,9 +82,6 @@ export default function Navbar({ data }: { data: any }) {
                         </React.Fragment>
                     ))}
                 </div>
-
-                <Settings />
-                <div className="block md:hidden"></div>
             </div>
         </nav>
     )
