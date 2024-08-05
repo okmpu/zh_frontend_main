@@ -10,7 +10,20 @@
       "title": "Resources"
     }
   },
-
+  "Footer": {
+    "nav": {
+      "title": "Navigation"
+    },
+    "faculties": {
+      "title": "Faculties"
+    },
+    "resources": {
+      "title": "Resources"
+    },
+    "policy": {
+      "title": "Policy"
+    }
+  },
   "HomePage": {
     "offer": {
       "button": "View more"
@@ -34,7 +47,6 @@
       },
       "link": "View more details",
       "showAll": "View all"
-
     },
     "events": {
       "title": "Events",
@@ -75,29 +87,24 @@
       }
     }
   },
+  "Publics": {
+    "news": {
+      "title": "News",
+      "link": "View more details"
+    },
+    "announcements": {
+      "title": "Announcements"
+    },
+    "events": {
+      "title": "Events"
+    },
+    "select": "Author",
+    "search": "Search"
+  },
   "ContentPage": {
     "noContent": {
       "title": "Content not uploaded yet",
       "sub_title": "This is where the types of content in different versions will be located. They are complex texts, images, files, etc.types of information"
-    }
-  },
-  "Footer": {
-    "nav": {
-      "title": "Navigation"
-    },
-    "faculties": {
-      "title": "Faculties"
-    },
-    "resources": {
-      "title": "Resources"
-    },
-    "policy": {
-      "title": "Policy"
-    }
-  },
-  "TopicPage": {
-    "Breadcrumb": {
-      "title": "Home"
     }
   }
 }

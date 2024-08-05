@@ -5,10 +5,12 @@ export default function PublicsLayout({ children, }: { children: React.ReactNode
 
 
     return (
-        <div className="container mx-auto py-10 flex gap-10">
+        <div className="container mx-auto py-10 flex gap-4">
             <PublicSidebar />
 
-            <main>{children}</main>
+            <main className="flex-1">
+                {children}
+            </main>
         </div>
     )
 }

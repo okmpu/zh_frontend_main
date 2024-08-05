@@ -1,3 +1,5 @@
+import AllAnnouncements from "@/components/app/publics/announcements/AllAnnouncements"
+import PublicsFilter from "@/components/app/publics/Filters";
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -5,10 +7,24 @@ export const metadata: Metadata = {
     description: 'Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті',
 }
 
-export default function Announcements() {
+
+async function getAllAnnouncementsData() {
+    const res = await fetch(`${process.env.BACKEND_URL}/api/main/public/announcements/`, { cache: "no-store" })
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch data');
+    }
+    return res.json();
+}
+
+
+export default async function Announcements() {
+    const { announcements } = await getAllAnnouncementsData();
+    
     return (
         <div className="">
-            <h1 className="text-4xl font-bold text-foreground">Announcements</h1>
+            <PublicsFilter />
+            <AllAnnouncements announcements={announcements} />
         </div>
     )
 }

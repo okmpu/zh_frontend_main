@@ -24,7 +24,6 @@
       "title": "Политика"
     }
   },
-
   "HomePage": {
     "offer": {
       "button": "Посмотреть подробнее"
@@ -87,6 +86,21 @@
         "submit": "Отправить"
       }
     }
+  },
+  "Publics": {
+    "news": {
+      "title": "Новости",
+      "link": "Посмотреть подробнее"
+    },
+    "announcements": {
+      "title": "Объявления"
+    },
+    "events": {
+      "title": "Мероприятия"
+    },
+    "select": "Автор",
+    "search": "Искать"
+
   },
   "ContentPage": {
     "noContent": {
