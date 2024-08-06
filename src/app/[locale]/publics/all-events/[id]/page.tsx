@@ -1,4 +1,5 @@
-import EventContent from "@/components/app/publics/all-events/detail";
+import ContentDetail from "@/components/app/publics/ContentDetail";
+import SimilarItems from "@/components/app/publics/SimilarItems";
 import { Metadata } from "next";
 import { getLocale, unstable_setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -54,22 +55,14 @@ export default async function EventDetail({ params, }: PropsData) {
     if (!data) {
         notFound();
     }
-    const { event } = data;
+    const { event, events } = data;
 
     return (
         <section>
             <div className="flex gap-4 flex-col lg:flex-row">
-                <EventContent event={event} />
+                <ContentDetail item={event} />
 
-                <div className="w-full lg:max-w-sm flex flex-col gap-2">
-                    <div className="h-20 rounded-lg bg-secondary"></div>
-                    <div className="h-20 rounded-lg bg-secondary"></div>
-                    <div className="h-20 rounded-lg bg-secondary"></div>
-                    <div className="h-20 rounded-lg bg-secondary"></div>
-                    <div className="h-20 rounded-lg bg-secondary"></div>
-                    <div className="h-20 rounded-lg bg-secondary"></div>
-                    <div className="h-20 rounded-lg bg-secondary"></div>
-                </div>
+                <SimilarItems similars={events} />
             </div>
         </section>
     )

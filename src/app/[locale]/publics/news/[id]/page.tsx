@@ -1,5 +1,5 @@
-import NewsContent from "@/components/app/publics/news/detail"
-import SimilarNews from "@/components/app/publics/news/detail/SimilarNews"
+import ContentDetail from "@/components/app/publics/ContentDetail"
+import SimilarItems from "@/components/app/publics/SimilarItems"
 import { Metadata } from "next"
 import { getLocale, unstable_setRequestLocale } from "next-intl/server"
 import { notFound } from "next/navigation"
@@ -59,8 +59,8 @@ export default async function NewsDetail({ params, }: PropsData) {
     return (
         <section>
             <div className="flex gap-4 flex-col lg:flex-row">
-                <NewsContent news={news} />
-                <SimilarNews similarNews={similar_news} />
+                <ContentDetail item={news} />
+                <SimilarItems similars={similar_news} />
             </div>
         </section>
     )

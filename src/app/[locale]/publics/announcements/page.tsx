@@ -1,4 +1,4 @@
-import AllAnnouncements from "@/components/app/publics/announcements/AllAnnouncements"
+import AllAnnouncements from "@/components/app/publics/announcements"
 import PublicsFilter from "@/components/app/publics/Filters";
 import { Metadata } from "next"
 
