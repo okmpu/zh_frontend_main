@@ -101,7 +101,8 @@
       "title": "Мероприятия"
     },
     "select": "Автор",
-    "search": "Искать"
+    "search": "Искать",
+    "similar": "Похожие темы"
 
   },
   "ContentPage": {

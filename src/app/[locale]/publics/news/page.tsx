@@ -1,6 +1,7 @@
 import AllNews from "@/components/app/publics/news";
+import PublicSearchFilter from "@/components/app/publics/PublicSearch";
 import { Metadata } from "next"
-import PublicsFilter from "@/components/app/publics/Filters";
+import React from "react";
 
 
 export const metadata: Metadata = {
@@ -22,9 +23,9 @@ export default async function News() {
     const { news } = await getAllNewsData();
 
     return (
-        <div>
-            <PublicsFilter />
+        <React.Fragment>
+            <PublicSearchFilter />
             <AllNews news={news} />
-        </div>
+        </React.Fragment>
     )
 }

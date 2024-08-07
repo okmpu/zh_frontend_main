@@ -4,7 +4,7 @@ import { useLocale } from "next-intl";
 import Image from "next/image";
 
 
-export default function ContentDetail({ item, code }: { item: any, code: string }) {
+export default function PublicDetail({ item, code }: { item: any, code: string }) {
     const currentLocale = useLocale();
     const date = new Date(item.date_created);
 

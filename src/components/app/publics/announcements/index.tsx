@@ -18,14 +18,14 @@ export default function AllAnnouncements({ announcements, }: { announcements: an
                         href={`/publics/announcements/${item.id}`}
                         className="border rounded-lg flex gap-2 overflow-hidden transition-all hover:bg-secondary"
                     >
-                        <div className="p-4 bg-amber-500 text-white flex items-center">
+                        <div className="py-4 px-6 bg-amber-500 text-white flex items-center">
                             <MessageSquare size={32} strokeWidth={1.5} />
                         </div>
                         <div className="flex-1 p-2 grid gap-2">
-                            <h1 className="font-semibold line-clamp-2 text-foreground">
+                            <h1 className="font-semibold line-clamp-2 text-lg text-foreground">
                                 {currentLocal === "ru" ? item.title_ru : currentLocal === "en" ? item.title_en : item.title_kk}
                             </h1>
-                            <div className="flex items-center gap-2 text-xs">
+                            <div className="flex items-center gap-2">
                                 <Clock size={16} strokeWidth={1.5} />
                                 <span suppressHydrationWarning={true}>
                                     {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}

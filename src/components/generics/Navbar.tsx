@@ -39,7 +39,7 @@ export default function Navbar({ categories }: { categories: any }) {
                                                 {category.children.map((sub_category: any) => (
                                                     <div key={sub_category.id}>
                                                         <div className="p-4">
-                                                            <h1 className="text-xl font-semibold whitespace-nowrap px-4 pb-2 text-foreground">
+                                                            <h1 className="text-lg font-semibold whitespace-nowrap px-4 pb-2 text-foreground">
                                                                 {currentLocal === "ru" ? sub_category.name_ru : currentLocal === "en" ? sub_category.name_en : sub_category.name_kk}
                                                             </h1>
 
@@ -62,7 +62,6 @@ export default function Navbar({ categories }: { categories: any }) {
                                                                 </NavigationMenuLink>
                                                             ))}
                                                         </div>
-
                                                     </div>
                                                 ))}
                                             </NavigationMenuContent>

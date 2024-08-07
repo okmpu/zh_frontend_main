@@ -1,4 +1,4 @@
-import PublicSidebar from "@/components/app/publics/Sidebar";
+import PublicSidebar from "@/components/app/publics/PublicSidebar";
 import React from "react";
 
 export default function PublicsLayout({ children, }: { children: React.ReactNode }) {

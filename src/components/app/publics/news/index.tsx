@@ -22,11 +22,11 @@ export default function AllNews({ news, }: { news: any }) {
                             className="w-full"
                         />
                         <div className="px-4 py-4 grid gap-2">
-                            <h1 className="font-semibold line-clamp-2 text-foreground">
+                            <h1 className="font-semibold text-lg line-clamp-2 text-foreground">
                                 {currentLocal === "ru" ? item.title_ru : currentLocal === "en" ? item.title_en : item.title_kk}
                             </h1>
 
-                            <div className="flex items-center gap-2 text-xs">
+                            <div className="flex items-center gap-2">
                                 <Clock size={16} strokeWidth={1.5} />
                                 <span>
                                     {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
@@ -38,7 +38,7 @@ export default function AllNews({ news, }: { news: any }) {
                             </div>
 
                             <Link href={`/publics/news/${item.id}`}>
-                                <Button variant={"link"} className="p-0 h-auto">{t("news.link")}</Button>
+                                <Button variant={"link"} className="p-0 h-auto text-base">{t("news.link")}</Button>
                             </Link>
                         </div>
                     </div>

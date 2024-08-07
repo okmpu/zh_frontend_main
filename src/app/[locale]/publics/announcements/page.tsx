@@ -1,5 +1,5 @@
 import AllAnnouncements from "@/components/app/publics/announcements"
-import PublicsFilter from "@/components/app/publics/Filters";
+import PublicsFilter from "@/components/app/publics/PublicSearch";
 import { Metadata } from "next"
 
 export const metadata: Metadata = {

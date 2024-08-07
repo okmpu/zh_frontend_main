@@ -1,4 +1,4 @@
-import ContentDetail from "@/components/app/publics/ContentDetail";
+import PublicDetail from "@/components/app/publics/PublicDetail";
 import SimilarItems from "@/components/app/publics/SimilarItems";
 import { Metadata } from "next";
 import { getLocale, unstable_setRequestLocale } from "next-intl/server";
@@ -60,7 +60,7 @@ export default async function AnnouncementDetail({ params, }: PropsData) {
     return (
         <section>
             <div className="flex gap-10 flex-col lg:flex-row">
-                <ContentDetail code={code} item={announcement} />
+                <PublicDetail code={code} item={announcement} />
                 <SimilarItems code={code} similars={announcements} />
             </div>
         </section>

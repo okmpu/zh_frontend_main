@@ -26,11 +26,11 @@ export default function AllEvents({ events, }: { events: any }) {
                         />
 
                         <div className="px-4 py-4 grid gap-2">
-                            <h1 className="font-semibold line-clamp-2 text-foreground">
+                            <h1 className="font-semibold text-lg line-clamp-2 text-foreground">
                                 {currentLocal === "ru" ? event.title_ru : currentLocal === "en" ? event.title_en : event.title_kk}
                             </h1>
 
-                            <div className="flex items-center gap-2 text-xs">
+                            <div className="flex items-center gap-2">
                                 <Clock size={16} strokeWidth={1.5} />
                                 <span>
                                     {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}

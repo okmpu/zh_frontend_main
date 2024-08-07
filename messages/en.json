@@ -101,7 +101,8 @@
       "title": "Events"
     },
     "select": "Author",
-    "search": "Search"
+    "search": "Search",
+    "similar": "Related topics"
   },
   "ContentPage": {
     "noContent": {

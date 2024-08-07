@@ -101,7 +101,8 @@
       "title": "Іс-шаралар"
     },
     "select": "Авторы",
-    "search": "Іздеу"
+    "search": "Іздеу",
+    "similar": "Осыған ұқсас тақырыптар"
   },
   "ContentPage": {
     "noContent": {

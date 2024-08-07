@@ -40,7 +40,7 @@ export default function BurgerMenu({ resourceLinks, categories }: { resourceLink
                             ))}
                         </SheetDescription>
                     </SheetHeader>
-                    
+
                     <div className="grid">
                         <h1 className="text-xl font-semibold text-foreground">{t("nav.title")}</h1>
                         <Accordion type="single" collapsible>
@@ -56,7 +56,7 @@ export default function BurgerMenu({ resourceLinks, categories }: { resourceLink
                                                 {category.children.map((sub_category: any) => (
                                                     <div key={sub_category.id}>
                                                         <div className="p-4">
-                                                            <h1 className="text-xl font-semibold whitespace-nowrap px-4 pb-2 text-foreground">
+                                                            <h1 className="text-base font-semibold whitespace-nowrap px-4 pb-2 text-foreground">
                                                                 {currentLocal === "ru" ? sub_category.name_ru : currentLocal === "en" ? sub_category.name_en : sub_category.name_kk}
                                                             </h1>
 
@@ -90,12 +90,12 @@ export default function BurgerMenu({ resourceLinks, categories }: { resourceLink
                                 else {
                                     return (
                                         <Link
-                                            key={category.id} 
+                                            key={category.id}
                                             href={`/${category.slug}`}
                                         >
-                                            <Button 
+                                            <Button
                                                 variant={"ghost"}
-                                                className="w-full justify-start text-base whitespace-normal h-auto"
+                                                className="w-full justify-start text-base whitespace-normal text-left h-auto"
                                             >
                                                 {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
                                             </Button>
