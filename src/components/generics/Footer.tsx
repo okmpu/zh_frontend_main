@@ -18,10 +18,10 @@ export default function Footer({ academics, }: { academics: any }) {
                         <Link href={"/"} className="min-w-32">
                             <Image
                                 src={"/logo.png"} width={1709} height={366} alt="Logo image" priority={true}
-                                className="w-32"
+                                className="w-32 lg:w-44"
                             />
                         </Link>
-                        <span className="block my-2 text-sm">&copy; 2024 Zhanibekov, University</span>
+                        <span className="block my-2">&copy; 2024 Zhanibekov, University</span>
                         <ul className="flex">
                             <li>
                                 <Link href={"/"}>
@@ -50,12 +50,12 @@ export default function Footer({ academics, }: { academics: any }) {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-4 md:flex md:flex-1 md:justify-between">
                         {/* Navigation */}
                         <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("nav.title")}</h1>
+                            <h1 className="font-bold text-foreground px-4">{t("nav.title")}</h1>
                             <ul className="mt-2">
                                 {footerLinks.map(item => (
                                     <li key={item.id}>
                                         <Link href={item.src}>
-                                            <Button variant={"link"} className="text-neutral-500">
+                                            <Button variant={"link"} className="text-base text-neutral-500">
                                                 {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
                                             </Button>
                                         </Link>
@@ -66,12 +66,12 @@ export default function Footer({ academics, }: { academics: any }) {
                         
                         {/* Faculties */}
                         <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("faculties.title")}</h1>
+                            <h1 className="font-bold text-foreground px-4">{t("faculties.title")}</h1>
                             <ul className="mt-2">
                                 {academics.map((item: any) => (
                                     <li key={item.id}>
                                         <Link href={`/university/faculties/${item.slug}`}>
-                                            <Button variant={"link"} className="text-neutral-500">
+                                            <Button variant={"link"} className="text-base text-neutral-500">
                                                 {currentLocal === "ru" ? item.name_ru : currentLocal === "en" ? item.name_en : item.name_kk}
                                             </Button>
                                         </Link>
@@ -82,12 +82,12 @@ export default function Footer({ academics, }: { academics: any }) {
                         
                         {/* Resources */}
                         <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("resources.title")}</h1>
+                            <h1 className="font-bold text-foreground px-4">{t("resources.title")}</h1>
                             <ul className="mt-2">
                                 {resourceLinks.map(item => (
                                     <li key={item.id}>
                                         <Link href={item.src}>
-                                            <Button variant={"link"} className="text-neutral-500">
+                                            <Button variant={"link"} className="text-base text-neutral-500">
                                                 {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
                                             </Button>
                                         </Link>
@@ -98,12 +98,12 @@ export default function Footer({ academics, }: { academics: any }) {
                         
                         {/* Policy */}
                         <div className="relative">
-                            <h1 className="font-bold text-neutral-900 dark:text-neutral-100 px-4">{t("policy.title")}</h1>
+                            <h1 className="font-bold text-foreground px-4">{t("policy.title")}</h1>
                             <ul className="mt-2">
                                 {legacyLinks.map(item => (
                                     <li key={item.id}>
                                             <Link href={item.src}>
-                                                <Button variant={"link"} className="text-neutral-500">
+                                                <Button variant={"link"} className="text-base text-neutral-500">
                                                     {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
                                                 </Button>
                                             </Link>

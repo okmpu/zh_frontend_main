@@ -55,14 +55,14 @@ export default async function EventDetail({ params, }: PropsData) {
     if (!data) {
         notFound();
     }
-    const { event, events } = data;
+    const { event, code, events } = data;
 
     return (
         <section>
             <div className="flex gap-4 flex-col lg:flex-row">
-                <ContentDetail item={event} />
+                <ContentDetail code={code} item={event} />
 
-                <SimilarItems similars={events} />
+                <SimilarItems code={code} similars={events} />
             </div>
         </section>
     )

@@ -14,7 +14,7 @@ export default function AcademicEducation({ academics, }: { academics: any }) {
         <div className="border-t">
             <div className="container grid gap-10 mx-auto py-10">
                 <div className="max-w-xl w-full text-center mx-auto">
-                    <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
+                    <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-foreground">
                         {t("academic.title")}
                     </h1>
                     <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
@@ -29,8 +29,8 @@ export default function AcademicEducation({ academics, }: { academics: any }) {
                 >
                     <CarouselContent>
                         {academics.map((item: any) => (
-                            <CarouselItem 
-                                key={item.id} 
+                            <CarouselItem
+                                key={item.id}
                                 className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                             >
                                 <Link
@@ -58,7 +58,7 @@ export default function AcademicEducation({ academics, }: { academics: any }) {
 
                 <div className="flex justify-center">
                     <Link href={"/university/faculties"}>
-                        <Button variant={"link"} className="h-auto p-0">{t("academic.link")}</Button>
+                        <Button variant={"link"} className="h-auto p-0 text-base">{t("academic.link")}</Button>
                     </Link>
                 </div>
             </div>

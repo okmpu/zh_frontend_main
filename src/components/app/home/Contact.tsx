@@ -12,7 +12,7 @@ export default function Contact() {
         <div className="border-t">
             <div className="container grid gap-10 mx-auto py-10">
                 <div className="max-w-xl w-full text-center mx-auto">
-                    <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
+                    <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-foreground">
                         {t("contact.title")}
                     </h1>
                     <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
@@ -38,8 +38,8 @@ export default function Contact() {
                                 <MapPin size={32} strokeWidth={1.5} />
                             </div>
                             <div className="flex-1">
-                                <h1 className="text-foreground text-xl font-bold">Мекен-жайы</h1>
-                                <span>Шымкент, А.Байтұрсынов N13</span>
+                                <h1 className="text-foreground text-xl font-bold">{t("contact.form.address.label")}</h1>
+                                <span>{t("contact.form.address.value")}</span>
                             </div>
                         </div>
 
@@ -48,7 +48,7 @@ export default function Contact() {
                                 <UserCog size={32} strokeWidth={1.5} />
                             </div>
                             <div className="flex-1">
-                                <h1 className="text-foreground text-xl font-bold">Қабылдау коммиссиясы</h1>
+                                <h1 className="text-foreground text-xl font-bold">{t("contact.form.addmission.label")}</h1>
                                 <ul>
                                     <li>8 7252 21-41-01</li>
                                     <li>8 708 438 65 62</li>
@@ -61,7 +61,7 @@ export default function Contact() {
                                 <University size={32} strokeWidth={1.5} />
                             </div>
                             <div className="flex-1">
-                                <h1 className="text-foreground text-xl font-bold">Университет кеңсесі</h1>
+                                <h1 className="text-foreground text-xl font-bold">{t("contact.form.office.label")}</h1>
                                 <span>8 7252 30-14-59</span>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ export default function Contact() {
                                 <Headset size={32} strokeWidth={1.5} />
                             </div>
                             <div className="flex-1">
-                                <h1 className="text-foreground text-xl font-bold">Call орталық</h1>
+                                <h1 className="text-foreground text-xl font-bold">{t("contact.form.call-center.label")}</h1>
                                 <ul>
                                     <li>8 7252 40-07-05</li>
                                     <li>8 708 438 65 61</li>
@@ -84,7 +84,7 @@ export default function Contact() {
                                 <Phone size={32} strokeWidth={1.5} />
                             </div>
                             <div className="flex-1">
-                                <h1 className="text-foreground text-xl font-bold">Сенім телефондары</h1>
+                                <h1 className="text-foreground text-xl font-bold">{t("contact.form.phones.label")}</h1>
                                 <ul>
                                     <li>+7 (7252) 21-40-05</li>
                                     <li>+7 (7252) 21-03-70</li>

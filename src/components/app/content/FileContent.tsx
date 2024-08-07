@@ -14,7 +14,7 @@ export default function FileContent({ head, content }: { head: any, content: any
                 <div className="flex gap-2 items-center">
                     <FileText size={32} strokeWidth={1.5} />
                     <div>
-                        <h1 className="text-neutral-900 text-base font-semibold">{content.caption_kk}</h1>
+                        <h1 className="text-foreground text-xl font-semibold">{content.caption_kk}</h1>
                         <span>{head.title_kk}</span>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ export default function FileContent({ head, content }: { head: any, content: any
                             </Button>
                         </DialogTrigger>
                             <DialogContent className="flex flex-col p-0 max-w-full h-full 2xl:max-w-screen-xl 2xl:h-5/6">
-                                <DialogTitle className="text-neutral-900 dark:text-neutral-100 px-4 pt-4">{content.caption_kk}</DialogTitle>
+                                <DialogTitle className="text-foreground px-4 pt-4">{content.caption_kk}</DialogTitle>
                                 <DialogDescription className="flex-1">
                                     <iframe src={content.file} className="w-full h-full"></iframe>
                                 </DialogDescription>

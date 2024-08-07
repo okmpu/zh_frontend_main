@@ -2,7 +2,6 @@ import ContentDetail from "@/components/app/publics/ContentDetail";
 import SimilarItems from "@/components/app/publics/SimilarItems";
 import { Metadata } from "next";
 import { getLocale, unstable_setRequestLocale } from "next-intl/server";
-import Image from "next/image"
 import { notFound } from "next/navigation";
 
 
@@ -36,7 +35,7 @@ export async function generateMetadata({ params, }: PropsData): Promise<Metadata
 
 
 // Actions
-async function getEventDetailData({ id }: { id: string }) {
+async function getAnnouncementDetailData({ id }: { id: string }) {
     const res = await fetch(`${process.env.BACKEND_URL}/api/main/public/announcements/${id}/`, { cache: "no-store" })
     if (!res.ok) {
         if (res.status === 404) {
@@ -47,21 +46,22 @@ async function getEventDetailData({ id }: { id: string }) {
     return res.json();
 }
 
-    
+
+// Page
 export default async function AnnouncementDetail({ params, }: PropsData) {
     unstable_setRequestLocale(params.locale);
-    const data = await getEventDetailData(params);
+    const data = await getAnnouncementDetailData(params);
 
     if (!data) {
         notFound();
     }
-    const { announcement, announcements } = data;
+    const { announcement, code, announcements } = data;
 
     return (
         <section>
             <div className="flex gap-10 flex-col lg:flex-row">
-                <ContentDetail item={announcement} />
-                <SimilarItems similars={announcements} />
+                <ContentDetail code={code} item={announcement} />
+                <SimilarItems code={code} similars={announcements} />
             </div>
         </section>
     )

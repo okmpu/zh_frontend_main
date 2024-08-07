@@ -1,10 +1,11 @@
+"use client"
 import { Clock } from "lucide-react";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
 
-export default function SimilarItems({ similars, }: { similars: any }) {
+export default function SimilarItems({ similars, code }: { similars: any, code: any }) {
     const currentLocale = useLocale();
 
     return (
@@ -18,15 +19,27 @@ export default function SimilarItems({ similars, }: { similars: any }) {
                     return (
                         <Link
                             key={item.id}
-                            href={`/publics/news/${item.id}`}
+                            href={`/publics/${code}/${item.id}`}
                             className="flex rounded-lg border overflow-hidden transition-all hover:bg-secondary"
                         >
-                            <Image
-                                src={item.poster ? item.poster : "/poster.png"}
-                                width={1920} height={1080} alt="Image"
-                                priority={true}
-                                className="w-24"
-                            />
+                            {code === "news" ?
+                                <Image
+                                    src={item.poster ? item.poster : "/poster.png"}
+                                    width={1920} height={1080} alt="Image"
+                                    priority={true}
+                                    className="w-24"
+                                />
+                            : code === "all-events" ?
+                                <Image
+                                    src={item.poster ? item.poster : "/card.png"}
+                                    width={1080} height={1080} alt="Image"
+                                    priority={true}
+                                    className="w-24"
+                                />
+                            :
+                                null
+                            }
+                            
                             <div className="grid gap-1 p-2">
                                 <h1 className="line-clamp-1 font-bold text-foreground">
                                     {currentLocale === "ru" ? item.title_ru : currentLocale === "en" ? item.title_en : item.title_kk}

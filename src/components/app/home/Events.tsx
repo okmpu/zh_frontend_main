@@ -34,7 +34,7 @@ export default function Events({ events, }: { events: any }) {
                             return (
                                 <CarouselItem key={event.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                                     <Link
-                                        href={`/publics/all-events/${event.id}`} 
+                                        href={`/publics/all-events/${event.id}`}
                                         className="block bg-background border rounded-lg overflow-hidden transition-all hover:bg-secondary"
                                     >
                                         <Image
@@ -43,11 +43,11 @@ export default function Events({ events, }: { events: any }) {
                                         />
 
                                         <div className="px-4 py-4 grid gap-2">
-                                            <h1 className="font-semibold line-clamp-2 text-foreground">
+                                            <h1 className="font-semibold text-lg line-clamp-2 text-foreground">
                                                 {currentLocal === "ru" ? event.title_ru : currentLocal === "en" ? event.title_en : event.title_kk}
                                             </h1>
 
-                                            <div className="flex items-center gap-2 text-xs">
+                                            <div className="flex items-center gap-2">
                                                 <Clock size={16} strokeWidth={1.5} />
                                                 <span>
                                                     {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
@@ -68,7 +68,7 @@ export default function Events({ events, }: { events: any }) {
                 </Carousel>
 
                 <Link href={"/publics/all-events"} className="flex justify-center">
-                    <Button variant={"link"} className="h-auto p-0">
+                    <Button variant={"link"} className="h-auto p-0 text-base">
                         {t("events.showAll")}
                     </Button>
                 </Link>

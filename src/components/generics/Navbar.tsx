@@ -19,7 +19,7 @@ export default function Navbar({ categories }: { categories: any }) {
                         <Button 
                             variant={"ghost"} 
                             className={`
-                                rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary
+                                text-base rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary
                                 ${pathname === `/${currentLocal}` && "border-b-primary"}
                             `}
                         >
@@ -32,14 +32,14 @@ export default function Navbar({ categories }: { categories: any }) {
                                 <NavigationMenu key={category.id}>
                                     <NavigationMenuList>
                                         <NavigationMenuItem>
-                                            <NavigationMenuTrigger className="bg-transparent rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary">
+                                            <NavigationMenuTrigger className="text-base bg-transparent rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary">
                                                 {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
                                             </NavigationMenuTrigger>
                                             <NavigationMenuContent className="flex">
                                                 {category.children.map((sub_category: any) => (
                                                     <div key={sub_category.id}>
                                                         <div className="p-4">
-                                                            <h1 className="font-semibold whitespace-nowrap px-4 pb-2 text-neutral-900 dark:text-neutral-100">
+                                                            <h1 className="text-xl font-semibold whitespace-nowrap px-4 pb-2 text-foreground">
                                                                 {currentLocal === "ru" ? sub_category.name_ru : currentLocal === "en" ? sub_category.name_en : sub_category.name_kk}
                                                             </h1>
 
@@ -56,7 +56,7 @@ export default function Navbar({ categories }: { categories: any }) {
                                                                 >
                                                                     <Button
                                                                         variant={"ghost"}
-                                                                        className="justify-start w-full text-neutral-500 hover:text-primary"                                                                    >
+                                                                        className="text-base justify-start w-full text-neutral-500 hover:text-primary"                                                                    >
                                                                         {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
                                                                     </Button>
                                                                 </NavigationMenuLink>
@@ -73,7 +73,7 @@ export default function Navbar({ categories }: { categories: any }) {
                                 <a href={`/${category.slug}`}>
                                     <Button 
                                         variant={"ghost"} 
-                                        className="rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary"
+                                        className="text-base rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary"
                                     >
                                         {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}
                                     </Button>

@@ -42,7 +42,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Pro
             <head>
                 <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
             </head>
-            <body className={`${inter.className} text-[15px] text-neutral-500`}>
+            <body className={`${inter.className} text-neutral-500`}>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeLayout data={data}>{children}</ThemeLayout>
                 </NextIntlClientProvider>

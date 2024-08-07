@@ -1,5 +1,4 @@
 "use client"
-
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input"
@@ -36,7 +35,7 @@ export default function Settings() {
                 </DialogTrigger>
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle className="text-neutral-900 dark:text-neutral-100">Жылдам іздеу</DialogTitle>
+                        <DialogTitle className="text-foreground">Жылдам іздеу</DialogTitle>
                         <DialogDescription className="py-4 relative">
                             <Search size={20} strokeWidth={1.5} className="absolute top-6 left-3" />
                             <Input placeholder="Не іздедіңіз?" className="pl-10" />
@@ -53,7 +52,7 @@ export default function Settings() {
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                    <DropdownMenuLabel>Тілді таңдау</DropdownMenuLabel>
+                    <DropdownMenuLabel className="text-base">Тілді таңдау</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     {locales.map(local => 
                         <DropdownMenuCheckboxItem 
@@ -61,6 +60,7 @@ export default function Settings() {
                             id={local.prefix}
                             checked={currentLocal === local.prefix}
                             onClick={onSelectLanguage}
+                            className="text-base"
                         >
                             {local.title}
                         </DropdownMenuCheckboxItem>)
@@ -76,25 +76,25 @@ export default function Settings() {
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                    <DropdownMenuLabel>Персонализация</DropdownMenuLabel>
+                    <DropdownMenuLabel className="text-base">Персонализация</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem
                         onClick={() => setTheme("system")}
-                        className="flex gap-2 text-neutral-500"
+                        className="flex gap-2 text-base text-neutral-500"
                     >
                         <LaptopMinimal size={20} strokeWidth={1.5} />
                         <span>Жүйелік</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() => setTheme("light")}
-                        className="flex gap-2 text-neutral-500"
+                        className="flex gap-2 text-base text-neutral-500"
                     >
                         <Sun size={20} strokeWidth={1.5} />
                         <span>Күн</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() => setTheme("dark")}
-                        className="flex gap-2 text-neutral-500"
+                        className="flex gap-2 text-base text-neutral-500"
                     >
                         <Moon size={20} strokeWidth={1.5} />
                         <span>Түн</span>

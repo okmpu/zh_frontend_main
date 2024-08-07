@@ -29,7 +29,7 @@
       "button": "View more"
     },
     "admission": {
-      "title": "Admission committee",
+      "title": "Our programs",
       "sub_title": "We offer bachelor's, master's and additional education programs in the field of pedagogy",
       "link": "Talapker"
     },
@@ -70,20 +70,22 @@
       "title": "Contact us",
       "sub_title": "All the resources you can contact us",
       "form": {
-        "full_name": {
-          "label": "Full name",
-          "placeholder": "Your full name",
-          "help_text": "Write your full name"
+        "address": {
+          "label": "Contact us",
+          "value": "Shymkent, A. Baitursynov N 13"
         },
-        "email": {
-          "label": "Email address",
-          "placeholder": "example@gmail.com"
+        "addmission": {
+          "label": "Admission Committee"
         },
-        "body": {
-          "label": "Your question",
-          "placeholder": "Write your question..."
+        "office": {
+          "label": "University Office"
         },
-        "submit": "Submit"
+        "call-center": {
+          "label": "Call center"
+        },
+        "phones": {
+          "label": "Helplines"
+        }
       }
     }
   },

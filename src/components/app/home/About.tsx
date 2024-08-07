@@ -52,7 +52,7 @@ export default function About() {
         <div className="border-t">
             <div className="container mx-auto py-10 grid gap-10">
                 <div className="max-w-xl w-full text-center mx-auto">
-                    <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
+                    <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-foreground">
                         {t("about.title")}
                     </h1>
                     <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
@@ -68,7 +68,7 @@ export default function About() {
                             {t("about.content.body")}
                         </div>
                         <Link href={"/content/university/about-us/history/history"}>
-                            <Button variant={"link"} className="px-0 h-auto">
+                            <Button variant={"link"} className="px-0 h-auto text-base">
                                 {t("about.link")}
                             </Button>
                         </Link>

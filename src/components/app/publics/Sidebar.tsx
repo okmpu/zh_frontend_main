@@ -17,7 +17,7 @@ export default function PublicSidebar() {
                     <Button
                         variant={"ghost"}
                         className={`
-                            w-full justify-start hover:text-primary
+                            w-full text-base justify-start hover:text-primary
                             ${pathname === `/${currentLocale}/publics/news` && "bg-secondary text-primary"}
                         `}
                     >
@@ -28,7 +28,7 @@ export default function PublicSidebar() {
                     <Button
                         variant={"ghost"}
                         className={`
-                            w-full justify-start hover:text-primary
+                            w-full text-base justify-start hover:text-primary
                             ${pathname === `/${currentLocale}/publics/announcements` && "bg-secondary text-primary"}
                         `}
                     >
@@ -39,7 +39,7 @@ export default function PublicSidebar() {
                     <Button
                         variant={"ghost"}
                         className={`
-                            w-full justify-start hover:text-primary
+                            w-full text-base justify-start hover:text-primary
                             ${pathname === `/${currentLocale}/publics/all-events` && "bg-secondary text-primary"}
                         `}
                     >

@@ -30,7 +30,7 @@ export default function Publics({ news, announcements }: { news: any, announceme
                                         <MessageSquare size={32} strokeWidth={1.5} />
                                     </div>
                                     <div className="flex-1 p-2 grid gap-2">
-                                        <h1 className="font-semibold line-clamp-2 text-foreground">
+                                        <h1 className="font-semibold text-lg line-clamp-2 text-foreground">
                                             {currentLocal === "ru" ? item.title_ru : currentLocal === "en" ? item.title_en : item.title_kk}
                                         </h1>
                                         <div className="flex items-center gap-2 text-xs">
@@ -50,7 +50,7 @@ export default function Publics({ news, announcements }: { news: any, announceme
                     </div>
 
                     <Link href={`/publics/announcements`}>
-                        <Button variant={"link"} className="p-0 h-auto">{t("publics.showAll")}</Button>
+                        <Button variant={"link"} className="text-base p-0 h-auto">{t("publics.showAll")}</Button>
                     </Link>
                 </div>
                 
@@ -60,7 +60,7 @@ export default function Publics({ news, announcements }: { news: any, announceme
                         <h1 className="text-xl font-bold text-foreground">{t("publics.tabs.news")}</h1>
                         
                         <Link href={`/publics/news`}>
-                            <Button variant={"link"} className="p-0 h-auto">{t("publics.showAll")}</Button>
+                            <Button variant={"link"} className="text-base p-0 h-auto">{t("publics.showAll")}</Button>
                         </Link>
                     </div>
                     
@@ -74,11 +74,11 @@ export default function Publics({ news, announcements }: { news: any, announceme
                                         className="w-full"
                                     />
                                     <div className="px-4 py-4 grid gap-2">
-                                        <h1 className="font-semibold line-clamp-2 text-foreground">
+                                        <h1 className="font-semibold text-lg line-clamp-2 text-foreground">
                                             {currentLocal === "ru" ? item.title_ru : currentLocal === "en" ? item.title_en : item.title_kk}
                                         </h1>
 
-                                        <div className="flex items-center gap-2 text-xs">
+                                        <div className="flex items-center gap-2">
                                             <Clock size={16} strokeWidth={1.5} />
                                             <span>
                                                 {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
@@ -90,7 +90,7 @@ export default function Publics({ news, announcements }: { news: any, announceme
                                         </div>
 
                                         <Link href={`/publics/news/${item.id}`}>
-                                            <Button variant={"link"} className="p-0 h-auto">{t("publics.link")}</Button>
+                                            <Button variant={"link"} className="text-base p-0 h-auto">{t("publics.link")}</Button>
                                         </Link>
                                     </div>
                                 </div>

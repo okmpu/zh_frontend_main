@@ -67,7 +67,7 @@ export default function Journals() {
                     </Carousel>
 
                     <Link href={"/publics/all-events"} className="flex justify-center">
-                        <Button variant={"link"} className="text-secondary h-auto p-0">
+                        <Button variant={"link"} className="text-secondary h-auto p-0 text-base">
                             {t("events.showAll")}
                         </Button>
                     </Link>

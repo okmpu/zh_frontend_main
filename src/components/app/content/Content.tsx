@@ -23,25 +23,25 @@ export default function ContentBody({ category, sub_category, section, content }
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
-                        <BreadcrumbPage className="text-neutral-500">
+                        <BreadcrumbPage className="text-neutral-500 text-base">
                             {currentLocale === "ru" ? category.name_ru : currentLocale === "en" ? category.name_en : category.name_kk}
                         </BreadcrumbPage>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                        <BreadcrumbPage className="text-neutral-500">
+                        <BreadcrumbPage className="text-neutral-500 text-base">
                             {currentLocale === "ru" ? sub_category.name_ru : currentLocale === "en" ? sub_category.name_en : sub_category.name_kk}
                         </BreadcrumbPage>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
-                    <BreadcrumbItem className="text-neutral-500">
-                        <BreadcrumbPage className="text-neutral-500">
+                    <BreadcrumbItem>
+                        <BreadcrumbPage className="text-neutral-500 text-base">
                             {currentLocale === "ru" ? section.name_ru : currentLocale === "en" ? section.name_en : section.name_kk}
                         </BreadcrumbPage>
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                        <BreadcrumbPage className="text-primary font-semibold">
+                        <BreadcrumbPage className="text-primary text-base font-semibold">
                             {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
                         </BreadcrumbPage>
                     </BreadcrumbItem>

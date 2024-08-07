@@ -22,7 +22,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
             </SheetTrigger>
             <SheetContent className="overflow-auto">
                 <SheetHeader>
-                    <SheetTitle>
+                    <SheetTitle className="text-xl font-bold border-b">
                         {currentLocale === "ru" ? category.name_ru : currentLocale === "en" ? category.name_en : category.name_kk}
                     </SheetTitle>
                     <SheetDescription></SheetDescription>
@@ -31,7 +31,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                     {sub_categories.map((sub_category: any) => (
                         <div key={sub_category.id} className="pb-4">
                             <div className="pb-4">
-                                <h1 className="font-bold text-base text-foreground">
+                                <h1 className="font-bold text-xl text-foreground">
                                     {currentLocale === "ru" ? sub_category.name_ru : currentLocale === "en" ? sub_category.name_en : sub_category.name_kk}
                                 </h1>
                             </div>
@@ -44,7 +44,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                 key={section.id}
                                                 value={`item-${section.id}`}
                                             >
-                                                <AccordionTrigger>
+                                                <AccordionTrigger className="ml-4">
                                                     {currentLocale === "ru" ? section.name_ru : currentLocale === "en" ? section.name_en : section.name_kk}
                                                 </AccordionTrigger>
                                                 <AccordionContent className="ml-4 mb-4 border-l pb-0">
@@ -64,7 +64,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                                     <Button
                                                                         variant={"ghost"}
                                                                         className={`
-                                                                            w-full justify-start whitespace-normal hover:text-primary
+                                                                            w-full text-base justify-start whitespace-normal hover:text-primary
                                                                             ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}` && "bg-secondary text-primary"}
                                                                         `}
                                                                     >
@@ -92,7 +92,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                 <Button
                                                     variant={"ghost"}
                                                     className={`
-                                                        w-full justify-start whitespace-normal text-left h-auto hover:text-primary
+                                                        w-full text-base justify-start whitespace-normal text-left h-auto hover:text-primary
                                                         ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}` && "bg-secondary text-primary"}
                                                     `}
                                                 >

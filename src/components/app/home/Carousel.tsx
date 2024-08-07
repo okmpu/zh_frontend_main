@@ -43,7 +43,7 @@ export default function Carousel({ headliners, }: { headliners: any }) {
 
                                 <div className="flex">
                                     <Link href={headliner.src}>
-                                        <Button variant={"default"}>{t("offer.button")}</Button>
+                                        <Button variant={"default"} className="text-base">{t("offer.button")}</Button>
                                     </Link>
                                 </div>
                             </div>

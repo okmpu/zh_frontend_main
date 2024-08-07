@@ -4,12 +4,14 @@ import { Metadata } from "next"
 import { getLocale, unstable_setRequestLocale } from "next-intl/server"
 import { notFound } from "next/navigation"
 
+
 type PropsData = {
     params: {
         id: string,
         locale: string
     }
 }
+
 
 // Metadata
 export async function generateMetadata({ params, }: PropsData): Promise<Metadata> {
@@ -46,6 +48,7 @@ async function getNewsDetailData({ id }: { id: string }) {
 }
 
 
+// Page
 export default async function NewsDetail({ params, }: PropsData) {
     unstable_setRequestLocale(params.locale);
     const data = await getNewsDetailData(params);
@@ -54,13 +57,13 @@ export default async function NewsDetail({ params, }: PropsData) {
         notFound();
     }
 
-    const { news, similar_news } = data;
+    const { news, code, similar_news } = data;
 
     return (
         <section>
             <div className="flex gap-4 flex-col lg:flex-row">
-                <ContentDetail item={news} />
-                <SimilarItems similars={similar_news} />
+                <ContentDetail code={code} item={news} />
+                <SimilarItems code={code} similars={similar_news} />
             </div>
         </section>
     )

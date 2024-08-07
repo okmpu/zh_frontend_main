@@ -22,7 +22,7 @@ export default function OurProgramms({ programs, }: { programs: any }) {
     return (
         <div className="container grid items-center gap-10 mx-auto py-10">
             <div className="max-w-xl w-full text-center mx-auto">
-                <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-neutral-900 dark:text-neutral-100">
+                <h1 className="font-bold mb-4 text-2xl md:text-3xl lg:text-4xl text-foreground">
                     {t("admission.title")}
                 </h1>
                 <div className="h-2 max-w-24 md:max-w-xs mx-auto bg-amber-500 my-4"></div>
