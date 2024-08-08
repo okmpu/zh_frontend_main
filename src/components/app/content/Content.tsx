@@ -5,12 +5,13 @@ import TextContent from "./TextContent";
 import FileContent from "./FileContent";
 import ImageContent from "./ImageContent";
 import { Rss } from "lucide-react";
+import StaffContent from "./StaffContent";
 
 // Types
 type Props = {
-    content: any, 
-    category: any, 
-    sub_category: any, 
+    content: any,
+    category: any,
+    sub_category: any,
     section: any
 }
 
@@ -59,21 +60,41 @@ export default function ContentBody({ category, sub_category, section, content }
                 </div>
 
                 <div className="grid gap-4">
-                    {content.items.length > 0 ? content.items.map((item: any) => {
-                        if (item.content_object.type === "text_content") {
-                            return <TextContent key={item.id} content={item.content_object.content} />
-                        } else if (item.content_object.type === "file_content") {
-                            return <FileContent key={item.id} head={content} content={item.content_object.content} />
-                        } else if (item.content_object.type === "image_content") {
-                            return <ImageContent key={item.id} content={item.content_object.content} />
-                        }
-                    })
-                    :
-                        <div className="flex flex-col items-center gap-2 max-w-lg mx-auto text-center py-10 text-foreground">
-                            <Rss size={96} strokeWidth={1.5} />
-                            <h1 className="font-semibold text-xl lg:text-2xl">{t("noContent.title")}</h1>
-                            <span className="text-neutral-500">{t("noContent.sub_title")}</span>
-                        </div>
+                    {
+                        content.text_contents.length ||
+                            content.image_contents.length ||
+                            content.file_contents.length ||
+                            content.staff_contents.length
+                            ?
+                            <>
+                                <div>
+                                    {content.text_contents.map((item: any) => (
+                                        <TextContent key={item.id} content={item} />
+                                    ))}
+                                </div>
+                                <div>
+                                    {content.image_contents.map((item: any) => (
+                                        <ImageContent key={item.id} content={item} />
+                                    ))}
+                                </div>
+                                <div>
+                                    {content.file_contents.map((item: any) => (
+                                        <FileContent key={item.id} head={content} content={item} />
+                                    ))}
+                                </div>
+                                <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                                    {content.staff_contents.map((item: any) => (
+                                        <StaffContent key={item.id} content={item} />
+                                    ))}
+                                </div>
+                            </>
+
+                            :
+                            <div className="flex flex-col items-center gap-2 max-w-lg mx-auto text-center py-10 text-foreground">
+                                <Rss size={96} strokeWidth={1.5} />
+                                <h1 className="font-semibold text-xl lg:text-2xl">{t("noContent.title")}</h1>
+                                <span className="text-neutral-500">{t("noContent.sub_title")}</span>
+                            </div>
                     }
                 </div>
             </div>

@@ -1,4 +1,6 @@
-#text-content {}
+#text-content {
+    text-align: justify;
+}
 
 #text-content a {
     color: hsl(var(--primary));

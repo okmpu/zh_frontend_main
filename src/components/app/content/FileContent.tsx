@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { DialogOverlay, DialogPortal } from "@radix-ui/react-dialog"
 import { ArrowDownToLine, Eye, FileText } from "lucide-react"
+import { useLocale } from "next-intl"
 
 
 export default function FileContent({ head, content }: { head: any, content: any }) {
+    const currentLocale = useLocale();
 
     return (
         <div className="grid gap-4">
@@ -14,8 +16,12 @@ export default function FileContent({ head, content }: { head: any, content: any
                 <div className="flex gap-2 items-center">
                     <FileText size={32} strokeWidth={1.5} />
                     <div>
-                        <h1 className="text-foreground text-xl font-semibold">{content.caption_kk}</h1>
-                        <span>{head.title_kk}</span>
+                        <h1 className="text-foreground text-xl font-semibold">
+                            {currentLocale === "ru" ? content.caption_ru : currentLocale === "en" ? content.caption_en : content.caption_kk}
+                        </h1>
+                        <span>
+                            {currentLocale === "ru" ? head.title_ru : currentLocale === "en" ? head.title_en : head.title_kk}
+                        </span>
                     </div>
                 </div>
                 
@@ -27,7 +33,9 @@ export default function FileContent({ head, content }: { head: any, content: any
                             </Button>
                         </DialogTrigger>
                             <DialogContent className="flex flex-col p-0 max-w-full h-full 2xl:max-w-screen-xl 2xl:h-5/6">
-                                <DialogTitle className="text-foreground px-4 pt-4">{content.caption_kk}</DialogTitle>
+                                <DialogTitle className="text-foreground px-4 pt-4">
+                                    {currentLocale === "ru" ? content.caption_ru : currentLocale === "en" ? content.caption_en : content.caption_kk}
+                                </DialogTitle>
                                 <DialogDescription className="flex-1">
                                     <iframe src={content.file} className="w-full h-full"></iframe>
                                 </DialogDescription>
@@ -44,5 +52,3 @@ export default function FileContent({ head, content }: { head: any, content: any
         </div>
     )
 }
-
-

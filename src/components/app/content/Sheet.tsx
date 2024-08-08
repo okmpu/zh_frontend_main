@@ -44,7 +44,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                 key={section.id}
                                                 value={`item-${section.id}`}
                                             >
-                                                <AccordionTrigger className="ml-4">
+                                                <AccordionTrigger className="ml-4 text-left">
                                                     {currentLocale === "ru" ? section.name_ru : currentLocale === "en" ? section.name_en : section.name_kk}
                                                 </AccordionTrigger>
                                                 <AccordionContent className="ml-4 mb-4 border-l pb-0">

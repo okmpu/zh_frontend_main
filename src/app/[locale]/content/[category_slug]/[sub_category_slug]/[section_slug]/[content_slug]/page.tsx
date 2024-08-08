@@ -101,7 +101,6 @@ export default async function ContentDetail({ params }: PropsData) {
                     sub_categories={sub_categories}
                     contents={contents}
                 />
-
                 <ContentBody
                     content={content}
                     category={category}
