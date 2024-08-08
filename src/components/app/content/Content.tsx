@@ -62,31 +62,39 @@ export default function ContentBody({ category, sub_category, section, content }
                 <div className="grid gap-4">
                     {
                         content.text_contents.length ||
-                            content.image_contents.length ||
-                            content.file_contents.length ||
-                            content.staff_contents.length
-                            ?
+                        content.image_contents.length ||
+                        content.file_contents.length ||
+                        content.staff_contents.length
+                        ?
                             <>
-                                <div>
-                                    {content.text_contents.map((item: any) => (
-                                        <TextContent key={item.id} content={item} />
-                                    ))}
-                                </div>
-                                <div>
-                                    {content.image_contents.map((item: any) => (
-                                        <ImageContent key={item.id} content={item} />
-                                    ))}
-                                </div>
-                                <div>
-                                    {content.file_contents.map((item: any) => (
-                                        <FileContent key={item.id} head={content} content={item} />
-                                    ))}
-                                </div>
-                                <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                                    {content.staff_contents.map((item: any) => (
-                                        <StaffContent key={item.id} content={item} />
-                                    ))}
-                                </div>
+                                {content.text_contents.length > 0 &&
+                                    <div>
+                                        {content.text_contents.map((item: any) => (
+                                            <TextContent key={item.id} content={item} />
+                                        ))}
+                                    </div>
+                                }
+                                {content.image_contents.length > 0 &&
+                                    <div>
+                                        {content.image_contents.map((item: any) => (
+                                            <ImageContent key={item.id} content={item} />
+                                        ))}
+                                    </div>
+                                }
+                                {content.file_contents.length > 0 &&
+                                    <div className="grid gap-2">
+                                        {content.file_contents.map((item: any) => (
+                                            <FileContent key={item.id} head={content} content={item} />
+                                        ))}
+                                    </div>
+                                }
+                                {content.staff_contents.length > 0 &&
+                                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+                                        {content.staff_contents.map((item: any) => (
+                                            <StaffContent key={item.id} content={item} />
+                                        ))}
+                                    </div>
+                                }
                             </>
 
                             :

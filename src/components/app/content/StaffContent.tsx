@@ -13,7 +13,7 @@ export default function StaffContent({ content, }: { content: any }) {
         <div className="grid gap-2 text-center border p-4 rounded-lg">
             <Image
                 src={content.image ? content.image : "/card.png"} width={520} height={520} alt="Image"
-                className="rounded-full w-32 mx-auto border"
+                className="rounded-full w-32 h-32 mx-auto border-2"
             />
             <h1 className="text-xl font-bold text-foreground">
                 {currentLocale === "ru" ? content.full_name_ru : currentLocale === "en" ? content.full_name_en : content.full_name_kk}
@@ -44,7 +44,7 @@ export default function StaffContent({ content, }: { content: any }) {
                     <div className="text-center grid gap-4">
                         <Image
                             src={content.image ? content.image : "/card.png"} width={512} height={512} alt="Image"
-                            className="w-40 rounded-full border mx-auto"
+                            className="w-40 h-40 rounded-full border-2 mx-auto"
                         />
                         <div className="grid gap-2 border-b pb-4">
                             <h1 className="text-xl font-bold text-foreground">
