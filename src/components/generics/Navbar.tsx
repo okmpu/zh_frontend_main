@@ -4,6 +4,7 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import React from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
 
 export default function Navbar({ categories }: { categories: any }) {
@@ -11,13 +12,14 @@ export default function Navbar({ categories }: { categories: any }) {
     const pathname = usePathname();
     const t = useTranslations("Header");
 
+
     return (
         <nav className="border-b sticky top-0 z-50 backdrop-blur-lg bg-background/70 hidden lg:block">
             <div className="container mx-auto flex justify-center items-center">
                 <div className="flex">
                     <a href={`/`}>
-                        <Button 
-                            variant={"ghost"} 
+                        <Button
+                            variant={"ghost"}
                             className={`
                                 text-base rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary
                                 ${pathname === `/${currentLocal}` && "border-b-primary"}
@@ -51,13 +53,16 @@ export default function Navbar({ categories }: { categories: any }) {
                                                                             `/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}`
                                                                             : section.app_name === "university" ?
                                                                                 `/university/${section.slug}`
-                                                                                : "#"
+                                                                                : section.url
                                                                     }
+                                                                    target={section.target ? "_blank" : "_self"}
                                                                 >
                                                                     <Button
                                                                         variant={"ghost"}
-                                                                        className="text-base justify-start w-full text-neutral-500 hover:text-primary"                                                                    >
+                                                                        className="text-base justify-between w-full text-neutral-500 hover:text-primary"
+                                                                    >
                                                                         {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
+                                                                        {section.target && <ExternalLink size={20} strokeWidth={1.5} />}
                                                                     </Button>
                                                                 </NavigationMenuLink>
                                                             ))}
@@ -70,8 +75,8 @@ export default function Navbar({ categories }: { categories: any }) {
                                 </NavigationMenu>
                                 :
                                 <a href={`/${category.slug}`}>
-                                    <Button 
-                                        variant={"ghost"} 
+                                    <Button
+                                        variant={"ghost"}
                                         className="text-base rounded-none border-b-transparent border-b-4 hover:border-b-primary hover:text-primary"
                                     >
                                         {currentLocal === "ru" ? category.name_ru : currentLocal === "en" ? category.name_en : category.name_kk}

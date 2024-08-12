@@ -2,7 +2,7 @@
 import React from "react";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "../ui/button"
-import { Equal } from "lucide-react"
+import { Equal, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Settings from "./Settings"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion"
@@ -68,14 +68,16 @@ export default function BurgerMenu({ resourceLinks, categories }: { resourceLink
                                                                             `/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}`
                                                                             : section.app_name === "university" ?
                                                                                 `/university/${section.slug}`
-                                                                                : "#"
+                                                                                : section.url
                                                                     }
+                                                                    target={section.target ? "_blank" : "_self"}
                                                                 >
                                                                     <Button
                                                                         variant={"ghost"}
-                                                                        className="justify-start text-base w-full whitespace-normal text-left h-auto text-neutral-500 hover:text-primary"
+                                                                        className="justify-between text-base w-full whitespace-normal text-left h-auto text-neutral-500 hover:text-primary"
                                                                     >
                                                                         {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
+                                                                        {section.target && <ExternalLink size={20} strokeWidth={1.5} />}
                                                                     </Button>
                                                                 </Link>
                                                             ))}

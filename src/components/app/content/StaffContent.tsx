@@ -21,16 +21,18 @@ export default function StaffContent({ content, }: { content: any }) {
             <span>
                 {currentLocale === "ru" ? content.profession_ru : currentLocale === "en" ? content.profession_en : content.profession_kk}
             </span>
-            <div className="grid gap-2">
-                <div className="flex justify-center items-center gap-2">
-                    <Phone strokeWidth={1.5} size={20} />
-                    <Button variant={"link"} className="h-auto p-0">{content.phone}</Button>
+            {(content.phone || content.email) &&
+                <div className="grid gap-2">
+                    <div className="flex justify-center items-center gap-2">
+                        <Phone strokeWidth={1.5} size={20} />
+                        <Button variant={"link"} className="h-auto p-0">{content.phone}</Button>
+                    </div>
+                    <div className="flex justify-center items-center gap-2">
+                        <Mail size={20} strokeWidth={1.5} />
+                        <span>{content.email}</span>
+                    </div>
                 </div>
-                <div className="flex justify-center items-center gap-2">
-                    <Mail size={20} strokeWidth={1.5} />
-                    <span>{content.email}</span>
-                </div>
-            </div>
+            }
 
             <Dialog>
                 <DialogTrigger asChild>

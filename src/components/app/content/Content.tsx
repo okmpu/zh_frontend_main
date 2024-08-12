@@ -7,6 +7,7 @@ import ImageContent from "./ImageContent";
 import { Rss } from "lucide-react";
 import StaffContent from "./StaffContent";
 
+
 // Types
 type Props = {
     content: any,
@@ -14,6 +15,7 @@ type Props = {
     sub_category: any,
     section: any
 }
+
 
 export default function ContentBody({ category, sub_category, section, content }: Props) {
     const currentLocale = useLocale();
@@ -62,10 +64,10 @@ export default function ContentBody({ category, sub_category, section, content }
                 <div className="grid gap-4">
                     {
                         content.text_contents.length ||
-                        content.image_contents.length ||
-                        content.file_contents.length ||
-                        content.staff_contents.length
-                        ?
+                            content.image_contents.length ||
+                            content.file_contents.length ||
+                            content.staff_contents.length
+                            ?
                             <>
                                 {content.text_contents.length > 0 &&
                                     <div>

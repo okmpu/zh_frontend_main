@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
 
 
 export default function SidebarSheet({ category, sub_categories, contents }: { category: any, sub_categories: any, contents: any }) {
@@ -58,17 +58,19 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                                             `/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}`
                                                                             : section.app_name === "university" ?
                                                                                 `/university/${section.slug}`
-                                                                                : "#"
+                                                                                : section.url
                                                                     }
+                                                                    target={section.target ? "_blank" : "_self"}
                                                                 >
                                                                     <Button
                                                                         variant={"ghost"}
                                                                         className={`
-                                                                            w-full text-base justify-start whitespace-normal hover:text-primary
+                                                                            w-full text-base justify-beetween whitespace-normal hover:text-primary
                                                                             ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}` && "bg-secondary text-primary"}
                                                                         `}
                                                                     >
                                                                         {currentLocale === "ru" ? content.title_ru : currentLocale === "en" ? content.title_en : content.title_kk}
+                                                                        {section.target && <ExternalLink size={20} strokeWidth={1.5} />}
                                                                     </Button>
                                                                 </Link>
                                                             )
@@ -86,17 +88,19 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                         `/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}`
                                                         : section.app_name === "university" ?
                                                             `/university/${section.slug}`
-                                                            : "#"
+                                                            : section.url
                                                 }
+                                                target={section.target ? "_blank": "_self"}
                                             >
                                                 <Button
                                                     variant={"ghost"}
                                                     className={`
-                                                        w-full text-base justify-start whitespace-normal text-left h-auto hover:text-primary
+                                                        w-full text-base justify-between whitespace-normal text-left h-auto hover:text-primary
                                                         ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}` && "bg-secondary text-primary"}
                                                     `}
                                                 >
                                                     {currentLocale === "ru" ? section.name_ru : currentLocale === "en" ? section.name_en : section.name_kk}
+                                                    {section.target && <ExternalLink size={20} strokeWidth={1.5} />}
                                                 </Button>
                                             </Link>
                                         )
