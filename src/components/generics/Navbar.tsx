@@ -59,7 +59,7 @@ export default function Navbar({ categories }: { categories: any }) {
                                                                 >
                                                                     <Button
                                                                         variant={"ghost"}
-                                                                        className="text-base justify-between w-full text-neutral-500 hover:text-primary"
+                                                                        className="text-base justify-between gap-2 w-full text-neutral-500 hover:text-primary"
                                                                     >
                                                                         {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
                                                                         {section.target && <ExternalLink size={20} strokeWidth={1.5} />}

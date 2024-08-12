@@ -68,13 +68,13 @@ export default function BurgerMenu({ resourceLinks, categories }: { resourceLink
                                                                             `/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}`
                                                                             : section.app_name === "university" ?
                                                                                 `/university/${section.slug}`
-                                                                                : section.url
+                                                                                : `${section.url}`
                                                                     }
                                                                     target={section.target ? "_blank" : "_self"}
                                                                 >
                                                                     <Button
                                                                         variant={"ghost"}
-                                                                        className="justify-between text-base w-full whitespace-normal text-left h-auto text-neutral-500 hover:text-primary"
+                                                                        className="justify-between  gap-2 text-base w-full whitespace-normal text-left h-auto text-neutral-500 hover:text-primary"
                                                                     >
                                                                         {currentLocal === "ru" ? section.name_ru : currentLocal === "en" ? section.name_en : section.name_kk}
                                                                         {section.target && <ExternalLink size={20} strokeWidth={1.5} />}
