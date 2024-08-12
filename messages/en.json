@@ -104,6 +104,9 @@
     "search": "Search",
     "similar": "Related topics"
   },
+  "FacultyPage": {
+    "title": "Faculties"
+  },
   "ContentPage": {
     "staffContent": {
       "button": "Detail"

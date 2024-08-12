@@ -16,7 +16,7 @@ function GetIcon({ slug, }: { slug: string }) {
 
 
 export default function OurProgramms({ programs, }: { programs: any }) {
-    const currentLocal = useLocale();
+    const currentLocale = useLocale();
     const t = useTranslations("HomePage");
     
     return (
@@ -39,7 +39,7 @@ export default function OurProgramms({ programs, }: { programs: any }) {
                         >
                             {GetIcon({slug: item.slug})}
                             <h1 className="text-base md:text-xl font-semibold">
-                                {currentLocal === "ru" ? item.name_ru : currentLocal === "en" ? item.name_en : item.name_kk}
+                                {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
                             </h1>
                         </Link>
                     ))}

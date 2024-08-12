@@ -105,6 +105,9 @@
     "similar": "Похожие темы"
 
   },
+  "FacultyPage": {
+    "title": "Факультеты"
+  },
   "ContentPage": {
     "staffContent": {
       "button": "Подробнее"

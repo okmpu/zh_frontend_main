@@ -2,6 +2,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Atom, FlaskConical, FolderKanban, GraduationCap, Newspaper } from "lucide-react"
 import Image from "next/image"
+import { getLocale } from "next-intl/server"
+import { Metadata } from "next"
+
 
 // types
 type PropsData = {
@@ -11,36 +14,59 @@ type PropsData = {
 }
 
 
-export default function FacultyDetail({ params }: PropsData) {
+// Metadata
+export async function generateMetadata({ params, }: PropsData): Promise<Metadata> {
+    const faculty_slug = params.faculty_slug;
+
+    const data = await fetch(
+        `${process.env.BACKEND_URL}/api/main/university/faculties/${faculty_slug}/`
+    ).then((res) => res.json())
+    const locale = await getLocale();
+
+    if (data.faculty) {
+        const faculty = data.faculty;
+        return {
+            title: `${locale === "ru" ? faculty.name_ru : locale === "en" ? faculty.name_en : faculty.name_kk} - Zhanibekov university`
+        }
+    } else {
+        return {
+            title: `${locale === "ru" ? "Страница не найдена" : locale === "en" ? "Page not found" : "Бұндай бет табылмады"}`
+        }
+    }
+}
+
+
+// Actions
+async function getFacultyDetailData({ faculty_slug, }: { faculty_slug: string, }) {
+    const res = await fetch(`${process.env.BACKEND_URL}/api/main/university/faculties/${faculty_slug}/`, { cache: "no-store" })
+    if (!res.ok) {
+        if (res.status === 404) {
+            return null;
+        }
+        throw new Error('Failed to fetch data')
+    }
+    return res.json();
+}
+
+
+
+export default async function FacultyDetail({ params }: PropsData) {
+    const data = await getFacultyDetailData({ faculty_slug: params.faculty_slug });
+    const { programs } = data; 
+
     return (
         <div className="my-10 flex gap-10">
             <div className="flex-1 flex flex-col gap-4">
                 {/* Programs */}
-                <div className="flex flex-col gap-2">
-                    {/* <div className="flex items-center justify-between">
-                        <h1 className="font-bold text-xl text-neutral-900 dark:text-neutral-100">
-                            Бағдарламалар
-                        </h1>
-                        
-                        <Link href={"#"}>
-                            <Button variant={"link"}>Толығырақ</Button>
-                        </Link>
-                    </div> */}
-                
-                    <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                        <div className="h-24 border rounded-lg flex gap-2 justify-center items-center text-neutral-900 dark:text-neutral-100">
+                <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    {programs.map((item: any) => (
+                        <div key={item.id} className="h-24 border rounded-lg flex gap-2 justify-center items-center text-neutral-900 dark:text-neutral-100">
                             <GraduationCap size={36} strokeWidth={1} />
-                            <h1 className="font-semibold text-xl ">Бакалавриат</h1>
+                            <h1 className="font-semibold text-xl">
+                                {item.name_kk}
+                            </h1>
                         </div>
-                        <div className="h-24 border rounded-lg flex gap-2 justify-center items-center text-neutral-900 dark:text-neutral-100">
-                            <Atom size={36} strokeWidth={1} />
-                            <h1 className="font-semibold text-xl ">Магистратура</h1>
-                        </div>
-                        <div className="h-24 border rounded-lg flex gap-2 justify-center items-center text-neutral-900 dark:text-neutral-100">
-                            <FlaskConical size={36} strokeWidth={1} />
-                            <h1 className="font-semibold text-xl ">Доктарантура</h1>
-                        </div>
-                    </div>
+                    ))}
                 </div>
 
                 {/* Departments */}

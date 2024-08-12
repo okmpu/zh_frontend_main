@@ -104,6 +104,9 @@
     "search": "Іздеу",
     "similar": "Осыған ұқсас тақырыптар"
   },
+  "FacultyPage": {
+    "title": "Факультеттер"
+  },
   "ContentPage": {
     "staffContent": {
       "button": "Толығырақ"
