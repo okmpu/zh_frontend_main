@@ -51,7 +51,7 @@ async function getFacultyDetailData({ faculty_slug, }: { faculty_slug: string, }
 
 export default async function FacultyLayout({ children, params }: PropsData) {
     const data = await getFacultyDetailData({ faculty_slug: params.faculty_slug });
-    const { faculty } = data;    
+    const { faculty } = data;
 
     return (
         <div className="container mx-auto">
