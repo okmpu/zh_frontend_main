@@ -106,7 +106,27 @@
 
   },
   "FacultyPage": {
-    "title": "Факультеты"
+    "title": "Факультеты",
+    "detail": {
+      "cafedra": {
+        "head": "Кафедры",
+        "link": "Подробнее"
+      },
+      "projects": {
+        "head": "Проекты",
+        "link": "Подробнее"
+      },
+      "personals": {
+        "head": "Члены факультета",
+        "link": "Подробнее"
+      },
+      "publics": {
+        "news_head": "Новости",
+        "events_head": "Мероприятия",
+        "announcements_head": "Объявления",
+        "link": "Подробнее"
+      }
+    }
   },
   "ContentPage": {
     "staffContent": {

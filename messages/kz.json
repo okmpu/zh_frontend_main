@@ -105,7 +105,27 @@
     "similar": "Осыған ұқсас тақырыптар"
   },
   "FacultyPage": {
-    "title": "Факультеттер"
+    "title": "Факультеттер",
+    "detail": {
+      "cafedra": {
+        "head": "Кафедралар",
+        "link": "Толығырақ"
+      },
+      "projects": {
+        "head": "Жобалар",
+        "link": "Толығырақ"
+      },
+      "personals": {
+        "head": "Факультет мүшелері",
+        "link": "Толығырақ"
+      },
+      "publics": {
+        "news_head": "Жаңалықтар",
+        "events_head": "Іс-шаралар",
+        "announcements_head": "Хабарландырулар",
+        "link": "Толығырақ"
+      }
+    }
   },
   "ContentPage": {
     "staffContent": {

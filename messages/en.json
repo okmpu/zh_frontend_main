@@ -105,7 +105,27 @@
     "similar": "Related topics"
   },
   "FacultyPage": {
-    "title": "Faculties"
+    "title": "Faculties",
+    "detail": {
+      "cafedra": {
+        "head": "Departments",
+        "link": "View more details"
+      },
+      "projects": {
+        "head": "Projects",
+        "link": "View more details"
+      },
+      "personals": {
+        "head": "Faculty members",
+        "link": "View more details"
+      },
+      "publics": {
+        "news_head": "News",
+        "events_head": "Events",
+        "announcements_head": "Announcements",
+        "link": "View more details"
+      }
+    }
   },
   "ContentPage": {
     "staffContent": {

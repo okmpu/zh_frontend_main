@@ -21,18 +21,20 @@ export default function StaffContent({ content, }: { content: any }) {
             <span>
                 {currentLocale === "ru" ? content.profession_ru : currentLocale === "en" ? content.profession_en : content.profession_kk}
             </span>
-            {(content.phone || content.email) &&
-                <div>
+            <div>
+                {content.phone &&
                     <div className="flex justify-center items-center gap-2">
                         <Phone strokeWidth={1.5} size={20} />
                         <Button variant={"link"} className="h-auto p-0">{content.phone}</Button>
                     </div>
+                }
+                {content.email &&
                     <div className="flex justify-center items-center gap-2">
                         <Mail size={20} strokeWidth={1.5} />
                         <span>{content.email}</span>
                     </div>
-                </div>
-            }
+                }
+            </div>
 
             <Dialog>
                 <DialogTrigger asChild>
@@ -50,21 +52,25 @@ export default function StaffContent({ content, }: { content: any }) {
                         />
                         <div className="grid gap-2 border-b pb-4">
                             <h1 className="text-xl font-bold text-foreground">
-                                {content.full_name_kk}
+                                {currentLocale === "ru" ? content.full_name_ru : currentLocale === "en" ? content.full_name_en : content.full_name_kk}
                             </h1>
-                            <span>{content.profession_kk}</span>
-                            {(content.phone || content.email) &&
-                                <div>
+                            <span>
+                                {currentLocale === "ru" ? content.profession_ru : currentLocale === "en" ? content.profession_en : content.profession_kk}
+                            </span>
+                            <div>
+                                {content.phone &&
                                     <div className="flex justify-center items-center gap-2">
                                         <Phone strokeWidth={1.5} size={20} />
                                         <Button variant={"link"} className="h-auto p-0">{content.phone}</Button>
                                     </div>
+                                }
+                                {content.email &&
                                     <div className="flex justify-center items-center gap-2">
                                         <Mail size={20} strokeWidth={1.5} />
                                         <span>{content.email}</span>
                                     </div>
-                                </div>
-                            }
+                                }
+                            </div>
                         </div>
                         <div>
                             {currentLocale === "ru" ? content.bio_ru : currentLocale === "en" ? content.bio_en : content.bio_kk}
