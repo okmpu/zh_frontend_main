@@ -106,9 +106,21 @@
   },
   "FacultyPage": {
     "title": "Faculties",
+    "sub_title": "Faculty",
+    "nav": {
+      "home": "Home",
+      "programs": "Programs",
+      "projects": "Projects",
+      "departments": "Departments",
+      "personals": "Personals",
+      "publics": "Publications",
+      "about": "About",
+      "contact": "Contact"
+    },
     "detail": {
       "cafedra": {
         "head": "Departments",
+        "sub_title": "Department",
         "link": "View more details"
       },
       "projects": {

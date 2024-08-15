@@ -2,11 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 
 export default function FacultyNavbar({ slug }: { slug: string }) {
     const currentLocal = useLocale();
+    const t = useTranslations("FacultyPage");
     const pathname = usePathname();
     
     return (
@@ -19,7 +20,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}` && "border-b-primary"}
                 `}
                 >
-                    Басты бет
+                    {t("nav.home")}
                 </Button>
             </Link>
             <Link href={`/${currentLocal}/university/faculties/${slug}/programs`}>
@@ -30,7 +31,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}/programs` && "border-b-primary"}
                 `}
                 >
-                    Бағдарламалар
+                    {t("nav.programs")}
                 </Button>
             </Link>
             <Link href={`/${currentLocal}/university/faculties/${slug}/projects`}>
@@ -41,7 +42,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}/projects` && "border-b-primary"}
                 `}
                 >
-                    Жобалар
+                    {t("nav.projects")}
                 </Button>
             </Link>
             <Link href={"#"}>
@@ -52,7 +53,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
                 `}
                 >
-                    Кафедралар
+                    {t("nav.departments")}
                 </Button>
             </Link>
             <Link href={"#"}>
@@ -63,7 +64,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
                 `}
                 >
-                    Персоналдар
+                    {t("nav.personals")}
                 </Button>
             </Link>
             <Link href={"#"}>
@@ -74,7 +75,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
                 `}
                 >
-                    Публикациялар
+                    {t("nav.publics")}
                 </Button>
             </Link>
             <Link href={"#"}>
@@ -85,7 +86,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
                 `}
                 >
-                    Факультет жайлы
+                    {t("nav.about")}
                 </Button>
             </Link>
             <Link href={"#"}>
@@ -96,7 +97,7 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
                 `}
                 >
-                    Контакт
+                    {t("nav.contact")}
                 </Button>
             </Link>
         </div>

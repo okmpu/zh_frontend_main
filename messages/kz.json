@@ -106,9 +106,21 @@
   },
   "FacultyPage": {
     "title": "Факультеттер",
+    "sub_title": "Факультет",
+    "nav": {
+      "home": "Басты бет",
+      "programs": "Бағдарламалар",
+      "projects": "Жобалар",
+      "departments": "Кафедралар",
+      "personals": "Факультет мүшелері",
+      "publics": "Публикациялар",
+      "about": "Факультет жайлы",
+      "contact": "Контакт"
+    },
     "detail": {
       "cafedra": {
         "head": "Кафедралар",
+        "sub_title": "Кафедрасы",
         "link": "Толығырақ"
       },
       "projects": {

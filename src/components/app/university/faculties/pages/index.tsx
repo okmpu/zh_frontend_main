@@ -33,7 +33,7 @@ export default function FacultyDetailMain(
         projects: any,
         personals: any,
         news: any,
-        events: any, 
+        events: any,
         announcements: any
     }
 ) {
@@ -41,18 +41,51 @@ export default function FacultyDetailMain(
     const t = useTranslations("FacultyPage.detail");
 
     return (
-        <div className="my-10 flex items-start gap-10">
+        <div className="my-10 flex flex-col lg:flex-row items-start gap-10">
             <div className="flex-1 flex flex-col gap-4">
-                {/* Programs */}
-                <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    {programs.map((item: any) => (
-                        <div key={item.id} className="p-4 bg-primary text-secondary rounded-lg flex gap-2 justify-center items-center">
-                            {GetIcon(item.slug)}
-                            <h1 className="font-semibold text-xl">
-                                {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
-                            </h1>
-                        </div>
-                    ))}
+                {/* News */}
+                <div className="flex-1 grid gap-4">
+                    <div className="flex items-center justify-between">
+                        <h1 className="text-xl font-bold text-foreground">{t("publics.news_head")}</h1>
+
+                        <Link href={`/publics/news`}>
+                            <Button variant={"link"} className="text-base p-0 h-auto">{t("publics.link")}</Button>
+                        </Link>
+                    </div>
+
+                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+                        {news.map((item: any) => {
+                            const date = new Date(item.date_created);
+                            return (
+                                <div key={item.id} className="flex flex-col justify-between overflow-hidden rounded-lg border">
+                                    <Image src={item.poster ? item.poster : "/poster.png"}
+                                        width={1920} height={1080} alt="Image"
+                                        className="w-full"
+                                    />
+                                    <div className="px-4 py-4 grid gap-2">
+                                        <h1 className="font-semibold text-lg line-clamp-2 text-foreground">
+                                            {currentLocale === "ru" ? item.title_ru : currentLocale === "en" ? item.title_en : item.title_kk}
+                                        </h1>
+
+                                        <div className="flex items-center gap-2">
+                                            <Clock size={16} strokeWidth={1.5} />
+                                            <span>
+                                                {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
+                                                .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
+                                                .{date.getFullYear()} -
+                                                {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
+                                                :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
+                                            </span>
+                                        </div>
+
+                                        <Link href={`/publics/news/${item.id}`}>
+                                            <Button variant={"link"} className="text-base p-0 h-auto">{t("publics.link")}</Button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
 
                 {/* Departments */}
@@ -67,7 +100,7 @@ export default function FacultyDetailMain(
                         </Link>
                     </div>
 
-                    <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                         {departments.map((item: any) => (
                             <div
                                 key={item.id}
@@ -77,10 +110,10 @@ export default function FacultyDetailMain(
                                     className="rounded-full w-36 h-36 border"
                                 />
                                 <div className="text-center">
-                                    <h1 className="font-semibold text-xl text-neutral-900 dark:text-neutral-100">
+                                    <h1 className="font-semibold text-xl text-foreground">
                                         {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
                                     </h1>
-                                    <span>кафедрасы</span>
+                                    <span>{t("cafedra.sub_title")}</span>
                                 </div>
                             </div>
                         ))}
@@ -99,7 +132,7 @@ export default function FacultyDetailMain(
                         </Link>
                     </div>
 
-                    <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                         {projects.map((item: any) => {
                             const date = new Date(item.date_created)
                             return (
@@ -151,7 +184,7 @@ export default function FacultyDetailMain(
                         </Link>
                     </div>
 
-                    <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                         {personals.map((item: any) => (
                             <div
                                 key={item.id}
@@ -221,100 +254,11 @@ export default function FacultyDetailMain(
 
 
             {/* Publics */}
-            <div className="w-full max-w-sm grid gap-8">
-                {/* News */}
-                <div>
-                    <div className="flex items-center justify-between">
-                        <h1 className="font-bold text-xl text-neutral-900 dark:text-neutral-100">
-                            {t("publics.news_head")}
-                        </h1>
-                        <Link href={"#"}>
-                            <Button variant={"link"}>{t("publics.link")}</Button>
-                        </Link>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        {news.map((item: any) => {
-                            const date = new Date(item.date_created)
-
-                            return (
-                                <div
-                                    key={item.id}
-                                    className="border rounded-lg overflow-hidden flex text-foreground"
-                                >
-                                    <div className="bg-amber-500 p-6 text-secondary">
-                                        <Newspaper strokeWidth={1.5} size={28} />
-                                    </div>
-                                    <div className="flex flex-col flex-1 gap-2 py-2 px-4">
-                                        <h1 className="font-semibold text-base line-clamp-2 text-foreground">
-                                            {currentLocale === "ru" ? item.title_ru : currentLocale === "en" ? item.title_en : item.title_kk}
-                                        </h1>
-
-                                        <div className="flex items-center gap-2 text-neutral-500 text-sm">
-                                            <Clock size={16} strokeWidth={1.5} />
-                                            <span>
-                                                {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
-                                                .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
-                                                .{date.getFullYear()} -
-                                                {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
-                                                :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-
-                {/* Events */}
-                <div>
-                    <div className="flex items-center justify-between">
-                        <h1 className="font-bold text-xl text-neutral-900 dark:text-neutral-100">
-                            {t("publics.events_head")}
-                        </h1>
-                        <Link href={"#"}>
-                            <Button variant={"link"}>{t("publics.link")}</Button>
-                        </Link>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        {events.map((item: any) => {
-                            const date = new Date(item.date_created)
-
-                            return (
-                                <div
-                                    key={item.id}
-                                    className="border rounded-lg overflow-hidden flex text-foreground"
-                                >
-                                    <div className="bg-amber-500 p-6 text-secondary">
-                                        <Newspaper strokeWidth={1.5} size={28} />
-                                    </div>
-                                    <div className="flex flex-col flex-1 gap-2 py-2 px-4">
-                                        <h1 className="font-semibold text-base line-clamp-2 text-foreground">
-                                            {currentLocale === "ru" ? item.title_ru : currentLocale === "en" ? item.title_en : item.title_kk}
-                                        </h1>
-
-                                        <div className="flex items-center gap-2 text-neutral-500 text-sm">
-                                            <Clock size={16} strokeWidth={1.5} />
-                                            <span>
-                                                {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
-                                                .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
-                                                .{date.getFullYear()} -
-                                                {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
-                                                :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-
-
+            <div className="w-full grid gap-8 lg:max-w-sm">
                 {/* Announcements */}
                 <div>
                     <div className="flex items-center justify-between">
-                        <h1 className="font-bold text-xl text-neutral-900 dark:text-neutral-100">
+                        <h1 className="font-bold text-xl text-foreground">
                             {t("publics.announcements_head")}
                         </h1>
                         <Link href={"#"}>
@@ -350,6 +294,53 @@ export default function FacultyDetailMain(
                                         </div>
                                     </div>
                                 </div>
+                            )
+                        })}
+                    </div>
+                </div>
+
+                {/* Events */}
+                <div>
+                    <div className="flex items-center justify-between">
+                        <h1 className="font-bold text-xl text-foreground">
+                            {t("publics.events_head")}
+                        </h1>
+                        <Link href={"#"}>
+                            <Button variant={"link"}>{t("publics.link")}</Button>
+                        </Link>
+                    </div>
+                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2">
+                        {events.map((item: any) => {
+                            const date = new Date(item.date_created)
+
+                            return (
+                                <Link
+                                    key={item.id}
+                                    href={`/publics/all-events/${item.id}`}
+                                    className="block bg-background border rounded-lg overflow-hidden transition-all hover:bg-secondary"
+                                >
+                                    <Image
+                                        src={item.poster ? item.poster : "/card.png"} width={1080} height={1080} alt="Image"
+                                        className="w-full"
+                                    />
+
+                                    <div className="px-4 py-4 grid gap-2">
+                                        <h1 className="font-semibold text-lg line-clamp-2 text-foreground">
+                                            {currentLocale === "ru" ? item.title_ru : currentLocale === "en" ? item.title_en : item.title_kk}
+                                        </h1>
+
+                                        <div className="flex items-center gap-2 text-sm">
+                                            <Clock size={16} strokeWidth={1.5} />
+                                            <span>
+                                                {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
+                                                .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
+                                                .{date.getFullYear()} -
+                                                {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
+                                                :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </Link>
                             )
                         })}
                     </div>

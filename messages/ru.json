@@ -107,9 +107,21 @@
   },
   "FacultyPage": {
     "title": "Факультеты",
+    "sub_title": "Факультет",
+    "nav": {
+      "home": "Главная",
+      "programs": "Программы",
+      "projects": "Проекты",
+      "departments": "Кафедры",
+      "personals": "Члены факультета",
+      "publics": "Публикации",
+      "about": "О факультет",
+      "contact": "Контакт"
+    },
     "detail": {
       "cafedra": {
         "head": "Кафедры",
+        "sub_title": "Кафедра",
         "link": "Подробнее"
       },
       "projects": {
