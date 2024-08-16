@@ -123,6 +123,14 @@
         "sub_title": "Department",
         "link": "View more details"
       },
+      "programs": {
+        "head": "Programs",
+        "link": "View more details",
+        "list": {
+          "code": "Specialty cipher",
+          "name": "Name of specialty"
+        }
+      },
       "projects": {
         "head": "Projects",
         "link": "View more details"

@@ -45,23 +45,12 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     {t("nav.projects")}
                 </Button>
             </Link>
-            <Link href={"#"}>
+            <Link href={`/${currentLocal}/university/faculties/${slug}/personals`}>
                 <Button
                     variant={"ghost"}
                     className={`
                     rounded-none border-b-2 border-b-background hover:border-primary
-                    ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
-                `}
-                >
-                    {t("nav.departments")}
-                </Button>
-            </Link>
-            <Link href={"#"}>
-                <Button
-                    variant={"ghost"}
-                    className={`
-                    rounded-none border-b-2 border-b-background hover:border-primary
-                    ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
+                    ${pathname === `/${currentLocal}/university/faculties/${slug}/personals` && "border-b-primary"}
                 `}
                 >
                     {t("nav.personals")}

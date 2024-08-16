@@ -43,6 +43,29 @@ export default function FacultyDetailMain(
     return (
         <div className="my-10 flex flex-col lg:flex-row items-start gap-10">
             <div className="flex-1 flex flex-col gap-4">
+                
+                {/* Departments */}
+                <div className="flex flex-col gap-2">
+                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+                        {departments.map((item: any) => (
+                            <div
+                                key={item.id}
+                                className="h-64 border rounded-lg flex flex-col gap-2 justify-center items-center"
+                            >
+                                <Image src={faculty.image ? faculty.image : "/card.png"} width={512} height={512} alt="Image"
+                                    className="rounded-full w-36 h-36 border"
+                                />
+                                <div className="text-center">
+                                    <h1 className="font-semibold text-xl text-foreground">
+                                        {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
+                                    </h1>
+                                    <span>{t("cafedra.sub_title")}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
                 {/* News */}
                 <div className="flex-1 grid gap-4">
                     <div className="flex items-center justify-between">
@@ -85,38 +108,6 @@ export default function FacultyDetailMain(
                                 </div>
                             )
                         })}
-                    </div>
-                </div>
-
-                {/* Departments */}
-                <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
-                        <h1 className="font-bold text-xl text-foreground">
-                            {t("cafedra.head")}
-                        </h1>
-
-                        <Link href={"#"}>
-                            <Button variant={"link"}>{t("cafedra.link")}</Button>
-                        </Link>
-                    </div>
-
-                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-                        {departments.map((item: any) => (
-                            <div
-                                key={item.id}
-                                className="h-64 border rounded-lg flex flex-col gap-2 justify-center items-center"
-                            >
-                                <Image src={faculty.image ? faculty.image : "/card.png"} width={512} height={512} alt="Image"
-                                    className="rounded-full w-36 h-36 border"
-                                />
-                                <div className="text-center">
-                                    <h1 className="font-semibold text-xl text-foreground">
-                                        {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
-                                    </h1>
-                                    <span>{t("cafedra.sub_title")}</span>
-                                </div>
-                            </div>
-                        ))}
                     </div>
                 </div>
 

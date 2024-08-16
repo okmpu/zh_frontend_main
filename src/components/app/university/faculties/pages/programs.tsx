@@ -1,16 +1,17 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, } from "@/components/ui/table";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 
 export default function ProgramsFacultyDetail({ programs, }: { programs: any }) {
     const currentLocale = useLocale();
+    const t = useTranslations("FacultyPage.detail");
 
     return (
         <div className="grid gap-4 my-10">
             <div className="flex">
                 <h1 className="text-xl font-bold text-foreground">
-                    Бағдарламалар
+                    {t("programs.head")}
                 </h1>
             </div>
 
@@ -30,8 +31,8 @@ export default function ProgramsFacultyDetail({ programs, }: { programs: any }) 
                         <Table>
                             <TableHeader>
                                 <TableRow>
-                                    <TableHead>Мамандық шифрі</TableHead>
-                                    <TableHead>Мамандық атауы</TableHead>
+                                    <TableHead>{t("programs.list.code")}</TableHead>
+                                    <TableHead>{t("programs.list.name")}</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
@@ -48,8 +49,6 @@ export default function ProgramsFacultyDetail({ programs, }: { programs: any }) 
                         </Table>
                     </TabsContent>
                 ))}
-
-
             </Tabs>
         </div>
 
