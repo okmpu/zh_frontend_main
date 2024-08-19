@@ -141,10 +141,19 @@
         "link": "Подробнее"
       },
       "publics": {
+        "head": "Публикации",
         "news_head": "Новости",
         "events_head": "Мероприятия",
         "announcements_head": "Объявления",
         "link": "Подробнее"
+      },
+      "about": {
+        "head": "О факультет"
+        
+      },
+      "contact": {
+        "head": "Контакты"
+        
       }
     }
   },

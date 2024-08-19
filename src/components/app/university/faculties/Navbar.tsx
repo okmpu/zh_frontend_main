@@ -56,37 +56,26 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     {t("nav.personals")}
                 </Button>
             </Link>
-            <Link href={"#"}>
+            <Link href={`/${currentLocal}/university/faculties/${slug}/publics`}>
                 <Button
                     variant={"ghost"}
                     className={`
                     rounded-none border-b-2 border-b-background hover:border-primary
-                    ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
+                    ${pathname === `/${currentLocal}/university/faculties/${slug}/publics` && "border-b-primary"}
                 `}
                 >
                     {t("nav.publics")}
                 </Button>
             </Link>
-            <Link href={"#"}>
+            <Link href={`/${currentLocal}/university/faculties/${slug}/about`}>
                 <Button
                     variant={"ghost"}
                     className={`
                     rounded-none border-b-2 border-b-background hover:border-primary
-                    ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
+                    ${pathname === `/${currentLocal}/university/faculties/${slug}/about` && "border-b-primary"}
                 `}
                 >
                     {t("nav.about")}
-                </Button>
-            </Link>
-            <Link href={"#"}>
-                <Button
-                    variant={"ghost"}
-                    className={`
-                    rounded-none border-b-2 border-b-background hover:border-primary
-                    ${pathname === `/${currentLocal}/university/faculties/${slug}/asd` && "border-b-primary"}
-                `}
-                >
-                    {t("nav.contact")}
                 </Button>
             </Link>
         </div>

@@ -140,10 +140,17 @@
         "link": "View more details"
       },
       "publics": {
+        "head": "Publications",
         "news_head": "News",
         "events_head": "Events",
         "announcements_head": "Announcements",
         "link": "View more details"
+      },
+      "about": {
+        "head": "About faculty"
+      },
+      "contact": {
+        "head": "Contact"
       }
     }
   },

@@ -25,12 +25,11 @@ async function getFacultyDetailData({ faculty_slug, }: { faculty_slug: string, }
 // Page
 export default async function FacultyDetail({ params }: PropsData) {
     const data = await getFacultyDetailData({ faculty_slug: params.faculty_slug });
-    const { faculty, programs, departments, projects, personals, news, events, announcements } = data; 
+    const { faculty, departments, projects, personals, news, events, announcements } = data; 
 
     return (
         <FacultyDetailMain
             faculty={faculty} 
-            programs={programs}
             departments={departments}
             projects={projects}
             personals={personals}

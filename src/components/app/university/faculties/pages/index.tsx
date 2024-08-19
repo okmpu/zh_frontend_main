@@ -1,34 +1,21 @@
 "use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Atom, Clock, FlaskConical, FolderKanban, GraduationCap, Mail, Newspaper, Phone } from "lucide-react"
+import { Atom, Clock, FolderKanban, Mail, Newspaper, Phone } from "lucide-react"
 import Image from "next/image"
 import { useLocale, useTranslations } from "next-intl"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 
-function GetIcon(slug: string) {
-    if (slug === "bachelor") {
-        return <GraduationCap size={64} strokeWidth={1} />
-    } else if (slug === "magistracy") {
-        return <Atom size={64} strokeWidth={1} />
-    } else if (slug === "doctoral") {
-        return <FlaskConical size={64} strokeWidth={1} />
-    }
-}
-
-
 export default function FacultyDetailMain(
     {
         faculty,
-        programs,
         departments,
         projects,
         personals,
         news, events, announcements
     }: {
         faculty: any,
-        programs: any,
         departments: any,
         projects: any,
         personals: any,
@@ -48,9 +35,10 @@ export default function FacultyDetailMain(
                 <div className="flex flex-col gap-2">
                     <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
                         {departments.map((item: any) => (
-                            <div
+                            <Link
                                 key={item.id}
-                                className="h-64 border rounded-lg flex flex-col gap-2 justify-center items-center"
+                                href={`/university/departments/${item.slug}`}
+                                className="border p-4 rounded-lg flex flex-col gap-2 justify-center items-center transition-all hover:bg-secondary"
                             >
                                 <Image src={faculty.image ? faculty.image : "/card.png"} width={512} height={512} alt="Image"
                                     className="rounded-full w-36 h-36 border"
@@ -61,7 +49,7 @@ export default function FacultyDetailMain(
                                     </h1>
                                     <span>{t("cafedra.sub_title")}</span>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
