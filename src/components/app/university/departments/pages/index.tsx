@@ -7,16 +7,14 @@ import { useLocale, useTranslations } from "next-intl"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 
-export default function FacultyDetailMain(
+export default function MainDepartment(
     {
-        faculty,
-        departments,
+        department,
         projects,
         personals,
         news, events, announcements
     }: {
-        faculty: any,
-        departments: any,
+        department: any,
         projects: any,
         personals: any,
         news: any,
@@ -30,36 +28,12 @@ export default function FacultyDetailMain(
     return (
         <div className="my-10 flex flex-col lg:flex-row items-start gap-10">
             <div className="flex-1 flex flex-col gap-4">
-                
-                {/* Departments */}
-                <div className="flex flex-col gap-2">
-                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-                        {departments.map((item: any) => (
-                            <Link
-                                key={item.id}
-                                href={`/university/departments/${item.slug}`}
-                                className="border p-4 rounded-lg flex flex-col gap-2 justify-center items-center transition-all hover:bg-secondary"
-                            >
-                                <Image src={faculty.image ? faculty.image : "/card.png"} width={512} height={512} alt="Image"
-                                    className="rounded-full w-36 h-36 border"
-                                />
-                                <div className="text-center">
-                                    <h1 className="font-semibold text-xl text-foreground">
-                                        {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
-                                    </h1>
-                                    <span>{t("cafedra.sub_title")}</span>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-
                 {/* News */}
                 <div className="flex-1 grid gap-4">
                     <div className="flex items-center justify-between">
                         <h1 className="text-xl font-bold text-foreground">{t("publics.news_head")}</h1>
 
-                        <Link href={`/university/faculties/${faculty.slug}/publics`}>
+                        <Link href={`/university/departments/${department.slug}/publics`}>
                             <Button variant={"link"} className="text-base p-0 h-auto">{t("publics.link")}</Button>
                         </Link>
                     </div>
@@ -106,7 +80,7 @@ export default function FacultyDetailMain(
                             {t("projects.head")}
                         </h1>
 
-                        <Link href={`/university/faculties/${faculty.slug}/projects`}>
+                        <Link href={`/university/departments/${department.slug}/projects`}>
                             <Button variant={"link"}>{t("projects.link")}</Button>
                         </Link>
                     </div>
@@ -158,7 +132,7 @@ export default function FacultyDetailMain(
                             {t("personals.head")}
                         </h1>
 
-                        <Link href={`/university/faculties/${faculty.slug}/personals`}>
+                        <Link href={`/university/departments/${department.slug}/personals`}>
                             <Button variant={"link"}>{t("personals.link")}</Button>
                         </Link>
                     </div>
@@ -240,7 +214,7 @@ export default function FacultyDetailMain(
                         <h1 className="font-bold text-xl text-foreground">
                             {t("publics.announcements_head")}
                         </h1>
-                        <Link href={`/university/faculties/${faculty.slug}/publics`}>
+                        <Link href={`/university/departments/${department.slug}/publics`}>
                             <Button variant={"link"}>{t("publics.link")}</Button>
                         </Link>
                     </div>
@@ -284,7 +258,7 @@ export default function FacultyDetailMain(
                         <h1 className="font-bold text-xl text-foreground">
                             {t("publics.events_head")}
                         </h1>
-                        <Link href={`/university/faculties/${faculty.slug}/publics`}>
+                        <Link href={`/university/departments/${department.slug}/publics`}>
                             <Button variant={"link"}>{t("publics.link")}</Button>
                         </Link>
                     </div>

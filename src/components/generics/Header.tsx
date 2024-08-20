@@ -36,11 +36,11 @@ export default function Header({ categories, }: { categories: any }) {
 
                 <div 
                     style={{ backgroundImage: "url('/blockquot.png')" }}
-                    className="max-w-md w-full h-20 overflow-hidden rounded-lg hidden lg:block"
+                    className="max-w-lg w-full h-28 overflow-hidden rounded-lg hidden lg:block"
                 >
                     <Image 
                         src={"/blockquot.png"} width={1920} height={480} alt="Image" 
-                        className="w-full"
+                        className="w-full h-full"
                     />
                 </div>
                 
