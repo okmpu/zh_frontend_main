@@ -1,4 +1,4 @@
-import {Pathnames, LocalePrefix} from 'next-intl/routing';
+import { Pathnames, LocalePrefix } from 'next-intl/routing';
 
 
 export const defaultLocale = 'kz' as const;
