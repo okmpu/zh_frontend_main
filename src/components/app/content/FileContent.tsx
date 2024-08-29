@@ -11,8 +11,8 @@ export default function FileContent({ head, content }: { head: any, content: any
         <div className="flex justify-between items-center border rounded-md py-2 px-4">
             <div className="flex gap-2 items-center">
                 <FileText size={32} strokeWidth={1.5} />
-                <div>
-                    <h1 className="text-foreground text-xl font-semibold">
+                <div className="flex-1 max-w-screen-md">
+                    <h1 className="text-foreground text-xl font-semibold line-clamp-1">
                         {currentLocale === "ru" ? content.caption_ru : currentLocale === "en" ? content.caption_en : content.caption_kk}
                     </h1>
                     <span>
@@ -21,7 +21,7 @@ export default function FileContent({ head, content }: { head: any, content: any
                 </div>
             </div>
             
-            <div>
+            <div className="grid grid-cols-2">
                 <Dialog>
                     <DialogTrigger asChild>
                         <Button variant={"ghost"} className="px-3">

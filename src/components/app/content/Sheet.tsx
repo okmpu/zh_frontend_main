@@ -65,7 +65,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                                     <Button
                                                                         variant={"ghost"}
                                                                         className={`
-                                                                            w-full text-base justify-beetween whitespace-normal hover:text-primary
+                                                                            w-full text-base justify-start whitespace-normal hover:text-primary
                                                                             ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}` && "bg-secondary text-primary"}
                                                                         `}
                                                                     >
