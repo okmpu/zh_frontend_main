@@ -89,6 +89,12 @@
       }
     }
   },
+  "Programs": {
+    "head": {
+      "code": "Cipher number",
+      "name": "Title"
+    }
+  },
   "Publics": {
     "news": {
       "title": "News",

@@ -19,7 +19,7 @@ type Props = {
 
 
 export const metadata: Metadata = {
-    title: 'Zhanibekov university',
+    title: 'Басты бет - Zhanibekov university',
     description: 'Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті',
 }
 

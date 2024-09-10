@@ -11,7 +11,6 @@ export default function PersonalsFaculty({ personals }: { personals: any }) {
     const currentLocale = useLocale();
     const t = useTranslations("FacultyPage.detail");
 
-
     return (
         <div className="grid gap-4 my-10">
             <div className="flex">
@@ -46,7 +45,7 @@ export default function PersonalsFaculty({ personals }: { personals: any }) {
 
                                     <div className="text-center">
                                         <h1 className="text-foreground text-base font-semibold">
-                                            {personal.user.first_name + " " + personal.user.last_name}
+                                            {currentLocale === "ru" ? personal.full_name_ru : currentLocale === "en" ? personal.full_name_en : personal.full_name_kk}
                                         </h1>
                                         <span>
                                             {currentLocale === "ru" ? personal.profession_ru : currentLocale === "en" ? personal.profession_en : personal.profession_kk}
@@ -69,7 +68,7 @@ export default function PersonalsFaculty({ personals }: { personals: any }) {
                                                 />
                                                 <div className="grid gap-2 border-b pb-4">
                                                     <h1 className="text-xl font-bold text-foreground">
-                                                        {personal.user.first_name + " " + personal.user.last_name}
+                                                        {currentLocale === "ru" ? personal.full_name_ru : currentLocale === "en" ? personal.full_name_en : personal.full_name_kk}
                                                     </h1>
                                                     <span>
                                                         {currentLocale === "ru" ? personal.profession_ru : currentLocale === "en" ? personal.profession_en : personal.profession_kk}

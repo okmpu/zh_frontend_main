@@ -150,7 +150,7 @@ export default function MainDepartment(
 
                                 <div className="text-center">
                                     <h1 className="text-foreground text-base font-semibold">
-                                        {item.user.first_name + " " + item.user.last_name}
+                                        {currentLocale === "ru" ? item.full_name_ru : currentLocale === "en" ? item.full_name_en : item.full_name_kk}
                                     </h1>
                                     <span>
                                         {currentLocale === "ru" ? item.profession_ru : currentLocale === "en" ? item.profession_en : item.profession_kk}
@@ -173,7 +173,7 @@ export default function MainDepartment(
                                             />
                                             <div className="grid gap-2 border-b pb-4">
                                                 <h1 className="text-xl font-bold text-foreground">
-                                                    {item.user.first_name + " " + item.user.last_name}
+                                                    {currentLocale === "ru" ? item.full_name_ru : currentLocale === "en" ? item.full_name_en : item.full_name_kk}
                                                 </h1>
                                                 <span>
                                                     {currentLocale === "ru" ? item.profession_ru : currentLocale === "en" ? item.profession_en : item.profession_kk}
