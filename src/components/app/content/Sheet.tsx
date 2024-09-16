@@ -65,7 +65,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                                     <Button
                                                                         variant={"ghost"}
                                                                         className={`
-                                                                            w-full text-base justify-start whitespace-normal hover:text-primary
+                                                                            w-full h-auto text-left justify-start text-base whitespace-normal hover:text-primary
                                                                             ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}` && "bg-secondary text-primary"}
                                                                         `}
                                                                     >
@@ -95,7 +95,7 @@ export default function SidebarSheet({ category, sub_categories, contents }: { c
                                                 <Button
                                                     variant={"ghost"}
                                                     className={`
-                                                        w-full text-base justify-between whitespace-normal text-left h-auto hover:text-primary
+                                                        w-full h-auto text-base justify-between whitespace-normal text-left hover:text-primary
                                                         ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${section.slug}` && "bg-secondary text-primary"}
                                                     `}
                                                 >

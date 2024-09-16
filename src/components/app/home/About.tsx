@@ -1,4 +1,5 @@
 "use client"
+import NumberTicker from "@/components/magicui/number-ticker";
 import { Button } from "@/components/ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
@@ -86,7 +87,9 @@ export default function About() {
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                     {reports.map((report: any) => (
                         <div key={report.id} className="bg-primary p-4 rounded-lg text-center">
-                            <h1 className="text-4xl font-bold text-secondary">{report.count}</h1>
+                            <div className="text-4xl font-bold">
+                                <NumberTicker value={report.count} className="text-secondary" />
+                            </div>
                             <span className="text-secondary">{currentLocal === "ru" ? report.name_ru : currentLocal === "en" ? report.name_en : report.name}</span>
                         </div>
                     ))}

@@ -51,7 +51,7 @@ export default function ContentSidebar({ category, sub_categories, contents }: {
                                                             <Button
                                                                 variant={"ghost"}
                                                                 className={`
-                                                                    justify-between w-full text-left whitespace-normal text-base hover:text-primary
+                                                                    justify-between w-full h-auto text-left whitespace-normal text-base hover:text-primary
                                                                     ${pathname === `/${currentLocale}/content/${category.slug}/${sub_category.slug}/${section.slug}/${content.slug}` && "bg-secondary text-primary"}
                                                                 `}
                                                             >

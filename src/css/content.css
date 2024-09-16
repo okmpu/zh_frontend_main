@@ -2,6 +2,11 @@
     text-align: justify;
 }
 
+#text-content table * {
+    border-width: 1px;
+    padding: 6px;
+}
+
 #text-content a {
     color: hsl(var(--primary));
 }
