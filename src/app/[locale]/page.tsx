@@ -11,19 +11,39 @@ import { Metadata } from "next";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 
-type Props = {
+type HomProps = {
     params: {
         locale: string
     }
 }
 
 
-export const metadata: Metadata = {
-    title: 'Басты бет - Zhanibekov university',
-    description: 'Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті',
+// Metadata
+export async function generateMetadata({ params, }: HomProps): Promise<Metadata> {
+    const currentLocale = params.locale;
+
+    return {
+        title: 
+            currentLocale === "ru" ? 
+                "Главная - Zhanibekov university" 
+            : currentLocale === "en" ? 
+                "Home page - Zhanibekov university" 
+            : 
+                "Басты бет - Zhanibekov university"
+            ,
+        description: 
+            currentLocale === "ru" ?
+                "Южно-Казахстанский педагогический университет имени У. Жанибекова"
+            : currentLocale === "en" ?
+                "South Kazakhstan Pedagogical University named after U. Zhanibekov"
+            :    
+                "Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті"
+            ,
+    }
 }
 
 
+// Actions
 async function getMainData() {
     const res = await fetch(`${process.env.BACKEND_URL}/api/main/`, { cache: "no-store" })
 
@@ -34,10 +54,11 @@ async function getMainData() {
 }
 
 
-export default async function Home({ params: { locale } }: Props) {
+// Page
+export default async function Home({ params: { locale } }: HomProps) {
     unstable_setRequestLocale(locale);
     const data = await getMainData();
-    const { 
+    const {
         headliners, 
         programs, 
         academics,
