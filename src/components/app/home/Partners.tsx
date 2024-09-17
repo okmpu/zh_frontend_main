@@ -4,50 +4,8 @@ import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
 import Link from "next/link"
 
-const partners = [
-    {
-        id: 1,
-        link: "https://qazaqstanhalqyna.kz",
-        image: "/partner-1.png"
-    },
-    {
-        id: 2,
-        link: "https://atau.kz",
-        image: "/partner-2.png"
-    },
-    {
-        id: 3,
-        link: "https://tilmedia.kz",
-        image: "/partner-3.png"
-    },    
-    {
-        id: 4,
-        link: "https://qujat.kz",
-        image: "/partner-4.jpg"
-    },    
-    {
-        id: 5,
-        link: "https://qazcorpora.kz",
-        image: "/partner-5.jpg"
-    },
-    {
-        id: 6,
-        link: "https://sozdikqor.kz",
-        image: "/partner-6.jpg"
-    },
-    {
-        id: 7,
-        link: "https://termincom.kz",
-        image: "/partner-7.jpg"
-    },
-    {
-        id: 8,
-        link: "https://emle.kz",
-        image: "/partner-8.png"
-    },
-]
 
-export default function Partners() {
+export default function Partners({ partners, }: { partners: any}) {
     const currentLocale = useLocale();
     const t = useTranslations("HomePage");
     
@@ -69,14 +27,14 @@ export default function Partners() {
                     className="w-full mx-auto max-w-64 sm:max-w-lg md:max-w-xl lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl"
                 >
                     <CarouselContent>
-                        {partners.map((partner: any) => (
-                            <CarouselItem key={partner.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5">
+                        {partners.map((item: any) => (
+                            <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 2xl:basis-1/5">
                                 <Link 
-                                    href={partner.link}
+                                    href={item.url}
                                     target="_blank"
                                     className="border rounded-lg overflow-hidden block h-40">
                                     <Image 
-                                        src={partner.image} width={1920} height={1080} alt="Image"
+                                        src={item.poster} width={1920} height={1080} alt="Image"
                                         className="w-full"
                                     />
                                 </Link>

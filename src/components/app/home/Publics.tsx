@@ -68,7 +68,11 @@ export default function Publics({ news, announcements }: { news: any, announceme
                         {news.map((item: any) => {
                             const date = new Date(item.date_created);
                             return (
-                                <div key={item.id} className="flex flex-col justify-between overflow-hidden rounded-lg border">
+                                <Link 
+                                    key={item.id}
+                                    href={`/publics/news/${item.id}`}
+                                    className="flex flex-col justify-between overflow-hidden rounded-lg border transition-all hover:bg-secondary"
+                                >
                                     <Image src={item.poster ? item.poster : "/poster.png"}
                                         width={1920} height={1080} alt="Image"
                                         className="w-full"
@@ -88,12 +92,8 @@ export default function Publics({ news, announcements }: { news: any, announceme
                                                 :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
                                             </span>
                                         </div>
-
-                                        <Link href={`/publics/news/${item.id}`}>
-                                            <Button variant={"link"} className="text-base p-0 h-auto">{t("publics.link")}</Button>
-                                        </Link>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         })}
                     </div>
