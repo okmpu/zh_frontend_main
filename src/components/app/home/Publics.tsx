@@ -12,9 +12,9 @@ export default function Publics({ news, announcements }: { news: any, announceme
 
     return (
         <div className="border-t">
-            <div className="container flex flex-col md:flex-row items-start gap-10 mx-auto py-10">
+            <div className="container flex flex-col lg:flex-row items-start gap-10 mx-auto py-10">
                 {/* Announcements */}
-                <div className="max-w-md w-full grid gap-4">
+                <div className="w-full lg:max-w-md grid gap-4">
                     <h1 className="text-xl font-bold text-foreground">{t("publics.tabs.announcements")}</h1>
 
                     <div className="grid gap-2">
@@ -64,7 +64,7 @@ export default function Publics({ news, announcements }: { news: any, announceme
                         </Link>
                     </div>
                     
-                    <div className="grid gap-2 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+                    <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                         {news.map((item: any) => {
                             const date = new Date(item.date_created);
                             return (

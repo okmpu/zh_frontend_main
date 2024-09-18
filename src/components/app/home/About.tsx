@@ -68,7 +68,7 @@ export default function About() {
                         <div className="text-justify">
                             {t("about.content.body")}
                         </div>
-                        <Link href={"/content/university/about-us/history/history"}>
+                        <Link href={"/content/university/about-us/get-started/get-started"}>
                             <Button variant={"link"} className="px-0 h-auto text-base">
                                 {t("about.link")}
                             </Button>

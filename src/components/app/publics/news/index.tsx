@@ -16,7 +16,11 @@ export default function AllNews({ news, }: { news: any }) {
                 const date = new Date(item.date_created);
 
                 return (
-                    <div key={item.id} className="flex flex-col justify-between overflow-hidden rounded-lg border">
+                    <Link
+                        href={`/publics/news/${item.id}`}
+                        key={item.id} 
+                        className="flex flex-col justify-between overflow-hidden rounded-lg border transition-all hover:bg-secondary"
+                    >
                         <Image src={item.poster ? item.poster : "/poster.png"}
                             width={1920} height={1080} alt="Image"
                             className="w-full"
@@ -36,12 +40,8 @@ export default function AllNews({ news, }: { news: any }) {
                                     :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
                                 </span>
                             </div>
-
-                            <Link href={`/publics/news/${item.id}`}>
-                                <Button variant={"link"} className="p-0 h-auto text-base">{t("news.link")}</Button>
-                            </Link>
                         </div>
-                    </div>
+                    </Link>
                 )
             })}
         </div>

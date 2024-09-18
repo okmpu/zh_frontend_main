@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 
 
 // Types
-type PropsData = {
+type AdmissionPropsData = {
     params: {
         program_slug: string
     }
@@ -16,7 +16,7 @@ type PropsData = {
 
 
 // Metadata
-export async function generateMetadata({ params, }: PropsData): Promise<Metadata> {
+export async function generateMetadata({ params, }: AdmissionPropsData): Promise<Metadata> {
     const program_slug = params.program_slug;
     const locale = await getLocale();
 
@@ -51,7 +51,7 @@ async function getProgramData({ program_slug, }: { program_slug: string, }) {
 
 
 
-export default async function Admission({ params, }: PropsData) {
+export default async function Admission({ params, }: AdmissionPropsData) {
     const data = await getProgramData(params);
     const currentLocale = await getLocale();
     const t = await getTranslations("Programs");
@@ -75,7 +75,7 @@ export default async function Admission({ params, }: PropsData) {
                     </div>
                 </div>
 
-                <Table>
+                <Table className="text-base">
                     <TableHeader>
                         <TableRow>
                             <TableHead>{t("head.code")}</TableHead>
@@ -84,7 +84,7 @@ export default async function Admission({ params, }: PropsData) {
                     </TableHeader>
                     <TableBody>
                         {program.program_items.map((item: any) => (
-                            <TableRow key={item.id}>
+                            <TableRow key={item.id} >
                                 <TableCell className="font-medium">{item.code}</TableCell>
                                 <TableCell>
                                     {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
@@ -97,8 +97,7 @@ export default async function Admission({ params, }: PropsData) {
                 <div className="flex items-center flex-col md:flex-row gap-2 border rounded-lg p-4 bg-secondary">
                     <Info size={20} strokeWidth={1.5} className="text-primary" />
                     <span className="flex-1">
-                        Білім беру бағдарламалар, емтихан күндері, қабылдау және оқуға түсуге қажетті 
-                        құжаттар жайлы біздің талапкер сайтынан біле аласыздар:
+                        {t("link_text")}
                     </span>
                     <Link href={"https://talapker.okmpu.edu.kz/"} target="_blank">
                         <Button variant={"link"} className="px-0">talapker.okmpu.edu.kz</Button>

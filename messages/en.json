@@ -45,7 +45,6 @@
         "news": "News",
         "announcements": "Announcements"
       },
-      "link": "View more details",
       "showAll": "View all"
     },
     "events": {
@@ -93,7 +92,8 @@
     "head": {
       "code": "Cipher number",
       "name": "Title"
-    }
+    },
+    "link_text": "You can find out about educational programs, exam dates, admission and documents required for admission on the website of our applicant:"
   },
   "Publics": {
     "news": {
