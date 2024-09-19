@@ -13,7 +13,7 @@ export default function Footer({ academics, }: { academics: any }) {
     return (
         <footer className="border-t-8 border-amber-500">
             <div className="container mx-auto">
-                <div className="pt-8 pb-4 flex gap-8 flex-col lg:flex-row">
+                <div className="pt-8 pb-4 flex gap-8 flex-col xl:flex-row">
                     <div className="relative">
                         <Link href={"/"} className="min-w-32">
                             <Image
@@ -55,7 +55,7 @@ export default function Footer({ academics, }: { academics: any }) {
                                 {footerLinks.map(item => (
                                     <li key={item.id}>
                                         <Link href={item.src}>
-                                            <Button variant={"link"} className="text-base text-neutral-500">
+                                            <Button variant={"link"} className="text-base text-left whitespace-normal text-neutral-500">
                                                 {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
                                             </Button>
                                         </Link>
@@ -71,7 +71,7 @@ export default function Footer({ academics, }: { academics: any }) {
                                 {academics.map((item: any) => (
                                     <li key={item.id}>
                                         <Link href={`/university/faculties/${item.slug}`}>
-                                            <Button variant={"link"} className="text-base text-neutral-500">
+                                            <Button variant={"link"} className="text-base text-left whitespace-normal text-neutral-500">
                                                 {currentLocal === "ru" ? item.name_ru : currentLocal === "en" ? item.name_en : item.name_kk}
                                             </Button>
                                         </Link>
@@ -87,7 +87,7 @@ export default function Footer({ academics, }: { academics: any }) {
                                 {resourceLinks.map(item => (
                                     <li key={item.id}>
                                         <Link href={item.src}>
-                                            <Button variant={"link"} className="text-base text-neutral-500">
+                                            <Button variant={"link"} className="text-base text-left whitespace-normal text-neutral-500">
                                                 {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
                                             </Button>
                                         </Link>
@@ -103,7 +103,7 @@ export default function Footer({ academics, }: { academics: any }) {
                                 {legacyLinks.map(item => (
                                     <li key={item.id}>
                                             <Link href={item.src}>
-                                                <Button variant={"link"} className="text-base text-neutral-500">
+                                                <Button variant={"link"} className="text-base text-left whitespace-normal text-neutral-500">
                                                     {currentLocal === "ru" ? item.label_ru : currentLocal === "en" ? item.label_en : item.label}
                                                 </Button>
                                             </Link>
