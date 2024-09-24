@@ -76,7 +76,7 @@ export default async function Home({ params: { locale } }: HomProps) {
             <OurProgramms programs={programs} />
 
             {/* Publics */}
-            <Publics news={news} announcements={announcements} />
+            {news.length > 0 && <Publics news={news} announcements={announcements} />}
 
             {/* Events */}
             {events.length > 0 && <Events events={events} />}
@@ -91,7 +91,7 @@ export default async function Home({ params: { locale } }: HomProps) {
             <AcademicEducation academics={academics} />
 
             {/* Partners */}
-            {partners.length > 0 && <Partners partners={partners} />}
+            <Partners partners={partners} />
 
             {/* Contact */}
             <Contact />

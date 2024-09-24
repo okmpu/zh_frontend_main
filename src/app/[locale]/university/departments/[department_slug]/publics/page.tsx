@@ -2,7 +2,7 @@ import PublicsDepartment from "@/components/app/university/departments/pages/pub
 
 
 // types
-type PropsData = {
+type PublicsPropsData = {
     params: {
         department_slug: string
     }
@@ -22,7 +22,7 @@ async function getDepartmentPublicsData({ department_slug, }: { department_slug:
 }
 
 
-export default async function DepartmentPublics({ params }: PropsData) {
+export default async function DepartmentPublics({ params }: PublicsPropsData) {
     const data = await getDepartmentPublicsData(params);
     const { news, events, announcements } = data;
 

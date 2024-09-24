@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 export default function ProgramsDepartment({ programs, }: { programs: any }) {
     const currentLocale = useLocale();
-    const t = useTranslations("FacultyPage.detail");
+    const t = useTranslations("DepartmentPage.detail");
 
     return (
         <div className="grid gap-4 my-10">

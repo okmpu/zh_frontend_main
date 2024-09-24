@@ -8,6 +8,16 @@
     },
     "resources": {
       "title": "Resources"
+    },
+    "settings": {
+      "search": "Quick search",
+      "ln": "Choose a language",
+      "theme": {
+        "title": "Personalization",
+        "system": "System",
+        "dark": "Dark",
+        "light": "Light"
+      }
     }
   },
   "Footer": {
@@ -157,6 +167,57 @@
       },
       "contact": {
         "head": "Contact"
+      },
+      "no-public": {
+        "title": "Faculty public",
+        "content": "Publications on the faculty"
+      }
+    }
+  },
+  "DepartmentPage": {
+    "sub_title": "Department",
+    "nav": {
+      "home": "Home",
+      "programs": "Programs",
+      "projects": "Projects",
+      "personals": "Department members",
+      "publics": "Publications",
+      "about": "About department",
+      "contact": "Contact"
+    },
+    "detail": {
+      "programs": {
+        "head": "Programs",
+        "link": "View more details",
+        "list": {
+          "code": "Specialty cipher",
+          "name": "Name of specialty"
+        }
+      },
+      "projects": {
+        "head": "Projects",
+        "link": "View more details"
+      },
+      "personals": {
+        "head": "Department members",
+        "link": "View more details"
+      },
+      "publics": {
+        "head": "Publications",
+        "news_head": "News",
+        "events_head": "Events",
+        "announcements_head": "Announcements",
+        "link": "View more details"
+      },
+      "about": {
+        "head": "About department"
+      },
+      "contact": {
+        "head": "Contact"
+      },
+      "no-public": {
+        "title": "Department public",
+        "content": "Publications on the department"
       }
     }
   },

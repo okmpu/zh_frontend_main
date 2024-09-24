@@ -4,15 +4,35 @@ import Image from "next/image"
 import Link from "next/link"
 
 
-type Props = {
+type FacultyProps = {
     params: {
         locale: string
     }
 }
 
-export const metadata: Metadata = {
-    title: 'Факультеттер - Zhanibekov university',
-    description: 'Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті',
+
+// Metadata
+export async function generateMetadata({ params, }: FacultyProps): Promise<Metadata> {
+    const currentLocale = params.locale;
+
+    return {
+        title:
+            currentLocale === "ru" ?
+                "Факультеты - Zhanibekov university"
+                : currentLocale === "en" ?
+                    "Faculties - Zhanibekov university"
+                    :
+                    "Факультеттер - Zhanibekov university"
+        ,
+        description:
+            currentLocale === "ru" ?
+                "Южно-Казахстанский педагогический университет имени У. Жанибекова"
+                : currentLocale === "en" ?
+                    "South Kazakhstan Pedagogical University named after U. Zhanibekov"
+                    :
+                    "Ө.Жәнібеков атындағы Оңтүстік Қазақстан педагогикалық университеті"
+        ,
+    }
 }
 
 
@@ -26,19 +46,19 @@ async function getFacultiesData() {
 }
 
 
-export default async function Faculties({ params: { locale } }: Props) {
+export default async function Faculties({ params: { locale } }: FacultyProps) {
     unstable_setRequestLocale(locale);
     const currentLocale = await getLocale();
     const t = await getTranslations("FacultyPage");
     const data = await getFacultiesData();
     const { faculties } = data;
-    
+
     return (
         <div>
             <div className="container flex flex-col gap-10 mx-auto py-10">
-                
+
                 <div className="flex flex-col gap-4 border-b pb-10">
-                    <h1 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
+                    <h1 className="text-xl font-bold text-foreground">
                         {t("title")}
                     </h1>
 
@@ -57,7 +77,7 @@ export default async function Faculties({ params: { locale } }: Props) {
 
                                 </div>
                                 <div className="grid gap-4 text-center">
-                                    <h1 className="text-center font-semibold text-xl text-neutral-900 dark:text-neutral-100">
+                                    <h1 className="text-center font-semibold text-xl text-foreground">
                                         {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
                                     </h1>
                                 </div>

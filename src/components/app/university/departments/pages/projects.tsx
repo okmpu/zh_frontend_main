@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ProjectsDepartment({ projects }: { projects: any }) {
     const currentLocale = useLocale();
-    const t = useTranslations("FacultyPage.detail");
+    const t = useTranslations("DepartmentPage.detail");
 
     return (
         <div className="grid gap-4 my-10">

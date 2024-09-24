@@ -2,7 +2,7 @@ import ProgramFacultyDetail from "@/components/app/university/faculties/pages/pr
 
 
 // types
-type PropsData = {
+type ProgramsPropsData = {
     params: {
         faculty_slug: string
     }
@@ -23,7 +23,7 @@ async function getFacultyProgramsData({ faculty_slug, }: { faculty_slug: string,
 
 
 // Page
-export default async function FacultyPrograms({ params, }: PropsData) {
+export default async function FacultyPrograms({ params, }: ProgramsPropsData) {
     const data = await getFacultyProgramsData(params);
     const { programs } = data;
 

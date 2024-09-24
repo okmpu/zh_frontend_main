@@ -1,7 +1,7 @@
 import PersonalsDepartment from "@/components/app/university/departments/pages/personals";
 
 // types
-type PropsData = {
+type PersonalsPropsData = {
     params: {
         department_slug: string
     }
@@ -21,7 +21,7 @@ async function getDepartmentPersonalsData({ department_slug, }: { department_slu
 }
 
 
-export default async function DepartmentProjects({ params }: PropsData) {
+export default async function DepartmentProjects({ params }: PersonalsPropsData) {
     const data = await getDepartmentPersonalsData(params);
 
     return (

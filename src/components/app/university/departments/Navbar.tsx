@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 export default function DepartmentNavbar({ slug }: { slug: string }) {
     const currentLocale = useLocale();
-    const t = useTranslations("FacultyPage");
+    const t = useTranslations("DepartmentPage");
     const pathname = usePathname();
     
     return (

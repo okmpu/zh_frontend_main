@@ -57,7 +57,7 @@ export default async function FacultyLayout({ children, params }: PropsData) {
         <div className="container mx-auto">
             <FacultyHead faculty={faculty} />
             <FacultyNavbar slug={params.faculty_slug} />
-            
+
             <section>
                 {children}
             </section>

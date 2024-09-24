@@ -56,7 +56,7 @@ export default function PersonalsFaculty({ personals }: { personals: any }) {
                                         <DialogTrigger asChild>
                                             <Button variant={"secondary"} className="w-full flex">{t("personals.link")}</Button>
                                         </DialogTrigger>
-                                        <DialogContent className="flex flex-col max-w-2xl">
+                                        <DialogContent className="flex flex-col max-w-screen-xl h-screen overflow-auto xl:h-[90%] 2xl:h-auto">
                                             <DialogHeader>
                                                 <DialogTitle></DialogTitle>
                                                 <DialogDescription></DialogDescription>
@@ -88,7 +88,7 @@ export default function PersonalsFaculty({ personals }: { personals: any }) {
                                                         }
                                                     </div>
                                                 </div>
-                                                <div>
+                                                <div className="text-justify">
                                                     {currentLocale === "ru" ? personal.about_ru : currentLocale === "en" ? personal.about_en : personal.about_kk}
                                                 </div>
                                             </div>

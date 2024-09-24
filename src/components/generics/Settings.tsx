@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 import { Languages, LaptopMinimal, Moon, Search, Sun } from "lucide-react";
 import { useTheme } from "next-themes"
 import { usePathname, useRouter } from "@/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { locales } from "@/data/links";
 
 
@@ -15,7 +15,8 @@ export default function Settings() {
     const router = useRouter();
     const currentLocal = useLocale();
     const pathname = usePathname();
-    
+    const t = useTranslations("Header.settings");
+
     function onSelectLanguage(event: any) {
         const nextLocale = event.target.id;
         router.replace(
@@ -35,7 +36,7 @@ export default function Settings() {
                 </DialogTrigger>
                 <DialogContent>
                     <DialogHeader>
-                        <DialogTitle className="text-foreground">Жылдам іздеу</DialogTitle>
+                        <DialogTitle className="text-foreground">{t("search")}</DialogTitle>
                         <DialogDescription className="py-4 relative">
                             <Search size={20} strokeWidth={1.5} className="absolute top-6 left-3" />
                             <Input placeholder="Не іздедіңіз?" className="pl-10" />
@@ -52,7 +53,7 @@ export default function Settings() {
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                    <DropdownMenuLabel className="text-base">Тілді таңдау</DropdownMenuLabel>
+                    <DropdownMenuLabel className="text-base">{t("ln")}</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     {locales.map(local => 
                         <DropdownMenuCheckboxItem 
@@ -76,28 +77,28 @@ export default function Settings() {
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                    <DropdownMenuLabel className="text-base">Персонализация</DropdownMenuLabel>
+                    <DropdownMenuLabel className="text-base">{t("theme.title")}</DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem
                         onClick={() => setTheme("system")}
                         className="flex gap-2 text-base text-neutral-500"
                     >
                         <LaptopMinimal size={20} strokeWidth={1.5} />
-                        <span>Жүйелік</span>
+                        <span>{t("theme.system")}</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() => setTheme("light")}
                         className="flex gap-2 text-base text-neutral-500"
                     >
                         <Sun size={20} strokeWidth={1.5} />
-                        <span>Күн</span>
+                        <span>{t("theme.light")}</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem
                         onClick={() => setTheme("dark")}
                         className="flex gap-2 text-base text-neutral-500"
                     >
                         <Moon size={20} strokeWidth={1.5} />
-                        <span>Түн</span>
+                        <span>{t("theme.dark")}</span>
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>

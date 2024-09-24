@@ -2,7 +2,7 @@ import { useLocale, useTranslations } from "next-intl"
 
 
 export default function AboutDepartment({ about, }: { about: any }) {
-    const t = useTranslations("FacultyPage.detail");
+    const t = useTranslations("DepartmentPage.detail");
     const currentLocale = useLocale();
 
     return (

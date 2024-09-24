@@ -12,7 +12,6 @@ export default function Navbar({ categories }: { categories: any }) {
     const pathname = usePathname();
     const t = useTranslations("Header");
 
-
     return (
         <nav className="border-b sticky top-0 z-50 backdrop-blur-lg bg-background/70 hidden lg:block">
             <div className="container mx-auto flex justify-center items-center">

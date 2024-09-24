@@ -9,7 +9,7 @@ import { Mail, Phone } from "lucide-react";
 
 export default function PersonalsDepartment({ personals }: { personals: any }) {
     const currentLocale = useLocale();
-    const t = useTranslations("FacultyPage.detail");
+    const t = useTranslations("DepartmentPage.detail");
 
 
     return (
@@ -57,7 +57,7 @@ export default function PersonalsDepartment({ personals }: { personals: any }) {
                                         <DialogTrigger asChild>
                                             <Button variant={"secondary"} className="w-full flex">{t("personals.link")}</Button>
                                         </DialogTrigger>
-                                        <DialogContent className="flex flex-col max-w-2xl">
+                                        <DialogContent className="flex flex-col max-w-screen-xl h-screen overflow-auto xl:h-[90%] 2xl:h-auto">
                                             <DialogHeader>
                                                 <DialogTitle></DialogTitle>
                                                 <DialogDescription></DialogDescription>

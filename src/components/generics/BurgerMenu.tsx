@@ -42,7 +42,7 @@ export default function BurgerMenu({ resourceLinks, categories }: { resourceLink
                     </SheetHeader>
 
                     <div className="grid">
-                        <h1 className="text-xl font-semibold text-foreground">{t("nav.title")}</h1>
+                        <h1 className="text-lg font-semibold text-foreground">{t("nav.title")}</h1>
                         <Accordion type="single" collapsible>
                             {categories.map((category: any) => {
                                 if (category.children.length > 0) {
