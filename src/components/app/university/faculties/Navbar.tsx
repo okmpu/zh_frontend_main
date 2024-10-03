@@ -45,6 +45,17 @@ export default function FacultyNavbar({ slug }: { slug: string }) {
                     {t("nav.projects")}
                 </Button>
             </Link>
+            <Link href={`/${currentLocal}/university/faculties/${slug}/achievements`}>
+                <Button
+                    variant={"ghost"}
+                    className={`
+                    rounded-none text-base border-b-4 border-b-background hover:border-primary
+                    ${pathname === `/${currentLocal}/university/faculties/${slug}/achievements` && "border-b-primary"}
+                `}
+                >
+                    {t("nav.achievements")}
+                </Button>
+            </Link>
             <Link href={`/${currentLocal}/university/faculties/${slug}/personals`}>
                 <Button
                     variant={"ghost"}
