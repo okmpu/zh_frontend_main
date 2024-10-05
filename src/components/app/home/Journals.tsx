@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 export default function Journals({ journals, }: {journals: any }) {
-    const currentLocal = useLocale();
+    const currentLocale = useLocale();
     const t = useTranslations("HomePage");
 
     return (

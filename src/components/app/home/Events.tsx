@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl"
 import Image from "next/image"
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Clock } from "lucide-react";
+import { Clock, UserRound } from "lucide-react";
 
 
 export default function Events({ events, }: { events: any }) {
@@ -47,15 +47,23 @@ export default function Events({ events, }: { events: any }) {
                                                 {currentLocal === "ru" ? event.title_ru : currentLocal === "en" ? event.title_en : event.title_kk}
                                             </h1>
 
-                                            <div className="flex items-center gap-2">
-                                                <Clock size={16} strokeWidth={1.5} />
-                                                <span>
-                                                    {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
-                                                    .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
-                                                    .{date.getFullYear()} -
-                                                    {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
-                                                    :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
-                                                </span>
+                                            <div className="grid">
+                                                <div className="flex items-center gap-2">
+                                                    <UserRound size={16} strokeWidth={1.5} />
+                                                    <span>
+                                                        {event.user.first_name + " " + event.user.last_name}
+                                                    </span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <Clock size={16} strokeWidth={1.5} />
+                                                    <span suppressHydrationWarning={true}>
+                                                        {date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}
+                                                        .{date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1}
+                                                        .{date.getFullYear()} - 
+                                                        {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
+                                                        :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </Link>

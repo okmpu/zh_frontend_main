@@ -9,7 +9,7 @@ import Link from "next/link";
 const reports: {id: number, count: number, name: string, name_ru: string, name_en: string }[] = [
     {
         id: 1,
-        count: 6598,
+        count: 7100,
         name: "Студент",
         name_ru: "Студент",
         name_en: "Student"

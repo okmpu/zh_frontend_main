@@ -1,5 +1,5 @@
 "use client"
-import { Clock } from "lucide-react";
+import { Clock, UserRound } from "lucide-react";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 
@@ -29,15 +29,23 @@ export default function PublicDetail({ item, code }: { item: any, code: string }
                     {currentLocale === "ru" ? item.title_ru : currentLocale === "en" ? item.title_en : item.title_kk}
                 </h1>
 
-                <div className="flex items-center gap-2">
-                    <Clock size={16} strokeWidth={1.5} />
-                    <span>
-                        {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
-                        .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
-                        .{date.getFullYear()} -
-                        {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
-                        :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
-                    </span>
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-2">
+                        <UserRound size={16} strokeWidth={1.5} />
+                        <span>
+                            {item.user.first_name + " " + item.user.last_name}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Clock size={16} strokeWidth={1.5} />
+                        <span suppressHydrationWarning={true}>
+                            {date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}
+                            .{date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1}
+                            .{date.getFullYear()} -
+                            {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
+                            :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
+                        </span>
+                    </div>
                 </div>
             </div>
 

@@ -1,4 +1,5 @@
 "use client"
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default function PublicSidebar() {
     const t = useTranslations("Publics");
 
     return (
-        <>
+        <React.Fragment>
             <div className="w-full max-w-64 hidden lg:block">
                 <Link href={"/publics/news"}>
                     <Button
@@ -47,6 +48,6 @@ export default function PublicSidebar() {
                     </Button>
                 </Link>
             </div>
-        </>
+        </React.Fragment>
     )
 }
