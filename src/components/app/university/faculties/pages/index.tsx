@@ -2,7 +2,7 @@
 import React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Clock, FolderKanban, Mail, Newspaper, Phone, Rss } from "lucide-react"
+import { Clock, FolderKanban, Mail, Newspaper, Phone, Rss, UserRound } from "lucide-react"
 import Image from "next/image"
 import { useLocale, useTranslations } from "next-intl"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -132,17 +132,20 @@ export default function FacultyDetailMain(
                                             <h1 className="font-semibold text-lg line-clamp-1">
                                                 {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
                                             </h1>
-                                            <div className="flex justify-between items-center gap-2 text-neutral-500">
-                                                <span>
-                                                    {currentLocale === "ru" ? item.author_ru : currentLocale === "en" ? item.author_en : item.author_kk}
-                                                </span>
 
-                                                <div className="flex items-center gap-2 text-sm">
+                                            <div className="grid text-neutral-500">
+                                                <div className="flex items-center gap-2">
+                                                    <UserRound size={16} strokeWidth={1.5} />
+                                                    <span>
+                                                        {currentLocale === "ru" ? item.author_ru : currentLocale === "en" ? item.author_en : item.author_kk}
+                                                    </span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
                                                     <Clock size={16} strokeWidth={1.5} />
                                                     <span suppressHydrationWarning={true}>
-                                                        {date.getDay() < 10 ? `0${date.getDay()}` : date.getDay()}
-                                                        .{date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth()}
-                                                        .{date.getFullYear()} -
+                                                        {date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}
+                                                        .{date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1}
+                                                        .{date.getFullYear()} - 
                                                         {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
                                                         :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
                                                     </span>
