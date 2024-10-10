@@ -1,4 +1,4 @@
-import ProjectsFaculty from "@/components/app/university/faculties/pages/projects";
+import AchievementsFaculty from "@/components/app/university/faculties/pages/achievements";
 
 
 // types
@@ -27,8 +27,6 @@ export default async function FacultyAchievements({ params }: AchievementsPropsD
     const { achievements } = data;
 
     return (
-        <>
-            <h1>Achievements</h1>
-        </>
+        <AchievementsFaculty achievements={achievements} />
     )
 }

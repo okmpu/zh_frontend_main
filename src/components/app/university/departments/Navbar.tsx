@@ -45,6 +45,17 @@ export default function DepartmentNavbar({ slug }: { slug: string }) {
                     {t("nav.projects")}
                 </Button>
             </Link>
+            <Link href={`/${currentLocale}/university/departments/${slug}/achievements`}>
+                <Button
+                    variant={"ghost"}
+                    className={`
+                    rounded-none text-base border-b-4 border-b-background hover:border-primary
+                    ${pathname === `/${currentLocale}/university/departments/${slug}/achievements` && "border-b-primary"}
+                `}
+                >
+                    {t("nav.achievements")}
+                </Button>
+            </Link>
             <Link href={`/${currentLocale}/university/departments/${slug}/personals`}>
                 <Button
                     variant={"ghost"}

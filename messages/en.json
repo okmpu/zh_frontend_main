@@ -152,6 +152,10 @@
         "head": "Projects",
         "link": "View more details"
       },
+      "achievements": {
+        "head": "Achievements",
+        "link": "View more details"
+      },
       "personals": {
         "head": "Faculty members",
         "link": "View more details"
@@ -197,6 +201,10 @@
       },
       "projects": {
         "head": "Projects",
+        "link": "View more details"
+      },
+      "achievements": {
+        "head": "Achievements",
         "link": "View more details"
       },
       "personals": {

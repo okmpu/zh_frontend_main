@@ -126,10 +126,10 @@ export default function FacultyDetailMain(
                                         className="grid gap-2 items-center border overflow-hidden rounded-lg text-foreground transition-all hover:bg-secondary"
                                     >
                                         <div className="py-6 bg-primary flex justify-center text-secondary">
-                                            <FolderKanban size={64} strokeWidth={1} />
+                                            <FolderKanban size={48} strokeWidth={1} />
                                         </div>
                                         <div className="flex-1 px-4 py-2">
-                                            <h1 className="font-semibold text-lg line-clamp-1">
+                                            <h1 className="font-semibold text-lg line-clamp-3">
                                                 {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
                                             </h1>
 
@@ -145,7 +145,7 @@ export default function FacultyDetailMain(
                                                     <span suppressHydrationWarning={true}>
                                                         {date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()}
                                                         .{date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1}
-                                                        .{date.getFullYear()} - 
+                                                        .{date.getFullYear()} -
                                                         {date.getHours() < 10 ? `0${date.getHours()}` : date.getHours()}
                                                         :{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
                                                     </span>
@@ -195,7 +195,7 @@ export default function FacultyDetailMain(
                                     <DialogTrigger asChild>
                                         <Button variant={"secondary"} className="w-full flex">{t("personals.link")}</Button>
                                     </DialogTrigger>
-                                    <DialogContent className="flex flex-col max-w-2xl overflow-auto">
+                                    <DialogContent className="flex flex-col max-w-screen-xl h-screen overflow-auto xl:h-[90%] 2xl:h-auto">
                                         <DialogHeader>
                                             <DialogTitle></DialogTitle>
                                             <DialogDescription></DialogDescription>
@@ -336,9 +336,9 @@ export default function FacultyDetailMain(
                             </div>
                         </div>
                     </React.Fragment>
-                :
+                    :
                     <div className="flex flex-col gap-4 items-center">
-                        <Rss size={64} className="text-foreground"/>
+                        <Rss size={64} className="text-foreground" />
                         <div className="text-center">
                             <h1 className="text-xl font-semibold text-foreground">{t("no-public.title")}</h1>
                             <span>{t("no-public.content")}</span>

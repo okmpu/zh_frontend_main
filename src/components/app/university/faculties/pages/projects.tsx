@@ -26,13 +26,13 @@ export default function ProjectsFaculty({ projects }: { projects: any }) {
                             className="grid gap-2 items-center border overflow-hidden rounded-lg text-foreground"
                         >
                             <div className="py-6 bg-primary flex justify-center text-secondary">
-                                <FolderKanban size={64} strokeWidth={1} />
+                                <FolderKanban size={48} strokeWidth={1} />
                             </div>
                             <div className="flex-1 px-4 py-2">
-                                <h1 className="font-semibold text-lg line-clamp-1">
+                                <h1 className="font-semibold text-lg line-clamp-3">
                                     {currentLocale === "ru" ? item.name_ru : currentLocale === "en" ? item.name_en : item.name_kk}
                                 </h1>
-                                <div className="flex justify-between items-center gap-2 text-neutral-500">
+                                <div className="grid text-neutral-500">
                                     <span>
                                         {currentLocale === "ru" ? item.author_ru : currentLocale === "en" ? item.author_en : item.author_kk}
                                     </span>
