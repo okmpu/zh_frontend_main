@@ -26,12 +26,12 @@ export default function AllAnnouncements({ announcements, }: { announcements: an
                                 {currentLocale === "ru" ? item.title_ru : currentLocale === "en" ? item.title_en : item.title_kk}
                             </h1>
                             <div className="grid">
-                                <div className="flex items-center gap-2">
+                                {/* <div className="flex items-center gap-2">
                                     <UserRound size={16} strokeWidth={1.5} />
                                     <span>
                                         {item.user.first_name + " " + item.user.last_name}
                                     </span>
-                                </div>
+                                </div> */}
                                 <div className="flex items-center gap-2">
                                     <Clock size={16} strokeWidth={1.5} />
                                     <span suppressHydrationWarning={true}>

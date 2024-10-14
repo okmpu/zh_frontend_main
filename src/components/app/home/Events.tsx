@@ -48,12 +48,12 @@ export default function Events({ events, }: { events: any }) {
                                             </h1>
 
                                             <div className="grid">
-                                                <div className="flex items-center gap-2">
+                                                {/* <div className="flex items-center gap-2">
                                                     <UserRound size={16} strokeWidth={1.5} />
                                                     <span>
                                                         {event.user.first_name + " " + event.user.last_name}
                                                     </span>
-                                                </div>
+                                                </div> */}
                                                 <div className="flex items-center gap-2">
                                                     <Clock size={16} strokeWidth={1.5} />
                                                     <span suppressHydrationWarning={true}>

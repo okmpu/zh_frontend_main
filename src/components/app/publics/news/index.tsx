@@ -31,12 +31,12 @@ export default function AllNews({ news, }: { news: any }) {
                             </h1>
 
                             <div className="grid">
-                                <div className="flex items-center gap-2">
+                                {/* <div className="flex items-center gap-2">
                                     <UserRound size={16} strokeWidth={1.5} />
                                     <span>
                                         {item.user.first_name + " " + item.user.last_name}
                                     </span>
-                                </div>
+                                </div> */}
                                 <div className="flex items-center gap-2">
                                     <Clock size={16} strokeWidth={1.5} />
                                     <span suppressHydrationWarning={true}>
