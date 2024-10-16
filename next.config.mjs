@@ -16,6 +16,11 @@ const nextConfig = {
         hostname: "api.okmpu.kz",
         port: "",
       },
+      {
+        protocol: "http",
+        hostname: "91.243.71.92",
+        port: "",
+      },
     ],
   }
 };
