@@ -1,10 +1,11 @@
 "use client"
-import { Clock, UserRound } from "lucide-react";
+import { ArrowDownToLine, Clock, UserRound } from "lucide-react";
 import { useLocale } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 
 
-export default function PublicDetail({ item, code }: { item: any, code: string }) {
+export default function PublicDetail({ item, files, code }: { item: any, files: any, code: string }) {
     const currentLocale = useLocale();
     const date = new Date(item.date_created);
 
@@ -49,11 +50,32 @@ export default function PublicDetail({ item, code }: { item: any, code: string }
                 </div>
             </div>
 
-            <div className="text-justify flex flex-col gap-2">
+            <div className="text-justify flex flex-col gap-2 border-b pb-4">
                 <div
                     dangerouslySetInnerHTML={{ __html: currentLocale === "ru" ? item.description_ru : currentLocale === "en" ? item.description_en : item.description_kk }}
                     id="text-content"
                 ></div>
+
+                {files.length > 0 &&
+                    <div>
+                        <h1 className="text-foreground text-lg font-semibold mb-2">Бекітілген құжаттар</h1>
+                        <ul className="grid gap-2">
+                            {files.map((fl: any) => (
+                                <li key={fl.id}>
+                                    <Link
+                                        href={fl.file}
+                                        download={true}
+                                        target="_blank"
+                                        className="border rounded-lg py-2 px-4 inline-flex gap-4 transition-all hover:shadow"
+                                    >
+                                        <span>{fl.title}</span>
+                                        <ArrowDownToLine />
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                }
             </div>
         </div>
     )

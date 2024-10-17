@@ -61,8 +61,8 @@ export default async function NewsDetail({ params, }: PropsData) {
 
     return (
         <section>
-            <div className="flex gap-4 flex-col lg:flex-row">
-                <PublicDetail code={code} item={news} />
+            <div className="grid gap-8">
+                <PublicDetail code={code} item={news} files={news.news_files} />
                 <SimilarItems code={code} similars={similar_news} />
             </div>
         </section>

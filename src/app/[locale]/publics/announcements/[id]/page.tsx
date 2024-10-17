@@ -59,8 +59,8 @@ export default async function AnnouncementDetail({ params, }: PropsData) {
 
     return (
         <section>
-            <div className="flex gap-10 flex-col lg:flex-row">
-                <PublicDetail code={code} item={announcement} />
+            <div className="grid gap-8">
+                <PublicDetail code={code} item={announcement} files={announcement.announcement_files} />
                 <SimilarItems code={code} similars={announcements} />
             </div>
         </section>

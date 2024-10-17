@@ -59,8 +59,8 @@ export default async function EventDetail({ params, }: PropsData) {
 
     return (
         <section>
-            <div className="flex gap-4 flex-col lg:flex-row">
-                <PublicDetail code={code} item={event} />
+            <div className="grid gap-8">
+                <PublicDetail code={code} item={event} files={event.event_files} />
 
                 <SimilarItems code={code} similars={events} />
             </div>

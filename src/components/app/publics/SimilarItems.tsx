@@ -10,10 +10,10 @@ export default function SimilarItems({ similars, code }: { similars: any, code: 
     const t = useTranslations("Publics");
 
     return (
-        <div className="w-full lg:max-w-sm flex flex-col gap-4">
+        <div className="w-full grid gap-4">
             <h1 className="text-foreground text-xl font-bold">{t("similar")}</h1>
 
-            <div className="grid gap-2">
+            <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-2">
                 {similars.map((item: any) => {
                     const date = new Date(item.date_created)
 
@@ -21,21 +21,21 @@ export default function SimilarItems({ similars, code }: { similars: any, code: 
                         <Link
                             key={item.id}
                             href={`/publics/${code}/${item.id}`}
-                            className="flex rounded-lg border overflow-hidden transition-all hover:bg-secondary"
+                            className="grid rounded-lg border overflow-hidden transition-all hover:bg-secondary"
                         >
                             {code === "news" ?
                                 <Image
                                     src={item.poster ? item.poster : "/poster.png"}
                                     width={1920} height={1080} alt="Image"
                                     priority={true}
-                                    className="w-28"
+                                    className="w-full"
                                 />
                                 : code === "all-events" ?
                                     <Image
                                         src={item.poster ? item.poster : "/card.png"}
                                         width={1080} height={1080} alt="Image"
                                         priority={true}
-                                        className="w-28"
+                                        className="w-full"
                                     />
                                     :
                                     null
